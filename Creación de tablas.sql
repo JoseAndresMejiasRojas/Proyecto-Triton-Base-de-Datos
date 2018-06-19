@@ -33,7 +33,7 @@ CREATE TABLE Prueba_Fisica
 ( 
 	Correo_FK		VARCHAR(30),
 	Fecha_Prueba_PK	DATE,
-	Tipo_Prueba_PK	DATE,
+	Tipo_Prueba_PK	VARCHAR(50),
 	Resultados		VARCHAR(500) NOT NULL	-- Si se crea la tupla, obligatoriamente se hizo una prueba, por lo que tiene que haber resultados.
 
 	CONSTRAINT PK_Correo_Fecha_Prueba_Tipo_Prueba_Prueba_Fisica PRIMARY KEY (Correo_FK, Fecha_Prueba_PK, Tipo_Prueba_PK ),
