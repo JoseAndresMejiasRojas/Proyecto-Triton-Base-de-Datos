@@ -106,7 +106,7 @@ CREATE TABLE Bloque_Entrenamiento
 	CONSTRAINT FK_Correo_Bloque_Entrenamiento FOREIGN KEY(Correo_FK) REFERENCES Atleta(Correo_PK)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE,
-	CONSTRAINT CK_Rango_Horas_Bloque_Entrenamiento CHECK (Rango_Horas > 24.0 AND Rango_Horas > 0.0)
+	CONSTRAINT CK_Rango_Horas_Bloque_Entrenamiento CHECK (Rango_Horas < 24.0 AND Rango_Horas > 0.0)
 
 );
 
