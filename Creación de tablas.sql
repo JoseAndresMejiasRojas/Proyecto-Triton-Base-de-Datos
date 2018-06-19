@@ -100,7 +100,7 @@ CREATE TABLE Bloque_Entrenamiento
 	Rango_Horas				FLOAT			NOT NULL,
 	Descripcion				VARCHAR(500),
 	Formulario				VARCHAR(500),
-	Dia_Inicio				DATE			NOT NULL,
+	Dia_Inicio				VARCHAR(10)		NOT NULL,
 
 	CONSTRAINT PK_Correo_Numero_Entrenamiento_Bloque_Entrenamiento PRIMARY KEY (Correo_FK, Numero_Entrenamiento_PK),
 	CONSTRAINT FK_Correo_Bloque_Entrenamiento FOREIGN KEY(Correo_FK) REFERENCES Atleta(Correo_PK)
