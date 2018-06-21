@@ -1,5 +1,6 @@
-USE triton 
-if  EXISTS (
+USE triton
+
+IF  EXISTS 	(
 	SELECT Cobro.ID_Factura_PK
 	FROM Cobro JOIN Cobro_Mensual
 	ON Cobro.ID_Factura_PK = Cobro_Mensual.ID_Factura_FK) 
@@ -8,7 +9,8 @@ FROM Cobro_Mensual JOIN Cobro
 ON Cobro.ID_Factura_PK = Cobro_Mensual.ID_Factura_FK
 JOIN Atleta
 ON Atleta.Correo_PK = Cobro.Correo_FK
-); 
+);
+
 IF EXISTS (
 	SELECT Cobro.ID_Factura_PK
 	FROM Cobro JOIN Cobro_Individual
