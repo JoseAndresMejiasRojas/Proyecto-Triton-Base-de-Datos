@@ -1,6 +1,6 @@
-use triton 
+USE triton 
 
-insert into Etiqueta
+INSERT INTO Etiqueta
 VALUES 
 ('Ana@gmail.com'		,1, 'Iron Man'),
 ('Elka@gmail.com'		,5, 'Polonia'),

@@ -1,23 +1,23 @@
-use triton 
-if  exists (
-	select Cobro.ID_Factura_PK
-	from Cobro join Cobro_Mensual
-	on Cobro.ID_Factura_PK = Cobro_Mensual.ID_Factura_FK) 
-(select  Atleta.Nombre +'' + Atleta.Apellido1 + ''+ Atleta.Apellido2 as 'Atleta', Cobro.ID_Factura_PK as 'Factura',  Cobro_Mensual.Monto_Final as 'Monto Total Mensual'
-from Cobro_Mensual join Cobro
-on Cobro.ID_Factura_PK = Cobro_Mensual.ID_Factura_FK
-join Atleta
-on Atleta.Correo_PK = Cobro.Correo_FK
+USE triton 
+if  EXISTS (
+	SELECT Cobro.ID_Factura_PK
+	FROM Cobro JOIN Cobro_Mensual
+	ON Cobro.ID_Factura_PK = Cobro_Mensual.ID_Factura_FK) 
+(SELECT  Atleta.Nombre +'' + Atleta.Apellido1 + ''+ Atleta.Apellido2 AS 'Atleta', Cobro.ID_Factura_PK AS 'Factura',  Cobro_Mensual.Monto_Final AS 'Monto Total Mensual'
+FROM Cobro_Mensual JOIN Cobro
+ON Cobro.ID_Factura_PK = Cobro_Mensual.ID_Factura_FK
+JOIN Atleta
+ON Atleta.Correo_PK = Cobro.Correo_FK
 ); 
-if exists (
-	select Cobro.ID_Factura_PK
-	from Cobro join Cobro_Individual
-	on Cobro.ID_Factura_PK = Cobro_Individual.ID_Factura_FK) 
-(select  Atleta.Nombre +'' + Atleta.Apellido1 + ''+ Atleta.Apellido2 as 'Atleta', Cobro.ID_Factura_PK as 'Factura',  Cobro_Individual.Monto_Total as 'Monto Total Individual'
-from Cobro_Individual join Cobro
-on Cobro.ID_Factura_PK = Cobro_Individual.ID_Factura_FK
-join Atleta
-on Atleta.Correo_PK = Cobro.Correo_FK
+IF EXISTS (
+	SELECT Cobro.ID_Factura_PK
+	FROM Cobro JOIN Cobro_Individual
+	ON Cobro.ID_Factura_PK = Cobro_Individual.ID_Factura_FK) 
+(SELECT  Atleta.Nombre +'' + Atleta.Apellido1 + ''+ Atleta.Apellido2 AS 'Atleta', Cobro.ID_Factura_PK AS 'Factura',  Cobro_Individual.Monto_Total AS 'Monto Total Individual'
+FROM Cobro_Individual JOIN Cobro
+ON Cobro.ID_Factura_PK = Cobro_Individual.ID_Factura_FK
+JOIN Atleta
+ON Atleta.Correo_PK = Cobro.Correo_FK
 );
 
 

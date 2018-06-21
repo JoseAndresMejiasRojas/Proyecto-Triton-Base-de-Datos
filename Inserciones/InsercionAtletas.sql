@@ -1,7 +1,7 @@
-Use Triton
+USE Triton
 
 INSERT INTO Atleta
-values 
+VALUES 
 ('Ana@gmail.com'	,'L',11112	, 'Costa Rica'	, 'San Jose', 'Goicochea'			, 'Facebook'	, '1997-08-14','Ana'		,'Castro'		,'Zuñiga'	,'Q',88411761, 'Nada.'		,'Model A', 'Sony'	, 'Bailin10'	, 12),
 ('Bruno@gmail.com'	,'XL',58112	, 'Costa Rica'	, 'San Jose', 'Montes de Oca'		, 'Instagram'	, '1998-03-19','Bruno'		,'Gomez'		,'Rodriguez','M',88854785, 'Ejercicio.'	,'Model B', 'HP'	, 'Contraseña'	, 12),
 ('Carlos@gmail.com'	,'S',61612	, 'USA'			, 'New York', 'Manhattan'			, 'Facebook'	, '1991-03-15','Carlos'		,'Sequeira'		,'Moya'		,'M',84961387, 'Yeah.'		,'Model C', 'Sony'	, '12345'		, 01),

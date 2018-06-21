@@ -1,7 +1,7 @@
-use triton 
+USE triton 
 
-insert into Bloque_Entrenamiento
-values
+INSERT INTO Bloque_Entrenamiento
+VALUES
 ('Ana@gmail.com'		,1	,1.0	,'Descripción','Formulario','Lunes'),
 ('Ana@gmail.com'		,9	,3.0	,'Descripción','Formulario','Martes'),
 ('Ana@gmail.com'		,5	,2.0	,'Descripción','Formulario','Martes'),

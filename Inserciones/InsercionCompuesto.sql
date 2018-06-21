@@ -1,7 +1,7 @@
-use Triton
+USE Triton
  
- insert into Compuesto
- values 
+INSERT INTO Compuesto
+VALUES 
 (11	,'Ana@gmail.com'		,1),--E1
 (23	,'Ana@gmail.com'		,4),--E4
 (41	,'Ana@gmail.com'		,5),--*
