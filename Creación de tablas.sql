@@ -68,7 +68,7 @@ CREATE TABLE Cobro_Mensual
 (
 	ID_Factura_FK	INTEGER,
 	Monto_Mensual	MONEY	NOT NULL,
-	Monto_Final		MONEY	NOT NULL
+	Monto_Final		MONEY					-- Derivado
 
 	CONSTRAINT PK_ID_Factura_Cobro_Mensual PRIMARY KEY (ID_Factura_FK),
 	CONSTRAINT FK_ID_Factura_Cobro_Mensual FOREIGN KEY(ID_Factura_FK) REFERENCES Cobro(ID_Factura_PK)
@@ -82,7 +82,7 @@ CREATE TABLE Cobro_Individual
 (
 	ID_Factura_FK		INTEGER,
 	Monto_Semanal		MONEY	NOT NULL,
-	Monto_Total			MONEY	NOT NULL,
+	Monto_Total			MONEY,				-- Derivado
 	Cantidad_Semanas	INTEGER NOT NULL,
 
 	CONSTRAINT PK_ID_Factura_Cobro_Individual PRIMARY KEY (ID_Factura_FK),

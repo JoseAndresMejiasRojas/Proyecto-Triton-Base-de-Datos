@@ -1,6 +1,7 @@
+-- ESTE TRIGGER ESTÁ MALO, OBTENGO VARIAS TUPLAS.
 -- Al insertar una tupla, calculo el Monto_Final
-CREATE TRIGGER TR_Monto_Final
-ON Cobro_Mensual AFTER INSERT
+CREATE TRIGGER TR_Mensual_Monto_Final
+ON Cobro_Mensual INSTEAD OF INSERT
 AS
 	DECLARE @Monto_Final	INTEGER
 	DECLARE @Monto_Mensual	INTEGER
