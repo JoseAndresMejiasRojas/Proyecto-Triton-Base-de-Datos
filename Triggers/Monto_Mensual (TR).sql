@@ -8,9 +8,9 @@ AS
 	DECLARE @Porcentaje		FLOAT
 
 	-- Obtengo el porcentaje.
-	SELECT @Porcentaje = (SELECT c.Porcentaje_Descuento FROM Inserted i	JOIN Cobro c ON c.ID_Factura_PK = i.ID_Factura_FK)
-	SELECT @Monto_Mensual = (SELECT Monto_Mensual FROM Inserted)
-	SELECT @Monto_Final = @Monto_Mensual*( 1 - (@Porcentaje / 100) )
+	SET @Porcentaje = (SELECT COALESCE(c.Porcentaje_Descuento, 0) FROM Inserted i	JOIN Cobro c ON c.ID_Factura_PK = i.ID_Factura_FK)
+	SET @Monto_Mensual = (SELECT i.Monto_Mensual FROM Inserted i JOIN Cobro_Mensual c ON c.ID_Factura_FK = i.ID_Factura_FK )
+	SET @Monto_Final = @Monto_Mensual*( 1 - (@Porcentaje / 100) )
 
 	-- Obtengo el id_factura de la tupla recién insertada, esto no se puede hacer desde UPDATE.
 	SELECT @id_factura = ID_Factura_FK
