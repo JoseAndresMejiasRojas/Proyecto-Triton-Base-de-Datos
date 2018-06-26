@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaz Triton", "Interfaz Triton\Interfaz Triton.csproj", "{B3163790-32CC-4E81-8AEC-DA96AC790CA2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3163790-32CC-4E81-8AEC-DA96AC790CA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3163790-32CC-4E81-8AEC-DA96AC790CA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3163790-32CC-4E81-8AEC-DA96AC790CA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3163790-32CC-4E81-8AEC-DA96AC790CA2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {356A82F4-1117-49F0-9683-533D3A2559C9}
+	EndGlobalSection
+EndGlobal
