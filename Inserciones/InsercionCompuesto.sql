@@ -2,7 +2,7 @@ USE Triton
  
 INSERT INTO Compuesto
 VALUES 
-(11	,1		,1),--E1
+(11	,dbo.ObtenerCodigo('Ana@gmail.com')		,1),--E1
 (23	,dbo.ObtenerCodigo('Ana@gmail.com')		,4),--E4
 (41	,dbo.ObtenerCodigo('Ana@gmail.com')		,5),--*
 (42	,dbo.ObtenerCodigo('Ana@gmail.com')		,5),----*E5

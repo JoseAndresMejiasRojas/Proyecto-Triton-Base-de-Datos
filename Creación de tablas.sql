@@ -46,7 +46,7 @@ CREATE TABLE Prueba_Fisica
 CREATE TABLE Cobro
 ( 
 	ID_Factura_PK			INTEGER,
-	Codigo_Atleta_FK		INTEGER DEFAULT -1,		-- El -1 representa atleta fuera del sistema
+	Codigo_Atleta_FK		INTEGER,		-- El -1 representa atleta fuera del sistema
 	Fecha_Pago				DATE		NOT NULL,
 	Fecha_Finalización		DATE		NOT NULL,
 	Número_Tarjeta			VARCHAR(16)	NOT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE Cobro
 
 	CONSTRAINT PK_ID_Factura_Cobro PRIMARY KEY (ID_Factura_PK),
 	CONSTRAINT FK_Codigo_Atleta_Cobro FOREIGN KEY (Codigo_Atleta_FK) REFERENCES Atleta(Codigo_Atleta_PK)
-		ON DELETE SET DEFAULT -- Si se elimina el atleta, se mantiene el cobro para tener un historial.
+		ON DELETE SET NULL -- Si se elimina el atleta, se mantiene el cobro para tener un historial.
 		ON UPDATE CASCADE,
 	CONSTRAINT CK_CVC_Cobro CHECK( CVC <= 999 AND CVC >= 0 ),
 	CONSTRAINT CK_Porcentaje_Descuento_Cobro CHECK( Porcentaje_Descuento >= 0 AND  Porcentaje_Descuento <= 100 )
@@ -97,13 +97,13 @@ CREATE TABLE Cobro_Individual
 CREATE TABLE Bloque_Entrenamiento
 (
 	Codigo_Atleta_FK		INTEGER,
-	Numero_Entrenamiento_PK	INTEGER,
+	Numero_Bloque_PK		INTEGER,
 	Rango_Horas				FLOAT			NOT NULL,
 	Descripcion				VARCHAR(500),
 	Formulario				VARCHAR(500),
 	Dia_Inicio				VARCHAR(10)		NOT NULL,
 
-	CONSTRAINT PK_Codigo_Numero_Entrenamiento_Bloque_Entrenamiento PRIMARY KEY (Codigo_Atleta_FK, Numero_Entrenamiento_PK),
+	CONSTRAINT PK_Codigo_Numero_Bloque_Bloque_Entrenamiento PRIMARY KEY (Codigo_Atleta_FK, Numero_Bloque_PK),
 	CONSTRAINT FK_Codigo_Atleta_Bloque_Entrenamiento FOREIGN KEY(Codigo_Atleta_FK) REFERENCES Atleta(Codigo_Atleta_PK)
 		ON DELETE CASCADE -- Los bloques son únicos para cada atleta.
 		ON UPDATE CASCADE,
@@ -125,10 +125,10 @@ CREATE TABLE Compuesto
 (
 	Codigo_Entrenamiento_FK	INTEGER,
 	Codigo_Atleta_FK		INTEGER,
-	Numero_Entrenamiento_FK	INTEGER
+	Numero_Bloque_FK	INTEGER
 
-	CONSTRAINT PK_Codigo_Entrenamiento_Codigo_Atleta_Numero_Entrenamiento_Compuesto PRIMARY KEY (Codigo_Entrenamiento_FK, Codigo_Atleta_FK, Numero_Entrenamiento_FK),
-	CONSTRAINT FK_Codigo_Atleta_Numero_Entrenamiento_Compuesto FOREIGN KEY (Codigo_Atleta_FK, Numero_Entrenamiento_FK) REFERENCES Bloque_Entrenamiento(Codigo_Atleta_FK, Numero_Entrenamiento_PK)
+	CONSTRAINT PK_Codigo_Entrenamiento_Codigo_Atleta_Numero_Bloque_Compuesto PRIMARY KEY (Codigo_Entrenamiento_FK, Codigo_Atleta_FK, Numero_Bloque_FK),
+	CONSTRAINT FK_Codigo_Atleta_Numero_Bloque_Compuesto FOREIGN KEY (Codigo_Atleta_FK, Numero_Bloque_FK) REFERENCES Bloque_Entrenamiento(Codigo_Atleta_FK, Numero_Bloque_PK)
 		ON DELETE CASCADE -- Si se elimina el Bloque, hay que eliminar la "comunicación" con el entrenamiento individual.
 		ON UPDATE CASCADE,
 	CONSTRAINT FK_Codigo_Entrenamiento_Compuesto FOREIGN KEY (Codigo_Entrenamiento_FK) REFERENCES Entrenamiento_Individual(Codigo_Entrenamiento_PK)
@@ -141,7 +141,7 @@ CREATE TABLE Etiqueta
 	Etiqueta_PK				VARCHAR(50),
 	Codigo_Entrenamiento_FK	INTEGER
 
-	CONSTRAINT PK_Correo_Numero_Entrenamiento_Etiqueta PRIMARY KEY (Etiqueta_PK, Codigo_Entrenamiento_FK), 
+	CONSTRAINT PK_Correo_Codigo_Entrenamiento_Etiqueta PRIMARY KEY (Etiqueta_PK, Codigo_Entrenamiento_FK), 
 	CONSTRAINT FK_Etiqueta_Codigo_Entrenamiento FOREIGN KEY (Codigo_Entrenamiento_FK) REFERENCES Entrenamiento_Individual(Codigo_Entrenamiento_PK)
 		ON DELETE CASCADE -- Al eliminarse el entrenamiento, la tupla relacionada a ese entrenamiento no tiene porqué existir.
 		ON UPDATE CASCADE

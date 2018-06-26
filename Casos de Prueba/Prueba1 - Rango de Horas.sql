@@ -1,25 +1,25 @@
-use triton
+USE Triton
 
-update Bloque_Entrenamiento
-set  Rango_Horas =-1
-where Bloque_Entrenamiento.Numero_Entrenamiento_PK =1
+UPDATE Bloque_Entrenamiento
+SET  Rango_Horas = -1
+WHERE Bloque_Entrenamiento.Numero_Entrenamiento_PK = 1
 
-update Bloque_Entrenamiento
-set  Rango_Horas =0
-where Bloque_Entrenamiento.Numero_Entrenamiento_PK =1
+UPDATE Bloque_Entrenamiento
+SET  Rango_Horas = 0
+WHERE Bloque_Entrenamiento.Numero_Entrenamiento_PK = 1
 
-update Bloque_Entrenamiento
-set  Rango_Horas =24
-where Bloque_Entrenamiento.Numero_Entrenamiento_PK =1
+UPDATE Bloque_Entrenamiento
+SET  Rango_Horas = 24
+WHERE Bloque_Entrenamiento.Numero_Entrenamiento_PK = 1
 
 
-update Bloque_Entrenamiento
-set  Rango_Horas =25
-where Bloque_Entrenamiento.Numero_Entrenamiento_PK =1
+UPDATE Bloque_Entrenamiento
+SET  Rango_Horas = 25
+WHERE Bloque_Entrenamiento.Numero_Entrenamiento_PK = 1
 
-update Bloque_Entrenamiento
-set  Rango_Horas =1
-where Bloque_Entrenamiento.Numero_Entrenamiento_PK =1
+UPDATE Bloque_Entrenamiento
+SET  Rango_Horas = 1
+WHERE Bloque_Entrenamiento.Numero_Entrenamiento_PK = 1
 
-select *
-from Bloque_Entrenamiento
+SELECT *
+FROM Bloque_Entrenamiento
