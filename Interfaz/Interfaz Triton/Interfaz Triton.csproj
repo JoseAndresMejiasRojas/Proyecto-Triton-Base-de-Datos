@@ -53,10 +53,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TritonDataSet1.Designer.cs">
+    <Compile Include="TritonDataSet1.cs">
+      <DependentUpon>TritonDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TritonDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TritonDataSet1.xsd</DependentUpon>
+      <DependentUpon>TritonDataSet2.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -84,11 +87,21 @@
     </None>
     <None Include="TritonDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TritonDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="TritonDataSet1.xss">
       <DependentUpon>TritonDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="TritonDataSet2.xsc">
+      <DependentUpon>TritonDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="TritonDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TritonDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TritonDataSet2.xss">
+      <DependentUpon>TritonDataSet2.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
