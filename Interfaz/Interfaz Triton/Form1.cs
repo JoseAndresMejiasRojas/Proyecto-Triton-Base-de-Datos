@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Interfaz_Triton
 {
@@ -50,5 +51,57 @@ namespace Interfaz_Triton
 			DataRow[] resultados_busqueda = tritonDataSet.Atleta_Info_Basica.Select(filtro);	// Hago un SELECT acorde a la busqueda.  Ojo, es un VIEW.		
 			Atleta_Data_Grid_View.DataSource = resultados_busqueda;
 		}
-	}
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Ganancias_Button_Click(object sender, EventArgs e)
+        {
+            Error_Label.Visible = false;
+            int mes = parseo_mes(Mes_Combo_Box.Text);   // Obtengo el mes en int.
+            String anno = Anno_Combo_Box.Text;          // Obtengo el año.
+
+            // Verifico los datos
+            if( int.TryParse(anno, out int n) == true ) // Si se digitó un número, todo bien.
+            {
+                SqlCommand Totalf = new SqlCommand("SELECT dbo.Tcupom(@code)", );
+            }
+            else
+            {
+                Error_Label.Visible = true;
+            }
+        }
+
+        private int parseo_mes(String mes)
+        {
+            switch (mes)
+            {
+                case "Enero":       return 1; break;
+                case "Febrero":     return 2; break;
+                case "Marzo":       return 3; break;
+                case "Abril":       return 4; break;
+                case "Mayo":        return 5; break;
+                case "Junio":       return 6; break;
+                case "Julio":       return 7; break;
+                case "Agosto":      return 8; break;
+                case "Setiembre":   return 9; break;
+                case "Octubre":     return 10; break;
+                case "Noviembre":   return 11; break;
+                case "Diciembre":   return 12; break;
+                default:            return -1; break;   //ERROR
+            }
+        }
+    }
 }
