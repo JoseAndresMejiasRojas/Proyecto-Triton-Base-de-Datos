@@ -76,7 +76,7 @@ namespace Interfaz_Triton
             // Verifico los datos
             if( int.TryParse(anno, out int n) == true ) // Si se digitó un número, todo bien.
             {
-                SqlCommand Totalf = new SqlCommand("SELECT dbo.Tcupom(@code)", );
+                //SqlCommand Totalf = new SqlCommand("SELECT dbo.Tcupom(@code)", );
             }
             else
             {
@@ -102,6 +102,40 @@ namespace Interfaz_Triton
                 case "Diciembre":   return 12; break;
                 default:            return -1; break;   //ERROR
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataTable data = tritonDataSet.sp_cantidad_pruebas_fisicas;
+
+        }
+
+        private void Atleta_Data_Grid_View_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
+            SqlConnection connection = new SqlConnection(connectionStr);
+            SqlDataAdapter databaseAdapter = new SqlDataAdapter();
+            SqlCommand cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "sp_cantidad_pruebas_fisicas";
+            databaseAdapter.SelectCommand = cmd;
+            DataSet dataset = new DataSet();
+            //connection.Open();
+            databaseAdapter.Fill(dataset);
+            dataGridView1.DataSource = dataset.Tables[0];
+            //dataGridView1.Update();
+            //dataGridView1.Refresh();
+
+        }
+
+        private void Atleta_Data_Grid_View_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }

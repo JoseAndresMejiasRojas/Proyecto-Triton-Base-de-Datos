@@ -56,6 +56,9 @@
     <Compile Include="TritonDataSet1.cs">
       <DependentUpon>TritonDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="TritonDataSet2.cs">
+      <DependentUpon>TritonDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TritonDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
