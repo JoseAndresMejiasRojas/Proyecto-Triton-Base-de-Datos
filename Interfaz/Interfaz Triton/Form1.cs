@@ -150,7 +150,10 @@ namespace Interfaz_Triton
 
         private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            textBox1.Text = listBox1.SelectedItem.ToString();
+            //textBox1.Text = listBox1.SelectedItem.ToString();
+            DataRowView drv = (DataRowView)listBox1.SelectedItem;
+            String valueOfItem = drv["Correo"].ToString();
+            textBox1.Text = valueOfItem;
 
         }
 
