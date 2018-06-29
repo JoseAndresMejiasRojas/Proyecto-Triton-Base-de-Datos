@@ -137,5 +137,152 @@ namespace Interfaz_Triton
         {
             
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {/*
+            String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
+            SqlConnection connection = new SqlConnection(connectionStr);
+            SqlDataAdapter databaseAdapter = new SqlDataAdapter();
+            SqlCommand cmd = new SqlCommand("Insert into Atelta (Correo,Nombre,Apellido1,Inscripcion,Contraseña) values (@Correo,@Nombre,@Apellido,@Inscripcion,@Contraseña)");
+
+            //Creo los Parametros
+            cmd.Parameters.Add("@Correo", System.Data.SqlDbType.VarChar);
+            cmd.Parameters.Add("@Nombre", System.Data.SqlDbType.VarChar);
+            cmd.Parameters.Add("@Apellido", System.Data.SqlDbType.VarChar);
+            cmd.Parameters.Add("@Inscripcion", System.Data.SqlDbType.VarChar);
+            cmd.Parameters.Add("@Contraseña", System.Data.SqlDbType.Money);
+
+            //Asigno los valores
+            cmd.Parameters["@Correo"].Value = InsertCorreo.Text;
+            cmd.Parameters["@Nombre"].Value = InsertNombre.Text;
+            cmd.Parameters["@Apellido"].Value = InsertApellido.Text;
+            cmd.Parameters["@Inscripcion"].Value = Decimal.Parse(InsertInscripcion.Text);
+            cmd.Parameters["@Contraseña"].Value = InsertContraseña.Text;
+
+            connection.Open();
+
+            int RowsAffected = cmd.ExecuteNonQuery();
+
+            connection.Close();*/
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
+            SqlConnection connection = new SqlConnection(connectionStr);
+
+
+            SqlDataAdapter databaseAdapter = new SqlDataAdapter();
+            SqlCommand cmd = new SqlCommand("Insert into Entrenamiento_Individual (Codigo_Entrenamiento_PK,Deporte,Rutina,Nivel) values (@Codigo,@Deporte,@Rutina,@Nivel)", connection);
+
+            //Creo los Parametros
+            cmd.Parameters.Add("@Codigo", System.Data.SqlDbType.Int);
+            cmd.Parameters.Add("@Deporte", System.Data.SqlDbType.VarChar);
+            cmd.Parameters.Add("@Rutina", System.Data.SqlDbType.VarChar);
+            cmd.Parameters.Add("@Nivel", System.Data.SqlDbType.VarChar);
+
+            //Asigno los valores
+
+            cmd.Parameters["@Codigo"].Value =     Convert.ToInt32 (textBox15.Text);
+            cmd.Parameters["@Deporte"].Value =    textBox12.Text;
+            cmd.Parameters["@Rutina"].Value =     textBox11.Text;
+            cmd.Parameters["@Nivel"].Value =      textBox14.Text;
+
+
+            connection.Open();
+
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        private void textBox15_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox12_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox11_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox14_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
     }
 }
