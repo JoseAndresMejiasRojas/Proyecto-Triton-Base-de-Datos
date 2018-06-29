@@ -97,7 +97,7 @@
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox15 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.Entrenamiento_Tab_Page.SuspendLayout();
             this.Atleta_Tab_Page.SuspendLayout();
             this.Bloques_Group_Box.SuspendLayout();
@@ -114,6 +114,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // Entrenamiento_Tab_Page
@@ -413,12 +414,12 @@
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Size = new System.Drawing.Size(883, 684);
             this.tabPage2.TabIndex = 3;
-            this.tabPage2.Text = "Atleta2";
+            this.tabPage2.Text = "Insertar";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.maskedTextBox1);
+            this.groupBox3.Controls.Add(this.dataGridView3);
             this.groupBox3.Controls.Add(this.textBox15);
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.label7);
@@ -430,10 +431,10 @@
             this.groupBox3.Controls.Add(this.textBox12);
             this.groupBox3.Location = new System.Drawing.Point(436, 8);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(422, 478);
+            this.groupBox3.Size = new System.Drawing.Size(422, 208);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Buscar atleta";
+            this.groupBox3.Text = "Insertar Entrenamientos";
             // 
             // groupBox2
             // 
@@ -699,7 +700,7 @@
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 403);
+            this.dataGridView2.Location = new System.Drawing.Point(6, 388);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(410, 40);
             this.dataGridView2.TabIndex = 25;
@@ -774,7 +775,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(192, 135);
+            this.button2.Location = new System.Drawing.Point(198, 103);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 26;
@@ -790,13 +791,14 @@
             this.textBox15.TabIndex = 32;
             this.textBox15.TextChanged += new System.EventHandler(this.textBox15_TextChanged);
             // 
-            // maskedTextBox1
+            // dataGridView3
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(73, 191);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 33;
-            this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(6, 145);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(410, 40);
+            this.dataGridView3.TabIndex = 26;
+            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
             // Form1
             // 
@@ -829,6 +831,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -905,6 +908,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.DataGridView dataGridView3;
     }
 }
 
