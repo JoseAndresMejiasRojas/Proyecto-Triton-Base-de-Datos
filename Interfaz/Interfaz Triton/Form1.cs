@@ -125,17 +125,38 @@ namespace Interfaz_Triton
             cmd.CommandText = "sp_cantidad_pruebas_fisicas";
             databaseAdapter.SelectCommand = cmd;
             DataSet dataset = new DataSet();
-            //connection.Open();
+            connection.Open();
             databaseAdapter.Fill(dataset);
             dataGridView1.DataSource = dataset.Tables[0];
-            //dataGridView1.Update();
-            //dataGridView1.Refresh();
+            dataGridView1.Update();
+            dataGridView1.Refresh();
 
         }
 
         private void Atleta_Data_Grid_View_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            TritonDataSetTableAdapters.Prueba_FisicaTableAdapter pruebaTableAdapter = new TritonDataSetTableAdapters.Prueba_FisicaTableAdapter();
+
+            //try
+            {
+
+            }
+        }
+
+        private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            textBox1.Text = listBox1.SelectedItem.ToString();
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            textBox1.Update();
         }
     }
 }
