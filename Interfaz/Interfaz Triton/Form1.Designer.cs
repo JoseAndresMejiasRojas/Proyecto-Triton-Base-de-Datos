@@ -59,35 +59,10 @@
             this.Ganacias_Label = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.atletaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.atletaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.atletaTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.AtletaTableAdapter();
             this.atleta_Info_BasicaTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Atleta_Info_BasicaTableAdapter();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.InsertCorreo = new System.Windows.Forms.Label();
-            this.InsertNombre = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.InsertApellido = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.InsertInscripcion = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.InsertContraseña = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.InsertarBoton = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -97,7 +72,26 @@
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox15 = new System.Windows.Forms.TextBox();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.Entrenamiento_Tab_Page.SuspendLayout();
             this.Atleta_Tab_Page.SuspendLayout();
             this.Bloques_Group_Box.SuspendLayout();
@@ -110,11 +104,10 @@
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // Entrenamiento_Tab_Page
@@ -408,8 +401,9 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.groupBox3);
+            this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Size = new System.Drawing.Size(883, 684);
@@ -419,7 +413,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dataGridView3);
             this.groupBox3.Controls.Add(this.textBox15);
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.label7);
@@ -429,46 +422,12 @@
             this.groupBox3.Controls.Add(this.textBox11);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.textBox12);
-            this.groupBox3.Location = new System.Drawing.Point(436, 8);
+            this.groupBox3.Location = new System.Drawing.Point(3, 8);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(422, 208);
+            this.groupBox3.Size = new System.Drawing.Size(322, 145);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Insertar Entrenamientos";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dataGridView2);
-            this.groupBox2.Controls.Add(this.InsertarBoton);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.textBox6);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.textBox7);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.textBox8);
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.textBox9);
-            this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.textBox10);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.InsertInscripcion);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.InsertContraseña);
-            this.groupBox2.Controls.Add(this.textBox5);
-            this.groupBox2.Controls.Add(this.InsertApellido);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.InsertNombre);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.InsertCorreo);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Location = new System.Drawing.Point(8, 8);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(422, 478);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Agregar atleta";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // atletaBindingSource1
             // 
@@ -487,223 +446,6 @@
             // atleta_Info_BasicaTableAdapter
             // 
             this.atleta_Info_BasicaTableAdapter.ClearBeforeFill = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(82, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
-            // 
-            // InsertCorreo
-            // 
-            this.InsertCorreo.AutoSize = true;
-            this.InsertCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.InsertCorreo.Location = new System.Drawing.Point(14, 51);
-            this.InsertCorreo.Name = "InsertCorreo";
-            this.InsertCorreo.Size = new System.Drawing.Size(44, 15);
-            this.InsertCorreo.TabIndex = 3;
-            this.InsertCorreo.Text = "Correo";
-            this.InsertCorreo.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // InsertNombre
-            // 
-            this.InsertNombre.AutoSize = true;
-            this.InsertNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.InsertNombre.Location = new System.Drawing.Point(6, 76);
-            this.InsertNombre.Name = "InsertNombre";
-            this.InsertNombre.Size = new System.Drawing.Size(52, 15);
-            this.InsertNombre.TabIndex = 5;
-            this.InsertNombre.Text = "Nombre";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(82, 79);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 4;
-            // 
-            // InsertApellido
-            // 
-            this.InsertApellido.AutoSize = true;
-            this.InsertApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.InsertApellido.Location = new System.Drawing.Point(12, 106);
-            this.InsertApellido.Name = "InsertApellido";
-            this.InsertApellido.Size = new System.Drawing.Size(51, 15);
-            this.InsertApellido.TabIndex = 7;
-            this.InsertApellido.Text = "Apellido";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(82, 105);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 6;
-            // 
-            // InsertInscripcion
-            // 
-            this.InsertInscripcion.AutoSize = true;
-            this.InsertInscripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.InsertInscripcion.Location = new System.Drawing.Point(7, 165);
-            this.InsertInscripcion.Name = "InsertInscripcion";
-            this.InsertInscripcion.Size = new System.Drawing.Size(66, 15);
-            this.InsertInscripcion.TabIndex = 11;
-            this.InsertInscripcion.Text = "Inscripcion";
-            this.InsertInscripcion.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(82, 165);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 10;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
-            // 
-            // InsertContraseña
-            // 
-            this.InsertContraseña.AutoSize = true;
-            this.InsertContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.InsertContraseña.Location = new System.Drawing.Point(6, 135);
-            this.InsertContraseña.Name = "InsertContraseña";
-            this.InsertContraseña.Size = new System.Drawing.Size(70, 15);
-            this.InsertContraseña.TabIndex = 9;
-            this.InsertContraseña.Text = "Contraseña";
-            this.InsertContraseña.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(82, 134);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 8;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(7, 24);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(73, 13);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "*Obligatorio";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(7, 195);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(61, 13);
-            this.label10.TabIndex = 23;
-            this.label10.Text = "*Opcional";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label11.Location = new System.Drawing.Point(1, 336);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(79, 15);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "Talla Camisa";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(82, 335);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 21;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label12.Location = new System.Drawing.Point(12, 305);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(56, 15);
-            this.label12.TabIndex = 20;
-            this.label12.Text = "Zip Code";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(82, 305);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 19;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label13.Location = new System.Drawing.Point(20, 277);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(35, 15);
-            this.label13.TabIndex = 18;
-            this.label13.Text = "Sexo";
-            this.label13.Click += new System.EventHandler(this.label13_Click);
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(82, 276);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 17;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label14.Location = new System.Drawing.Point(20, 251);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(31, 15);
-            this.label14.TabIndex = 16;
-            this.label14.Text = "País";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(82, 250);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
-            this.textBox9.TabIndex = 15;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label15.Location = new System.Drawing.Point(7, 222);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(55, 15);
-            this.label15.TabIndex = 14;
-            this.label15.Text = "Teléfono";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(82, 222);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
-            this.textBox10.TabIndex = 13;
-            // 
-            // InsertarBoton
-            // 
-            this.InsertarBoton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InsertarBoton.Location = new System.Drawing.Point(206, 336);
-            this.InsertarBoton.Name = "InsertarBoton";
-            this.InsertarBoton.Size = new System.Drawing.Size(75, 23);
-            this.InsertarBoton.TabIndex = 24;
-            this.InsertarBoton.Text = "Insertar";
-            this.InsertarBoton.UseVisualStyleBackColor = true;
-            this.InsertarBoton.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 388);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(410, 40);
-            this.dataGridView2.TabIndex = 25;
             // 
             // label4
             // 
@@ -791,14 +533,197 @@
             this.textBox15.TabIndex = 32;
             this.textBox15.TextChanged += new System.EventHandler(this.textBox15_TextChanged);
             // 
-            // dataGridView3
+            // groupBox2
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(6, 145);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(410, 40);
-            this.dataGridView3.TabIndex = 26;
-            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
+            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Location = new System.Drawing.Point(3, 159);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(322, 155);
+            this.groupBox2.TabIndex = 33;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Insertar Entrenamientos";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(92, 26);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 32;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(198, 103);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 26;
+            this.button3.Text = "Insertar";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label8.Location = new System.Drawing.Point(31, 105);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(34, 15);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "Nivel";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(92, 105);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 26;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label9.Location = new System.Drawing.Point(31, 83);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(43, 15);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "Rutina";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label10.Location = new System.Drawing.Point(31, 29);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(46, 15);
+            this.label10.TabIndex = 27;
+            this.label10.Text = "Codigo";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(92, 78);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 30;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label11.Location = new System.Drawing.Point(31, 57);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(51, 15);
+            this.label11.TabIndex = 29;
+            this.label11.Text = "Deporte";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(92, 52);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.TabIndex = 28;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.textBox5);
+            this.groupBox4.Controls.Add(this.button4);
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.textBox6);
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.label14);
+            this.groupBox4.Controls.Add(this.textBox7);
+            this.groupBox4.Controls.Add(this.label15);
+            this.groupBox4.Controls.Add(this.textBox8);
+            this.groupBox4.Location = new System.Drawing.Point(3, 324);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(322, 155);
+            this.groupBox4.TabIndex = 34;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Insertar Entrenamientos";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(92, 26);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.TabIndex = 32;
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(198, 103);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 26;
+            this.button4.Text = "Insertar";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label12.Location = new System.Drawing.Point(31, 105);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(34, 15);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "Nivel";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(92, 105);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 20);
+            this.textBox6.TabIndex = 26;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label13.Location = new System.Drawing.Point(31, 83);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(43, 15);
+            this.label13.TabIndex = 31;
+            this.label13.Text = "Rutina";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label14.Location = new System.Drawing.Point(31, 29);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(46, 15);
+            this.label14.TabIndex = 27;
+            this.label14.Text = "Codigo";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(92, 78);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 20);
+            this.textBox7.TabIndex = 30;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label15.Location = new System.Drawing.Point(31, 57);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(51, 15);
+            this.label15.TabIndex = 29;
+            this.label15.Text = "Deporte";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(92, 52);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(100, 20);
+            this.textBox8.TabIndex = 28;
             // 
             // Form1
             // 
@@ -826,12 +751,12 @@
             this.tabPage2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -872,31 +797,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label InsertCorreo;
-        private System.Windows.Forms.Label InsertInscripcion;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label InsertContraseña;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label InsertApellido;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label InsertNombre;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button InsertarBoton;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label4;
@@ -908,7 +808,26 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }
 

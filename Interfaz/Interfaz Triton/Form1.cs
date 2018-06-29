@@ -258,6 +258,9 @@ namespace Interfaz_Triton
 
             cmd.ExecuteNonQuery();
             connection.Close();
+
+            DataRow[] busqueda = tritonDataSet.Entrenamiento_Individual.Select();   // Hago un SELECT acorde a la busqueda.  Ojo, es un VIEW.		
+            EntrenamientoDG.DataSource = busqueda;
         }
 
         private void textBox15_TextChanged(object sender, EventArgs e)
@@ -287,8 +290,12 @@ namespace Interfaz_Triton
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataRow[] resultados_busqueda = tritonDataSet.Entrenamiento_Individual.Select();   // Hago un SELECT acorde a la busqueda.  Ojo, es un VIEW.		
-            Atleta_Data_Grid_View.DataSource = resultados_busqueda;
+            
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
