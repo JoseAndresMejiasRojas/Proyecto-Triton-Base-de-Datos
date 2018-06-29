@@ -70,13 +70,36 @@ namespace Interfaz_Triton
         private void Ganancias_Button_Click(object sender, EventArgs e)
         {
             Error_Label.Visible = false;
+            Ganancias_Label.Visible = false;
             int mes = parseo_mes(Mes_Combo_Box.Text);   // Obtengo el mes en int.
             String anno = Anno_Combo_Box.Text;          // Obtengo el año.
 
             // Verifico los datos
-            if( int.TryParse(anno, out int n) == true ) // Si se digitó un número, todo bien.
+            if( int.TryParse(anno, out int n) == true && mes != -1 ) // Si se digitó un número, todo bien.
             {
-                //SqlCommand Totalf = new SqlCommand("SELECT dbo.Tcupom(@code)", );
+
+                // Conexión Triton.
+                String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
+                SqlConnection connection = new SqlConnection(connectionStr);
+                SqlDataAdapter databaseAdapter = new SqlDataAdapter();
+
+                // Ocupo la conexión abierta.
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                // Hago el SELECT de la función para obtener ganancias.
+                SqlCommand cmd = new SqlCommand("SELECT dbo.Obtener_Ganancias_Mes(" + mes.ToString() + "," + anno + ")", connection);
+
+                // Obtengo las ganancias, es obligatorio hacer el cast.
+                int ganancias = (int)(cmd.ExecuteScalar());
+
+                Ganancias_Label.Text = "$" + ganancias;
+                Ganancias_Label.Visible = true;
+
+                // Cierro conexión.
+                connection.Close();
             }
             else
             {
@@ -88,19 +111,19 @@ namespace Interfaz_Triton
         {
             switch (mes)
             {
-                case "Enero":       return 1; break;
-                case "Febrero":     return 2; break;
-                case "Marzo":       return 3; break;
-                case "Abril":       return 4; break;
-                case "Mayo":        return 5; break;
-                case "Junio":       return 6; break;
-                case "Julio":       return 7; break;
-                case "Agosto":      return 8; break;
-                case "Setiembre":   return 9; break;
-                case "Octubre":     return 10; break;
-                case "Noviembre":   return 11; break;
-                case "Diciembre":   return 12; break;
-                default:            return -1; break;   //ERROR
+                case "Enero":       return 1;
+                case "Febrero":     return 2;
+                case "Marzo":       return 3;
+                case "Abril":       return 4;
+                case "Mayo":        return 5;
+                case "Junio":       return 6;
+                case "Julio":       return 7;
+                case "Agosto":      return 8;
+                case "Setiembre":   return 9;
+                case "Octubre":     return 10;
+                case "Noviembre":   return 11;
+                case "Diciembre":   return 12;
+                default:            return -1;  //ERROR
             }
         }
 

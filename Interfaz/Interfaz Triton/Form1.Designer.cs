@@ -31,11 +31,20 @@
             this.components = new System.ComponentModel.Container();
             this.Entrenamiento_Tab_Page = new System.Windows.Forms.TabControl();
             this.Atleta_Tab_Page = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.Bloques_Group_Box = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Datos_Group_Box = new System.Windows.Forms.GroupBox();
             this.Atleta_Data_Grid_View = new System.Windows.Forms.DataGridView();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaNacimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefonosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.atletaInfoBasicaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tritonDataSet = new Interfaz_Triton.TritonDataSet();
             this.Buscar_Atleta_Button = new System.Windows.Forms.Button();
             this.Nombre = new System.Windows.Forms.Label();
             this.Atleta_Text_Box = new System.Windows.Forms.TextBox();
@@ -47,36 +56,29 @@
             this.Anno_Combo_Box = new System.Windows.Forms.TextBox();
             this.Mes_Combo_Box = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Ganacias_Label = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaNacimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefonosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.atletaInfoBasicaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tritonDataSet = new Interfaz_Triton.TritonDataSet();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.atletaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.atletaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.atletaTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.AtletaTableAdapter();
             this.atleta_Info_BasicaTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Atleta_Info_BasicaTableAdapter();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Ganancias_Label = new System.Windows.Forms.Label();
             this.Entrenamiento_Tab_Page.SuspendLayout();
             this.Atleta_Tab_Page.SuspendLayout();
             this.Bloques_Group_Box.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Datos_Group_Box.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Atleta_Data_Grid_View)).BeginInit();
-            this.tabPage1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.atletaInfoBasicaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tritonDataSet)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource)).BeginInit();
-            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Entrenamiento_Tab_Page
@@ -105,6 +107,27 @@
             this.Atleta_Tab_Page.Text = "Atleta";
             this.Atleta_Tab_Page.UseVisualStyleBackColor = true;
             this.Atleta_Tab_Page.Click += new System.EventHandler(this.Atleta_Tab_Page_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(18, 143);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(320, 20);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Obtener numero de pruebas fisica por atleta";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(344, 143);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(80, 28);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Ver pruebas";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Bloques_Group_Box
             // 
@@ -163,11 +186,51 @@
             this.fechaNacimientoDataGridViewTextBoxColumn,
             this.telefonosDataGridViewTextBoxColumn});
             this.Atleta_Data_Grid_View.DataSource = this.atletaInfoBasicaBindingSource;
-            this.Atleta_Data_Grid_View.Location = new System.Drawing.Point(328, 16);
+            this.Atleta_Data_Grid_View.Location = new System.Drawing.Point(326, 16);
             this.Atleta_Data_Grid_View.Name = "Atleta_Data_Grid_View";
-            this.Atleta_Data_Grid_View.Size = new System.Drawing.Size(543, 107);
+            this.Atleta_Data_Grid_View.Size = new System.Drawing.Size(545, 107);
             this.Atleta_Data_Grid_View.TabIndex = 4;
             this.Atleta_Data_Grid_View.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Atleta_Data_Grid_View_CellContentClick_1);
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            // 
+            // apellido1DataGridViewTextBoxColumn
+            // 
+            this.apellido1DataGridViewTextBoxColumn.DataPropertyName = "Apellido1";
+            this.apellido1DataGridViewTextBoxColumn.HeaderText = "Apellido1";
+            this.apellido1DataGridViewTextBoxColumn.Name = "apellido1DataGridViewTextBoxColumn";
+            // 
+            // apellido2DataGridViewTextBoxColumn
+            // 
+            this.apellido2DataGridViewTextBoxColumn.DataPropertyName = "Apellido2";
+            this.apellido2DataGridViewTextBoxColumn.HeaderText = "Apellido2";
+            this.apellido2DataGridViewTextBoxColumn.Name = "apellido2DataGridViewTextBoxColumn";
+            // 
+            // fechaNacimientoDataGridViewTextBoxColumn
+            // 
+            this.fechaNacimientoDataGridViewTextBoxColumn.DataPropertyName = "Fecha_Nacimiento";
+            this.fechaNacimientoDataGridViewTextBoxColumn.HeaderText = "Fecha_Nacimiento";
+            this.fechaNacimientoDataGridViewTextBoxColumn.Name = "fechaNacimientoDataGridViewTextBoxColumn";
+            // 
+            // telefonosDataGridViewTextBoxColumn
+            // 
+            this.telefonosDataGridViewTextBoxColumn.DataPropertyName = "Telefonos";
+            this.telefonosDataGridViewTextBoxColumn.HeaderText = "Telefonos";
+            this.telefonosDataGridViewTextBoxColumn.Name = "telefonosDataGridViewTextBoxColumn";
+            // 
+            // atletaInfoBasicaBindingSource
+            // 
+            this.atletaInfoBasicaBindingSource.DataMember = "Atleta_Info_Basica";
+            this.atletaInfoBasicaBindingSource.DataSource = this.tritonDataSet;
+            // 
+            // tritonDataSet
+            // 
+            this.tritonDataSet.DataSetName = "TritonDataSet";
+            this.tritonDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Buscar_Atleta_Button
             // 
@@ -222,11 +285,13 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.Error_Label);
+            this.groupBox1.Controls.Add(this.Ganancias_Label);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.Ganancias_Button);
             this.groupBox1.Controls.Add(this.Anno_Combo_Box);
             this.groupBox1.Controls.Add(this.Mes_Combo_Box);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.Ganacias_Label);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(880, 230);
@@ -237,11 +302,11 @@
             // Error_Label
             // 
             this.Error_Label.AutoSize = true;
-            this.Error_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Error_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Error_Label.ForeColor = System.Drawing.Color.Red;
-            this.Error_Label.Location = new System.Drawing.Point(139, 170);
+            this.Error_Label.Location = new System.Drawing.Point(586, 162);
             this.Error_Label.Name = "Error_Label";
-            this.Error_Label.Size = new System.Drawing.Size(57, 24);
+            this.Error_Label.Size = new System.Drawing.Size(85, 33);
             this.Error_Label.TabIndex = 5;
             this.Error_Label.Text = "Error";
             this.Error_Label.Visible = false;
@@ -295,67 +360,45 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Año";
             // 
-            // Ganacias_Label
+            // label5
             // 
-            this.Ganacias_Label.AutoSize = true;
-            this.Ganacias_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ganacias_Label.Location = new System.Drawing.Point(51, 54);
-            this.Ganacias_Label.Name = "Ganacias_Label";
-            this.Ganacias_Label.Size = new System.Drawing.Size(49, 24);
-            this.Ganacias_Label.TabIndex = 1;
-            this.Ganacias_Label.Text = "Mes";
-            this.Ganacias_Label.Click += new System.EventHandler(this.label2_Click);
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(51, 54);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 24);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Mes";
+            this.label5.Click += new System.EventHandler(this.label2_Click);
             // 
-            // button1
+            // tabPage2
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(344, 143);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 28);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Ver pruebas";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.tabPage2.Controls.Add(this.groupBox3);
+            this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(883, 684);
+            this.tabPage2.TabIndex = 3;
+            this.tabPage2.Text = "Atleta2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // nombreDataGridViewTextBoxColumn
+            // groupBox3
             // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.groupBox3.Location = new System.Drawing.Point(436, 8);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(422, 478);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Buscar atleta";
             // 
-            // apellido1DataGridViewTextBoxColumn
+            // groupBox2
             // 
-            this.apellido1DataGridViewTextBoxColumn.DataPropertyName = "Apellido1";
-            this.apellido1DataGridViewTextBoxColumn.HeaderText = "Apellido1";
-            this.apellido1DataGridViewTextBoxColumn.Name = "apellido1DataGridViewTextBoxColumn";
-            // 
-            // apellido2DataGridViewTextBoxColumn
-            // 
-            this.apellido2DataGridViewTextBoxColumn.DataPropertyName = "Apellido2";
-            this.apellido2DataGridViewTextBoxColumn.HeaderText = "Apellido2";
-            this.apellido2DataGridViewTextBoxColumn.Name = "apellido2DataGridViewTextBoxColumn";
-            // 
-            // fechaNacimientoDataGridViewTextBoxColumn
-            // 
-            this.fechaNacimientoDataGridViewTextBoxColumn.DataPropertyName = "Fecha_Nacimiento";
-            this.fechaNacimientoDataGridViewTextBoxColumn.HeaderText = "Fecha_Nacimiento";
-            this.fechaNacimientoDataGridViewTextBoxColumn.Name = "fechaNacimientoDataGridViewTextBoxColumn";
-            // 
-            // telefonosDataGridViewTextBoxColumn
-            // 
-            this.telefonosDataGridViewTextBoxColumn.DataPropertyName = "Telefonos";
-            this.telefonosDataGridViewTextBoxColumn.HeaderText = "Telefonos";
-            this.telefonosDataGridViewTextBoxColumn.Name = "telefonosDataGridViewTextBoxColumn";
-            // 
-            // atletaInfoBasicaBindingSource
-            // 
-            this.atletaInfoBasicaBindingSource.DataMember = "Atleta_Info_Basica";
-            this.atletaInfoBasicaBindingSource.DataSource = this.tritonDataSet;
-            // 
-            // tritonDataSet
-            // 
-            this.tritonDataSet.DataSetName = "TritonDataSet";
-            this.tritonDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.groupBox2.Location = new System.Drawing.Point(8, 8);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(422, 478);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Agregar atleta";
             // 
             // atletaBindingSource1
             // 
@@ -375,44 +418,27 @@
             // 
             this.atleta_Info_BasicaTableAdapter.ClearBeforeFill = true;
             // 
-            // label3
+            // label4
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(18, 143);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(320, 20);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Obtener numero de pruebas fisica por atleta";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Green;
+            this.label4.Location = new System.Drawing.Point(470, 36);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(349, 73);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Ganancias";
             // 
-            // tabPage2
+            // Ganancias_Label
             // 
-            this.tabPage2.Controls.Add(this.groupBox3);
-            this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(883, 684);
-            this.tabPage2.TabIndex = 3;
-            this.tabPage2.Text = "Atleta2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Location = new System.Drawing.Point(8, 8);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(422, 478);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Agregar atleta";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Location = new System.Drawing.Point(436, 8);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(422, 478);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Buscar atleta";
+            this.Ganancias_Label.AutoSize = true;
+            this.Ganancias_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ganancias_Label.Location = new System.Drawing.Point(586, 162);
+            this.Ganancias_Label.Name = "Ganancias_Label";
+            this.Ganancias_Label.Size = new System.Drawing.Size(99, 33);
+            this.Ganancias_Label.TabIndex = 7;
+            this.Ganancias_Label.Text = "label5";
+            this.Ganancias_Label.Visible = false;
             // 
             // Form1
             // 
@@ -432,14 +458,14 @@
             this.Datos_Group_Box.ResumeLayout(false);
             this.Datos_Group_Box.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Atleta_Data_Grid_View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.atletaInfoBasicaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tritonDataSet)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.atletaInfoBasicaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tritonDataSet)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource)).EndInit();
-            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
@@ -469,7 +495,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn fechaNacimientoDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn telefonosDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Label Ganacias_Label;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox Mes_Combo_Box;
@@ -481,6 +507,8 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label Ganancias_Label;
+        private System.Windows.Forms.Label label4;
     }
 }
 
