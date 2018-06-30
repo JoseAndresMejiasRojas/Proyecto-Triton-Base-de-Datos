@@ -58,26 +58,31 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Ganacias_Label = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.EntrenamientoDG = new System.Windows.Forms.DataGridView();
+            this.codigoEntrenamientoPKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deporteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rutinaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nivelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.entrenamientoIndividualBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.BorrarCod = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.BorrarNiv = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.BorrarRut = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.BorrarDep = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ModCod = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.ModRut = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.ModDep = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -92,13 +97,8 @@
             this.atletaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.atletaTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.AtletaTableAdapter();
             this.atleta_Info_BasicaTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Atleta_Info_BasicaTableAdapter();
-            this.EntrenamientoDG = new System.Windows.Forms.DataGridView();
-            this.entrenamientoIndividualBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.entrenamiento_IndividualTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Entrenamiento_IndividualTableAdapter();
-            this.codigoEntrenamientoPKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deporteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rutinaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nivelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModNiv = new System.Windows.Forms.TextBox();
             this.Entrenamiento_Tab_Page.SuspendLayout();
             this.Atleta_Tab_Page.SuspendLayout();
             this.Bloques_Group_Box.SuspendLayout();
@@ -110,13 +110,13 @@
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EntrenamientoDG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.entrenamientoIndividualBindingSource)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EntrenamientoDG)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.entrenamientoIndividualBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // Entrenamiento_Tab_Page
@@ -421,17 +421,61 @@
             this.tabPage2.Text = "Insertar";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // EntrenamientoDG
+            // 
+            this.EntrenamientoDG.AutoGenerateColumns = false;
+            this.EntrenamientoDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.EntrenamientoDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codigoEntrenamientoPKDataGridViewTextBoxColumn,
+            this.deporteDataGridViewTextBoxColumn,
+            this.rutinaDataGridViewTextBoxColumn,
+            this.nivelDataGridViewTextBoxColumn});
+            this.EntrenamientoDG.DataSource = this.entrenamientoIndividualBindingSource;
+            this.EntrenamientoDG.Location = new System.Drawing.Point(343, 19);
+            this.EntrenamientoDG.Name = "EntrenamientoDG";
+            this.EntrenamientoDG.Size = new System.Drawing.Size(518, 442);
+            this.EntrenamientoDG.TabIndex = 35;
+            // 
+            // codigoEntrenamientoPKDataGridViewTextBoxColumn
+            // 
+            this.codigoEntrenamientoPKDataGridViewTextBoxColumn.DataPropertyName = "Codigo_Entrenamiento_PK";
+            this.codigoEntrenamientoPKDataGridViewTextBoxColumn.HeaderText = "Codigo_Entrenamiento_PK";
+            this.codigoEntrenamientoPKDataGridViewTextBoxColumn.Name = "codigoEntrenamientoPKDataGridViewTextBoxColumn";
+            // 
+            // deporteDataGridViewTextBoxColumn
+            // 
+            this.deporteDataGridViewTextBoxColumn.DataPropertyName = "Deporte";
+            this.deporteDataGridViewTextBoxColumn.HeaderText = "Deporte";
+            this.deporteDataGridViewTextBoxColumn.Name = "deporteDataGridViewTextBoxColumn";
+            // 
+            // rutinaDataGridViewTextBoxColumn
+            // 
+            this.rutinaDataGridViewTextBoxColumn.DataPropertyName = "Rutina";
+            this.rutinaDataGridViewTextBoxColumn.HeaderText = "Rutina";
+            this.rutinaDataGridViewTextBoxColumn.Name = "rutinaDataGridViewTextBoxColumn";
+            // 
+            // nivelDataGridViewTextBoxColumn
+            // 
+            this.nivelDataGridViewTextBoxColumn.DataPropertyName = "Nivel";
+            this.nivelDataGridViewTextBoxColumn.HeaderText = "Nivel";
+            this.nivelDataGridViewTextBoxColumn.Name = "nivelDataGridViewTextBoxColumn";
+            // 
+            // entrenamientoIndividualBindingSource
+            // 
+            this.entrenamientoIndividualBindingSource.DataMember = "Entrenamiento_Individual";
+            this.entrenamientoIndividualBindingSource.DataSource = this.tritonDataSet;
+            // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.textBox5);
+            this.groupBox4.Controls.Add(this.BorrarCod);
             this.groupBox4.Controls.Add(this.button4);
             this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Controls.Add(this.textBox6);
+            this.groupBox4.Controls.Add(this.BorrarNiv);
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.label14);
-            this.groupBox4.Controls.Add(this.textBox7);
+            this.groupBox4.Controls.Add(this.BorrarRut);
             this.groupBox4.Controls.Add(this.label15);
-            this.groupBox4.Controls.Add(this.textBox8);
+            this.groupBox4.Controls.Add(this.BorrarDep);
             this.groupBox4.Location = new System.Drawing.Point(3, 324);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(322, 155);
@@ -440,12 +484,13 @@
             this.groupBox4.Text = "Borrar Entrenamientos";
             this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
-            // textBox5
+            // BorrarCod
             // 
-            this.textBox5.Location = new System.Drawing.Point(92, 26);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 32;
+            this.BorrarCod.Location = new System.Drawing.Point(92, 26);
+            this.BorrarCod.Name = "BorrarCod";
+            this.BorrarCod.Size = new System.Drawing.Size(100, 20);
+            this.BorrarCod.TabIndex = 32;
+            this.BorrarCod.TextChanged += new System.EventHandler(this.textBox5_TextChanged_1);
             // 
             // button4
             // 
@@ -454,8 +499,9 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 26;
-            this.button4.Text = "Insertar";
+            this.button4.Text = "Borrar";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label12
             // 
@@ -467,12 +513,12 @@
             this.label12.TabIndex = 27;
             this.label12.Text = "Nivel";
             // 
-            // textBox6
+            // BorrarNiv
             // 
-            this.textBox6.Location = new System.Drawing.Point(92, 105);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 26;
+            this.BorrarNiv.Location = new System.Drawing.Point(92, 105);
+            this.BorrarNiv.Name = "BorrarNiv";
+            this.BorrarNiv.Size = new System.Drawing.Size(100, 20);
+            this.BorrarNiv.TabIndex = 26;
             // 
             // label13
             // 
@@ -494,12 +540,13 @@
             this.label14.TabIndex = 27;
             this.label14.Text = "Codigo";
             // 
-            // textBox7
+            // BorrarRut
             // 
-            this.textBox7.Location = new System.Drawing.Point(92, 78);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 30;
+            this.BorrarRut.Location = new System.Drawing.Point(92, 78);
+            this.BorrarRut.Name = "BorrarRut";
+            this.BorrarRut.Size = new System.Drawing.Size(100, 20);
+            this.BorrarRut.TabIndex = 30;
+            this.BorrarRut.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // label15
             // 
@@ -511,24 +558,24 @@
             this.label15.TabIndex = 29;
             this.label15.Text = "Deporte";
             // 
-            // textBox8
+            // BorrarDep
             // 
-            this.textBox8.Location = new System.Drawing.Point(92, 52);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 28;
+            this.BorrarDep.Location = new System.Drawing.Point(92, 52);
+            this.BorrarDep.Name = "BorrarDep";
+            this.BorrarDep.Size = new System.Drawing.Size(100, 20);
+            this.BorrarDep.TabIndex = 28;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.ModNiv);
+            this.groupBox2.Controls.Add(this.ModCod);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.ModRut);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.ModDep);
             this.groupBox2.Location = new System.Drawing.Point(3, 159);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(322, 155);
@@ -537,12 +584,12 @@
             this.groupBox2.Text = "Modificar Entrenamientos";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter_1);
             // 
-            // textBox1
+            // ModCod
             // 
-            this.textBox1.Location = new System.Drawing.Point(92, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 32;
+            this.ModCod.Location = new System.Drawing.Point(92, 26);
+            this.ModCod.Name = "ModCod";
+            this.ModCod.Size = new System.Drawing.Size(100, 20);
+            this.ModCod.TabIndex = 32;
             // 
             // button3
             // 
@@ -553,6 +600,7 @@
             this.button3.TabIndex = 26;
             this.button3.Text = "Modificar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label8
             // 
@@ -563,13 +611,6 @@
             this.label8.Size = new System.Drawing.Size(34, 15);
             this.label8.TabIndex = 27;
             this.label8.Text = "Nivel";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(92, 105);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 26;
             // 
             // label9
             // 
@@ -591,12 +632,13 @@
             this.label10.TabIndex = 27;
             this.label10.Text = "Codigo";
             // 
-            // textBox3
+            // ModRut
             // 
-            this.textBox3.Location = new System.Drawing.Point(92, 78);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 30;
+            this.ModRut.Location = new System.Drawing.Point(92, 78);
+            this.ModRut.Name = "ModRut";
+            this.ModRut.Size = new System.Drawing.Size(100, 20);
+            this.ModRut.TabIndex = 30;
+            this.ModRut.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label11
             // 
@@ -608,12 +650,13 @@
             this.label11.TabIndex = 29;
             this.label11.Text = "Deporte";
             // 
-            // textBox4
+            // ModDep
             // 
-            this.textBox4.Location = new System.Drawing.Point(92, 52);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 28;
+            this.ModDep.Location = new System.Drawing.Point(92, 52);
+            this.ModDep.Name = "ModDep";
+            this.ModDep.Size = new System.Drawing.Size(100, 20);
+            this.ModDep.TabIndex = 28;
+            this.ModDep.TextChanged += new System.EventHandler(this.textBox4_TextChanged_1);
             // 
             // groupBox3
             // 
@@ -737,53 +780,17 @@
             // 
             this.atleta_Info_BasicaTableAdapter.ClearBeforeFill = true;
             // 
-            // EntrenamientoDG
-            // 
-            this.EntrenamientoDG.AutoGenerateColumns = false;
-            this.EntrenamientoDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.EntrenamientoDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codigoEntrenamientoPKDataGridViewTextBoxColumn,
-            this.deporteDataGridViewTextBoxColumn,
-            this.rutinaDataGridViewTextBoxColumn,
-            this.nivelDataGridViewTextBoxColumn});
-            this.EntrenamientoDG.DataSource = this.entrenamientoIndividualBindingSource;
-            this.EntrenamientoDG.Location = new System.Drawing.Point(343, 19);
-            this.EntrenamientoDG.Name = "EntrenamientoDG";
-            this.EntrenamientoDG.Size = new System.Drawing.Size(518, 442);
-            this.EntrenamientoDG.TabIndex = 35;
-            // 
-            // entrenamientoIndividualBindingSource
-            // 
-            this.entrenamientoIndividualBindingSource.DataMember = "Entrenamiento_Individual";
-            this.entrenamientoIndividualBindingSource.DataSource = this.tritonDataSet;
-            // 
             // entrenamiento_IndividualTableAdapter
             // 
             this.entrenamiento_IndividualTableAdapter.ClearBeforeFill = true;
             // 
-            // codigoEntrenamientoPKDataGridViewTextBoxColumn
+            // ModNiv
             // 
-            this.codigoEntrenamientoPKDataGridViewTextBoxColumn.DataPropertyName = "Codigo_Entrenamiento_PK";
-            this.codigoEntrenamientoPKDataGridViewTextBoxColumn.HeaderText = "Codigo_Entrenamiento_PK";
-            this.codigoEntrenamientoPKDataGridViewTextBoxColumn.Name = "codigoEntrenamientoPKDataGridViewTextBoxColumn";
-            // 
-            // deporteDataGridViewTextBoxColumn
-            // 
-            this.deporteDataGridViewTextBoxColumn.DataPropertyName = "Deporte";
-            this.deporteDataGridViewTextBoxColumn.HeaderText = "Deporte";
-            this.deporteDataGridViewTextBoxColumn.Name = "deporteDataGridViewTextBoxColumn";
-            // 
-            // rutinaDataGridViewTextBoxColumn
-            // 
-            this.rutinaDataGridViewTextBoxColumn.DataPropertyName = "Rutina";
-            this.rutinaDataGridViewTextBoxColumn.HeaderText = "Rutina";
-            this.rutinaDataGridViewTextBoxColumn.Name = "rutinaDataGridViewTextBoxColumn";
-            // 
-            // nivelDataGridViewTextBoxColumn
-            // 
-            this.nivelDataGridViewTextBoxColumn.DataPropertyName = "Nivel";
-            this.nivelDataGridViewTextBoxColumn.HeaderText = "Nivel";
-            this.nivelDataGridViewTextBoxColumn.Name = "nivelDataGridViewTextBoxColumn";
+            this.ModNiv.Location = new System.Drawing.Point(92, 106);
+            this.ModNiv.Name = "ModNiv";
+            this.ModNiv.Size = new System.Drawing.Size(100, 20);
+            this.ModNiv.TabIndex = 33;
+            this.ModNiv.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Form1
             // 
@@ -809,6 +816,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.EntrenamientoDG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.entrenamientoIndividualBindingSource)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -817,8 +826,6 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EntrenamientoDG)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.entrenamientoIndividualBindingSource)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -871,25 +878,24 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox BorrarCod;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox BorrarNiv;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox BorrarRut;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox BorrarDep;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ModCod;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox ModRut;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox ModDep;
         private System.Windows.Forms.DataGridView EntrenamientoDG;
         private System.Windows.Forms.BindingSource entrenamientoIndividualBindingSource;
         private TritonDataSetTableAdapters.Entrenamiento_IndividualTableAdapter entrenamiento_IndividualTableAdapter;
@@ -897,6 +903,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn deporteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rutinaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nivelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox ModNiv;
     }
 }
 

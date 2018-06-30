@@ -260,11 +260,15 @@ namespace Interfaz_Triton
 
             cmd.ExecuteNonQuery();
 
-            DataRow[] entrenos = tritonDataSet.Entrenamiento_Individual.Select();
-            EntrenamientoDG.DataSource = entrenos;
+            //////////Actualiza Datos en Tabla///////////////////////////////
+            DataTable dt = new DataTable();
+            String querySelect = "SELECT * FROM Entrenamiento_Individual";
+            SqlCommand cmd2 = new SqlCommand(querySelect, connection);
+            SqlDataAdapter adap = new SqlDataAdapter(cmd2);
+            adap.Fill(dt);
+            EntrenamientoDG.DataSource = dt;
+            /////////////////////////////////////////////////////////////////
 
-            EntrenamientoDG.AutoResizeRow();
-            EntrenamientoDG.Refresh();
             connection.Close();
 
         }
@@ -315,6 +319,117 @@ namespace Interfaz_Triton
         }
 
         private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
+            SqlConnection connection = new SqlConnection(connectionStr);
+
+
+            SqlDataAdapter databaseAdapter = new SqlDataAdapter();
+            SqlCommand cmd = new SqlCommand("Update Entrenamiento_Individual set Deporte=@Deporte, Rutina=@Rutina, Nivel=@Nivel where Codigo_Entrenamiento_PK =@Codigo", connection);
+
+
+            //Creo los Parametros
+            cmd.Parameters.Add("@Codigo", System.Data.SqlDbType.Int);
+            cmd.Parameters.Add("@Deporte", System.Data.SqlDbType.VarChar);
+            cmd.Parameters.Add("@Rutina", System.Data.SqlDbType.VarChar);
+            cmd.Parameters.Add("@Nivel", System.Data.SqlDbType.VarChar);
+
+            //Asigno los valores
+
+            cmd.Parameters["@Codigo"].Value = Convert.ToInt32(ModCod.Text);
+            cmd.Parameters["@Deporte"].Value = ModDep.Text;
+            cmd.Parameters["@Rutina"].Value = ModRut.Text;
+            cmd.Parameters["@Nivel"].Value = ModNiv.Text;
+            //MessageBox.Show(ModNiv.Text);
+
+            connection.Open();
+
+            cmd.ExecuteNonQuery();
+
+            //////////Actualiza Datos en Tabla///////////////////////////////
+            DataTable dt = new DataTable();
+            String querySelect = "SELECT * FROM Entrenamiento_Individual";
+            SqlCommand cmd2 = new SqlCommand(querySelect, connection);
+            SqlDataAdapter adap = new SqlDataAdapter(cmd2);
+            adap.Fill(dt);
+            EntrenamientoDG.DataSource = dt;
+            /////////////////////////////////////////////////////////////////
+
+
+            connection.Close();
+        }
+
+        private void textBox4_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ModNivel_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
+            SqlConnection connection = new SqlConnection(connectionStr);
+
+
+            SqlDataAdapter databaseAdapter = new SqlDataAdapter();
+            SqlCommand cmd = new SqlCommand("delete from Entrenamiento_Individual where Deporte=@Deporte or Rutina=@Rutina or Nivel=@Nivel or Codigo_Entrenamiento_PK =@Codigo", connection);
+C
+            //Creo los Parametros
+            cmd.Parameters.Add("@Codigo", System.Data.SqlDbType.Int);
+            cmd.Parameters.Add("@Deporte", System.Data.SqlDbType.VarChar);
+            cmd.Parameters.Add("@Rutina", System.Data.SqlDbType.VarChar);
+            cmd.Parameters.Add("@Nivel", System.Data.SqlDbType.VarChar);
+
+            //Asigno los valores
+
+            cmd.Parameters["@Codigo"].Value = Convert.ToInt32(BorrarCod.Text);
+            cmd.Parameters["@Deporte"].Value = BorrarDep.Text;
+            cmd.Parameters["@Rutina"].Value = BorrarRut.Text;
+            cmd.Parameters["@Nivel"].Value = BorrarNiv.Text;
+            //MessageBox.Show(ModNiv.Text);
+
+            connection.Open();
+
+            cmd.ExecuteNonQuery();
+
+            //////////Actualiza Datos en Tabla///////////////////////////////
+            DataTable dt = new DataTable();
+            String querySelect = "SELECT * FROM Entrenamiento_Individual";
+            SqlCommand cmd2 = new SqlCommand(querySelect, connection);
+            SqlDataAdapter adap = new SqlDataAdapter(cmd2);
+            adap.Fill(dt);
+            EntrenamientoDG.DataSource = dt;
+            /////////////////////////////////////////////////////////////////
+
+
+            connection.Close();
+        }
+
+        private void textBox5_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
         {
 
         }
