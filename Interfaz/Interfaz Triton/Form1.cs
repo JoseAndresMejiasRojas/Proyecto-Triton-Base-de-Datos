@@ -253,9 +253,16 @@ namespace Interfaz_Triton
             String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
             SqlConnection connection = new SqlConnection(connectionStr);
 
-            SqlDataAdapter databaseAdapter = new SqlDataAdapter();
             SqlCommand cmd = new SqlCommand("Insert into Cobro (ID_Factura_PK,Codigo_Atleta_FK,Fecha_Pago,Fecha_Finalización,Número_Tarjeta,Fecha_Vencimiento,CVC,Codigo_Descuento, Duracion_Descuento,Porcentaje_Descuento ) values (@ID_Factura_PK,@Codigo_Atleta_FK,@Fecha_Pago,@Fecha_Finalización,@Número_Tarjeta,@Fecha_Vencimiento,@CVC,@Codigo_Descuento, @Duracion_Descuento,@Porcentaje_Descuento)", connection);
             int id_factura = Convert.ToInt32(Codigo_Factura_TB_Conta.Text);
+            connection.Open();
+
+            // Obtengo el número del atleta acorde al correo.
+            DataRowView drv = (DataRowView)Correo_CB_Conta.SelectedItem;
+            String correo = drv["Correo"].ToString();
+            SqlCommand cmd2 = new SqlCommand("SELECT dbo.ObtenerCodigo(" + "'" + correo + "'" + ")", connection);
+            int codigoAtleta = (int)(cmd2.ExecuteScalar());
+
 
             //Creo los Parametros
             cmd.Parameters.Add("@ID_Factura_PK", System.Data.SqlDbType.Int);
@@ -270,7 +277,7 @@ namespace Interfaz_Triton
             cmd.Parameters.Add("@Porcentaje_Descuento", System.Data.SqlDbType.Int);
 
             //Asigno los valores
-            cmd.Parameters["@Codigo_Atleta_FK"].Value = 21;
+            cmd.Parameters["@Codigo_Atleta_FK"].Value = codigoAtleta;
             cmd.Parameters["@ID_Factura_PK"].Value = id_factura;
             cmd.Parameters["@Fecha_Pago"].Value = DateTime.Parse(Fecha_Pago_TB_Conta.Text);
             cmd.Parameters["@Fecha_Finalización"].Value = DateTime.Parse(Fecha_Vencimiento_TB_Conta.Text);
@@ -291,7 +298,6 @@ namespace Interfaz_Triton
                 cmd.Parameters["@Porcentaje_Descuento"].Value = DBNull.Value;
             }
 
-            connection.Open();
             cmd.ExecuteNonQuery();
             connection.Close();
 
@@ -309,6 +315,8 @@ namespace Interfaz_Triton
                 // Error, estoy insertando un cobro sin tipo.
                 MessageBox.Show("Debe de escoger un tipo de pago", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            MessageBox.Show("Se ha agregado la factura " + id_factura.ToString() + " al atleta " + correo, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void Fecha_TB_Descuento_TextChanged(object sender, EventArgs e)

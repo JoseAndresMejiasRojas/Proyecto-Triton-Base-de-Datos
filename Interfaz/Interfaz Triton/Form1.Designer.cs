@@ -86,7 +86,6 @@
             this.Tipo_Cobro_CB_Conta = new System.Windows.Forms.ComboBox();
             this.Tipo_CB_Conta = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.Correo_TB_Conta = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Error_Label = new System.Windows.Forms.Label();
             this.Ganancias_Label = new System.Windows.Forms.Label();
@@ -132,6 +131,7 @@
             this.Atleta_Text_Box = new System.Windows.Forms.TextBox();
             this.Entrenamiento_Tab_Page = new System.Windows.Forms.TabControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.Correo_CB_Conta = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.atletaInfoBasicaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tritonDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).BeginInit();
@@ -412,6 +412,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.Correo_CB_Conta);
             this.groupBox4.Controls.Add(this.Label_Monto_Semanal_Conta);
             this.groupBox4.Controls.Add(this.Semanal_TB_Conta);
             this.groupBox4.Controls.Add(this.Label_Cantidad_Semanas_Conta);
@@ -441,7 +442,6 @@
             this.groupBox4.Controls.Add(this.Tipo_Cobro_CB_Conta);
             this.groupBox4.Controls.Add(this.Tipo_CB_Conta);
             this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Controls.Add(this.Correo_TB_Conta);
             this.groupBox4.Location = new System.Drawing.Point(3, 239);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(880, 250);
@@ -671,7 +671,7 @@
             this.Tipo_Cobro_CB_Conta.Items.AddRange(new object[] {
             "Mensual",
             "Individual"});
-            this.Tipo_Cobro_CB_Conta.Location = new System.Drawing.Point(281, 60);
+            this.Tipo_Cobro_CB_Conta.Location = new System.Drawing.Point(281, 61);
             this.Tipo_Cobro_CB_Conta.Name = "Tipo_Cobro_CB_Conta";
             this.Tipo_Cobro_CB_Conta.Size = new System.Drawing.Size(121, 21);
             this.Tipo_Cobro_CB_Conta.TabIndex = 11;
@@ -696,13 +696,6 @@
             this.label6.Size = new System.Drawing.Size(83, 25);
             this.label6.TabIndex = 9;
             this.label6.Text = "Correo";
-            // 
-            // Correo_TB_Conta
-            // 
-            this.Correo_TB_Conta.Location = new System.Drawing.Point(55, 64);
-            this.Correo_TB_Conta.Name = "Correo_TB_Conta";
-            this.Correo_TB_Conta.Size = new System.Drawing.Size(121, 20);
-            this.Correo_TB_Conta.TabIndex = 8;
             // 
             // groupBox1
             // 
@@ -749,7 +742,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Green;
-            this.label4.Location = new System.Drawing.Point(470, 36);
+            this.label4.Location = new System.Drawing.Point(470, 68);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(349, 73);
             this.label4.TabIndex = 6;
@@ -1158,6 +1151,17 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // Correo_CB_Conta
+            // 
+            this.Correo_CB_Conta.DataSource = this.atletaBindingSource1;
+            this.Correo_CB_Conta.DisplayMember = "Correo";
+            this.Correo_CB_Conta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Correo_CB_Conta.FormattingEnabled = true;
+            this.Correo_CB_Conta.Location = new System.Drawing.Point(55, 61);
+            this.Correo_CB_Conta.Name = "Correo_CB_Conta";
+            this.Correo_CB_Conta.Size = new System.Drawing.Size(121, 21);
+            this.Correo_CB_Conta.TabIndex = 41;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1244,7 +1248,6 @@
         private System.Windows.Forms.ComboBox Tipo_Cobro_CB_Conta;
         private System.Windows.Forms.Label Tipo_CB_Conta;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox Correo_TB_Conta;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label Error_Label;
         private System.Windows.Forms.Label Ganancias_Label;
@@ -1303,6 +1306,7 @@
         private System.Windows.Forms.TextBox Tipo_Prueba_Fisica_TB;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button Button_Insertar_Prueba_Fisica;
+        private System.Windows.Forms.ComboBox Correo_CB_Conta;
     }
 }
 
