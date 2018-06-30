@@ -260,7 +260,7 @@ namespace Interfaz_Triton
             connection.Close();
 
             DataRow[] busqueda = tritonDataSet.Entrenamiento_Individual.Select();   // Hago un SELECT acorde a la busqueda.  Ojo, es un VIEW.		
-            EntrenamientoDG.DataSource = busqueda;
+            //EntrenamientoDG.DataSource = busqueda;
         }
     }
 }
