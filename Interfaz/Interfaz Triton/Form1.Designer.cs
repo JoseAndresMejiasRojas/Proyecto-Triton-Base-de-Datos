@@ -108,7 +108,7 @@
             this.Nivel_TB = new System.Windows.Forms.TextBox();
             this.Deporte_TB = new System.Windows.Forms.TextBox();
             this.Codigo_TB = new System.Windows.Forms.TextBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.EntrenamientoDG = new System.Windows.Forms.DataGridView();
             this.entrenamientoIndividualBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.entrenamiento_IndividualTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Entrenamiento_IndividualTableAdapter();
             this.codigoEntrenamientoPKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -135,7 +135,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cobroIndividualBindingSource)).BeginInit();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EntrenamientoDG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.entrenamientoIndividualBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -809,7 +809,7 @@
             this.groupBox5.Controls.Add(this.Button_Borrar);
             this.groupBox5.Controls.Add(this.Button_Modificar);
             this.groupBox5.Controls.Add(this.Button_Insertar);
-            this.groupBox5.Controls.Add(this.dataGridView2);
+            this.groupBox5.Controls.Add(this.EntrenamientoDG);
             this.groupBox5.Controls.Add(this.Codigo_TB);
             this.groupBox5.Controls.Add(this.Deporte_TB);
             this.groupBox5.Controls.Add(this.Nivel_TB);
@@ -888,22 +888,23 @@
             this.Codigo_TB.Name = "Codigo_TB";
             this.Codigo_TB.Size = new System.Drawing.Size(100, 20);
             this.Codigo_TB.TabIndex = 7;
+            this.Codigo_TB.TextChanged += new System.EventHandler(this.Codigo_TB_TextChanged);
             // 
-            // dataGridView2
+            // EntrenamientoDG
             // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.EntrenamientoDG.AutoGenerateColumns = false;
+            this.EntrenamientoDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.EntrenamientoDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigoEntrenamientoPKDataGridViewTextBoxColumn,
             this.deporteDataGridViewTextBoxColumn,
             this.rutinaDataGridViewTextBoxColumn,
             this.nivelDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.entrenamientoIndividualBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(400, 50);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(445, 222);
-            this.dataGridView2.TabIndex = 8;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick_1);
+            this.EntrenamientoDG.DataSource = this.entrenamientoIndividualBindingSource;
+            this.EntrenamientoDG.Location = new System.Drawing.Point(400, 50);
+            this.EntrenamientoDG.Name = "EntrenamientoDG";
+            this.EntrenamientoDG.Size = new System.Drawing.Size(466, 222);
+            this.EntrenamientoDG.TabIndex = 8;
+            this.EntrenamientoDG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick_1);
             // 
             // entrenamientoIndividualBindingSource
             // 
@@ -956,6 +957,7 @@
             this.Button_Modificar.TabIndex = 10;
             this.Button_Modificar.Text = "Modificar";
             this.Button_Modificar.UseVisualStyleBackColor = true;
+            this.Button_Modificar.Click += new System.EventHandler(this.Button_Modificar_Click);
             // 
             // Button_Borrar
             // 
@@ -965,6 +967,7 @@
             this.Button_Borrar.TabIndex = 11;
             this.Button_Borrar.Text = "Borrar";
             this.Button_Borrar.UseVisualStyleBackColor = true;
+            this.Button_Borrar.Click += new System.EventHandler(this.Button_Borrar_Click);
             // 
             // Form1
             // 
@@ -998,7 +1001,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cobroIndividualBindingSource)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EntrenamientoDG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.entrenamientoIndividualBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -1077,7 +1080,7 @@
         private System.Windows.Forms.Label Label_Cantidad_Semanas_Conta;
         private System.Windows.Forms.TextBox Cantidad_Semanas_TB_Conta;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView EntrenamientoDG;
         private System.Windows.Forms.TextBox Codigo_TB;
         private System.Windows.Forms.TextBox Deporte_TB;
         private System.Windows.Forms.TextBox Nivel_TB;
