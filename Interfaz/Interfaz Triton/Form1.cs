@@ -30,8 +30,10 @@ namespace Interfaz_Triton
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			// TODO: This line of code loads data into the 'tritonDataSet.Atleta_Info_Basica' table. You can move, or remove it, as needed.
-			this.atleta_Info_BasicaTableAdapter.Fill(this.tritonDataSet.Atleta_Info_Basica);
+            // TODO: This line of code loads data into the 'tritonDataSet.Entrenamiento_Individual' table. You can move, or remove it, as needed.
+            this.entrenamiento_IndividualTableAdapter.Fill(this.tritonDataSet.Entrenamiento_Individual);
+            // TODO: This line of code loads data into the 'tritonDataSet.Atleta_Info_Basica' table. You can move, or remove it, as needed.
+            this.atleta_Info_BasicaTableAdapter.Fill(this.tritonDataSet.Atleta_Info_Basica);
 			// TODO: This line of code loads data into the 'tritonDataSet.Atleta' table. You can move, or remove it, as needed.
 			this.atletaTableAdapter.Fill(this.tritonDataSet.Atleta);
 
@@ -257,10 +259,14 @@ namespace Interfaz_Triton
             connection.Open();
 
             cmd.ExecuteNonQuery();
+
+            DataRow[] entrenos = tritonDataSet.Entrenamiento_Individual.Select();
+            EntrenamientoDG.DataSource = entrenos;
+
+            EntrenamientoDG.AutoResizeRow();
+            EntrenamientoDG.Refresh();
             connection.Close();
 
-            DataRow[] busqueda = tritonDataSet.Entrenamiento_Individual.Select();   // Hago un SELECT acorde a la busqueda.  Ojo, es un VIEW.		
-            EntrenamientoDG.DataSource = busqueda;
         }
 
         private void textBox15_TextChanged(object sender, EventArgs e)
@@ -294,6 +300,21 @@ namespace Interfaz_Triton
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
         {
 
         }
