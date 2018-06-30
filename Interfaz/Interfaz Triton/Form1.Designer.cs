@@ -50,8 +50,32 @@
             this.Atleta_Text_Box = new System.Windows.Forms.TextBox();
             this.Entrenamientos_Tab_Page = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.Label_Mensaje_Descuento = new System.Windows.Forms.Label();
+            this.Button_Insertar_Factura = new System.Windows.Forms.Button();
+            this.Label_Codigo_Descuento = new System.Windows.Forms.Label();
+            this.Porcentaje_TB_Descuento = new System.Windows.Forms.TextBox();
+            this.Label_Porcentaje_Descuento = new System.Windows.Forms.Label();
+            this.Codigo_TB_Descuento = new System.Windows.Forms.TextBox();
+            this.Label_Fecha_Descuento = new System.Windows.Forms.Label();
+            this.Fecha_TB_Descuento = new System.Windows.Forms.TextBox();
+            this.Descuento_Ganancias_Conta = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.CVC_TB_Conta = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Fecha_Vencimiento_TB_Conta = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.Fecha_Pago_TB_Conta = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Codigo_Factura_TB_Conta = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Tipo_CB_Conta = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Correo_TB_Conta = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Error_Label = new System.Windows.Forms.Label();
+            this.Ganancias_Label = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.Ganancias_Button = new System.Windows.Forms.Button();
             this.Anno_Combo_Box = new System.Windows.Forms.TextBox();
             this.Mes_Combo_Box = new System.Windows.Forms.ComboBox();
@@ -64,8 +88,14 @@
             this.atletaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.atletaTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.AtletaTableAdapter();
             this.atleta_Info_BasicaTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Atleta_Info_BasicaTableAdapter();
-            this.label4 = new System.Windows.Forms.Label();
-            this.Ganancias_Label = new System.Windows.Forms.Label();
+            this.cobroIndividualBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cobro_IndividualTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Cobro_IndividualTableAdapter();
+            this.label11 = new System.Windows.Forms.Label();
+            this.Monto_Mensual_TB_Conta = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.Numero_Tarjeta_TB_Conta = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.Vencimiento_Tarjeta_TB_Conta = new System.Windows.Forms.TextBox();
             this.Entrenamiento_Tab_Page.SuspendLayout();
             this.Atleta_Tab_Page.SuspendLayout();
             this.Bloques_Group_Box.SuspendLayout();
@@ -75,10 +105,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.atletaInfoBasicaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tritonDataSet)).BeginInit();
             this.tabPage1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cobroIndividualBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // Entrenamiento_Tab_Page
@@ -273,6 +305,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox4);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -281,6 +314,226 @@
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Contabilidad";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.Vencimiento_Tarjeta_TB_Conta);
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.Numero_Tarjeta_TB_Conta);
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.Monto_Mensual_TB_Conta);
+            this.groupBox4.Controls.Add(this.Label_Mensaje_Descuento);
+            this.groupBox4.Controls.Add(this.Button_Insertar_Factura);
+            this.groupBox4.Controls.Add(this.Label_Codigo_Descuento);
+            this.groupBox4.Controls.Add(this.Porcentaje_TB_Descuento);
+            this.groupBox4.Controls.Add(this.Label_Porcentaje_Descuento);
+            this.groupBox4.Controls.Add(this.Codigo_TB_Descuento);
+            this.groupBox4.Controls.Add(this.Label_Fecha_Descuento);
+            this.groupBox4.Controls.Add(this.Fecha_TB_Descuento);
+            this.groupBox4.Controls.Add(this.Descuento_Ganancias_Conta);
+            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.Controls.Add(this.CVC_TB_Conta);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.Fecha_Vencimiento_TB_Conta);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.Fecha_Pago_TB_Conta);
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.Codigo_Factura_TB_Conta);
+            this.groupBox4.Controls.Add(this.comboBox1);
+            this.groupBox4.Controls.Add(this.Tipo_CB_Conta);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.Correo_TB_Conta);
+            this.groupBox4.Location = new System.Drawing.Point(3, 239);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(880, 250);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Facturación";
+            // 
+            // Label_Mensaje_Descuento
+            // 
+            this.Label_Mensaje_Descuento.AutoSize = true;
+            this.Label_Mensaje_Descuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_Mensaje_Descuento.Location = new System.Drawing.Point(554, 197);
+            this.Label_Mensaje_Descuento.Name = "Label_Mensaje_Descuento";
+            this.Label_Mensaje_Descuento.Size = new System.Drawing.Size(101, 31);
+            this.Label_Mensaje_Descuento.TabIndex = 30;
+            this.Label_Mensaje_Descuento.Text = "label11";
+            // 
+            // Button_Insertar_Factura
+            // 
+            this.Button_Insertar_Factura.Location = new System.Drawing.Point(190, 207);
+            this.Button_Insertar_Factura.Name = "Button_Insertar_Factura";
+            this.Button_Insertar_Factura.Size = new System.Drawing.Size(87, 23);
+            this.Button_Insertar_Factura.TabIndex = 29;
+            this.Button_Insertar_Factura.Text = "Insertar factura";
+            this.Button_Insertar_Factura.UseVisualStyleBackColor = true;
+            this.Button_Insertar_Factura.Click += new System.EventHandler(this.Button_Insertar_Factura_Click);
+            // 
+            // Label_Codigo_Descuento
+            // 
+            this.Label_Codigo_Descuento.AutoSize = true;
+            this.Label_Codigo_Descuento.Location = new System.Drawing.Point(584, 126);
+            this.Label_Codigo_Descuento.Name = "Label_Codigo_Descuento";
+            this.Label_Codigo_Descuento.Size = new System.Drawing.Size(108, 13);
+            this.Label_Codigo_Descuento.TabIndex = 28;
+            this.Label_Codigo_Descuento.Text = "Código de descuento";
+            // 
+            // Porcentaje_TB_Descuento
+            // 
+            this.Porcentaje_TB_Descuento.Location = new System.Drawing.Point(819, 142);
+            this.Porcentaje_TB_Descuento.Name = "Porcentaje_TB_Descuento";
+            this.Porcentaje_TB_Descuento.Size = new System.Drawing.Size(55, 20);
+            this.Porcentaje_TB_Descuento.TabIndex = 27;
+            // 
+            // Label_Porcentaje_Descuento
+            // 
+            this.Label_Porcentaje_Descuento.AutoSize = true;
+            this.Label_Porcentaje_Descuento.Location = new System.Drawing.Point(816, 126);
+            this.Label_Porcentaje_Descuento.Name = "Label_Porcentaje_Descuento";
+            this.Label_Porcentaje_Descuento.Size = new System.Drawing.Size(58, 13);
+            this.Label_Porcentaje_Descuento.TabIndex = 26;
+            this.Label_Porcentaje_Descuento.Text = "Porcentaje";
+            // 
+            // Codigo_TB_Descuento
+            // 
+            this.Codigo_TB_Descuento.Location = new System.Drawing.Point(587, 142);
+            this.Codigo_TB_Descuento.Name = "Codigo_TB_Descuento";
+            this.Codigo_TB_Descuento.Size = new System.Drawing.Size(93, 20);
+            this.Codigo_TB_Descuento.TabIndex = 25;
+            // 
+            // Label_Fecha_Descuento
+            // 
+            this.Label_Fecha_Descuento.AutoSize = true;
+            this.Label_Fecha_Descuento.Location = new System.Drawing.Point(698, 126);
+            this.Label_Fecha_Descuento.Name = "Label_Fecha_Descuento";
+            this.Label_Fecha_Descuento.Size = new System.Drawing.Size(112, 13);
+            this.Label_Fecha_Descuento.TabIndex = 24;
+            this.Label_Fecha_Descuento.Text = "Fecha de vencimiento";
+            // 
+            // Fecha_TB_Descuento
+            // 
+            this.Fecha_TB_Descuento.Location = new System.Drawing.Point(689, 142);
+            this.Fecha_TB_Descuento.Name = "Fecha_TB_Descuento";
+            this.Fecha_TB_Descuento.Size = new System.Drawing.Size(121, 20);
+            this.Fecha_TB_Descuento.TabIndex = 23;
+            // 
+            // Descuento_Ganancias_Conta
+            // 
+            this.Descuento_Ganancias_Conta.AutoSize = true;
+            this.Descuento_Ganancias_Conta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Descuento_Ganancias_Conta.Location = new System.Drawing.Point(690, 56);
+            this.Descuento_Ganancias_Conta.Name = "Descuento_Ganancias_Conta";
+            this.Descuento_Ganancias_Conta.Size = new System.Drawing.Size(129, 28);
+            this.Descuento_Ganancias_Conta.TabIndex = 20;
+            this.Descuento_Ganancias_Conta.Text = "Descuento";
+            this.Descuento_Ganancias_Conta.UseVisualStyleBackColor = true;
+            this.Descuento_Ganancias_Conta.CheckedChanged += new System.EventHandler(this.Descuento_Ganancias_Conta_CheckedChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(510, 126);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(28, 13);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "CVC";
+            // 
+            // CVC_TB_Conta
+            // 
+            this.CVC_TB_Conta.Location = new System.Drawing.Point(500, 142);
+            this.CVC_TB_Conta.Name = "CVC_TB_Conta";
+            this.CVC_TB_Conta.Size = new System.Drawing.Size(55, 20);
+            this.CVC_TB_Conta.TabIndex = 18;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(392, 126);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(112, 13);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Fecha de vencimiento";
+            // 
+            // Fecha_Vencimiento_TB_Conta
+            // 
+            this.Fecha_Vencimiento_TB_Conta.Location = new System.Drawing.Point(407, 142);
+            this.Fecha_Vencimiento_TB_Conta.Name = "Fecha_Vencimiento_TB_Conta";
+            this.Fecha_Vencimiento_TB_Conta.Size = new System.Drawing.Size(76, 20);
+            this.Fecha_Vencimiento_TB_Conta.TabIndex = 16;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(297, 126);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(79, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Fecha de pago";
+            // 
+            // Fecha_Pago_TB_Conta
+            // 
+            this.Fecha_Pago_TB_Conta.Location = new System.Drawing.Point(302, 142);
+            this.Fecha_Pago_TB_Conta.Name = "Fecha_Pago_TB_Conta";
+            this.Fecha_Pago_TB_Conta.Size = new System.Drawing.Size(76, 20);
+            this.Fecha_Pago_TB_Conta.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 126);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(91, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Código de factura";
+            // 
+            // Codigo_Factura_TB_Conta
+            // 
+            this.Codigo_Factura_TB_Conta.Location = new System.Drawing.Point(6, 142);
+            this.Codigo_Factura_TB_Conta.Name = "Codigo_Factura_TB_Conta";
+            this.Codigo_Factura_TB_Conta.Size = new System.Drawing.Size(85, 20);
+            this.Codigo_Factura_TB_Conta.TabIndex = 12;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Mensual",
+            "Individual"});
+            this.comboBox1.Location = new System.Drawing.Point(281, 60);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 11;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // Tipo_CB_Conta
+            // 
+            this.Tipo_CB_Conta.AutoSize = true;
+            this.Tipo_CB_Conta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tipo_CB_Conta.Location = new System.Drawing.Point(266, 36);
+            this.Tipo_CB_Conta.Name = "Tipo_CB_Conta";
+            this.Tipo_CB_Conta.Size = new System.Drawing.Size(157, 25);
+            this.Tipo_CB_Conta.TabIndex = 10;
+            this.Tipo_CB_Conta.Text = "Tipo de cobro";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(80, 36);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 25);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Correo";
+            // 
+            // Correo_TB_Conta
+            // 
+            this.Correo_TB_Conta.Location = new System.Drawing.Point(55, 64);
+            this.Correo_TB_Conta.Name = "Correo_TB_Conta";
+            this.Correo_TB_Conta.Size = new System.Drawing.Size(121, 20);
+            this.Correo_TB_Conta.TabIndex = 8;
             // 
             // groupBox1
             // 
@@ -311,9 +564,31 @@
             this.Error_Label.Text = "Error";
             this.Error_Label.Visible = false;
             // 
+            // Ganancias_Label
+            // 
+            this.Ganancias_Label.AutoSize = true;
+            this.Ganancias_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ganancias_Label.Location = new System.Drawing.Point(586, 162);
+            this.Ganancias_Label.Name = "Ganancias_Label";
+            this.Ganancias_Label.Size = new System.Drawing.Size(99, 33);
+            this.Ganancias_Label.TabIndex = 7;
+            this.Ganancias_Label.Text = "label5";
+            this.Ganancias_Label.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Green;
+            this.label4.Location = new System.Drawing.Point(470, 36);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(349, 73);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Ganancias";
+            // 
             // Ganancias_Button
             // 
-            this.Ganancias_Button.Location = new System.Drawing.Point(131, 129);
+            this.Ganancias_Button.Location = new System.Drawing.Point(190, 130);
             this.Ganancias_Button.Name = "Ganancias_Button";
             this.Ganancias_Button.Size = new System.Drawing.Size(75, 23);
             this.Ganancias_Button.TabIndex = 4;
@@ -323,10 +598,11 @@
             // 
             // Anno_Combo_Box
             // 
-            this.Anno_Combo_Box.Location = new System.Drawing.Point(199, 81);
+            this.Anno_Combo_Box.Location = new System.Drawing.Point(262, 81);
             this.Anno_Combo_Box.Name = "Anno_Combo_Box";
             this.Anno_Combo_Box.Size = new System.Drawing.Size(121, 20);
             this.Anno_Combo_Box.TabIndex = 3;
+            this.Anno_Combo_Box.TextChanged += new System.EventHandler(this.Anno_Combo_Box_TextChanged);
             // 
             // Mes_Combo_Box
             // 
@@ -345,7 +621,7 @@
             "Octubre",
             "Noviembre",
             "Diciembre"});
-            this.Mes_Combo_Box.Location = new System.Drawing.Point(17, 81);
+            this.Mes_Combo_Box.Location = new System.Drawing.Point(85, 80);
             this.Mes_Combo_Box.Name = "Mes_Combo_Box";
             this.Mes_Combo_Box.Size = new System.Drawing.Size(121, 21);
             this.Mes_Combo_Box.TabIndex = 0;
@@ -354,7 +630,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(238, 55);
+            this.label2.Location = new System.Drawing.Point(298, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 24);
             this.label2.TabIndex = 2;
@@ -364,7 +640,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(51, 54);
+            this.label5.Location = new System.Drawing.Point(127, 54);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 24);
             this.label5.TabIndex = 1;
@@ -418,27 +694,62 @@
             // 
             this.atleta_Info_BasicaTableAdapter.ClearBeforeFill = true;
             // 
-            // label4
+            // cobroIndividualBindingSource
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Green;
-            this.label4.Location = new System.Drawing.Point(470, 36);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(349, 73);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Ganancias";
+            this.cobroIndividualBindingSource.DataMember = "Cobro_Individual";
+            this.cobroIndividualBindingSource.DataSource = this.tritonDataSet;
             // 
-            // Ganancias_Label
+            // cobro_IndividualTableAdapter
             // 
-            this.Ganancias_Label.AutoSize = true;
-            this.Ganancias_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ganancias_Label.Location = new System.Drawing.Point(586, 162);
-            this.Ganancias_Label.Name = "Ganancias_Label";
-            this.Ganancias_Label.Size = new System.Drawing.Size(99, 33);
-            this.Ganancias_Label.TabIndex = 7;
-            this.Ganancias_Label.Text = "label5";
-            this.Ganancias_Label.Visible = false;
+            this.cobro_IndividualTableAdapter.ClearBeforeFill = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(523, 65);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(79, 13);
+            this.label11.TabIndex = 32;
+            this.label11.Text = "Monto mensual";
+            // 
+            // Monto_Mensual_TB_Conta
+            // 
+            this.Monto_Mensual_TB_Conta.Location = new System.Drawing.Point(424, 61);
+            this.Monto_Mensual_TB_Conta.Name = "Monto_Mensual_TB_Conta";
+            this.Monto_Mensual_TB_Conta.Size = new System.Drawing.Size(93, 20);
+            this.Monto_Mensual_TB_Conta.TabIndex = 31;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(103, 126);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(91, 13);
+            this.label12.TabIndex = 34;
+            this.label12.Text = "Número de tarjeta";
+            // 
+            // Numero_Tarjeta_TB_Conta
+            // 
+            this.Numero_Tarjeta_TB_Conta.Location = new System.Drawing.Point(109, 142);
+            this.Numero_Tarjeta_TB_Conta.Name = "Numero_Tarjeta_TB_Conta";
+            this.Numero_Tarjeta_TB_Conta.Size = new System.Drawing.Size(85, 20);
+            this.Numero_Tarjeta_TB_Conta.TabIndex = 33;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(200, 126);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(97, 13);
+            this.label13.TabIndex = 36;
+            this.label13.Text = "Vencimiento tarjeta";
+            // 
+            // Vencimiento_Tarjeta_TB_Conta
+            // 
+            this.Vencimiento_Tarjeta_TB_Conta.Location = new System.Drawing.Point(209, 142);
+            this.Vencimiento_Tarjeta_TB_Conta.Name = "Vencimiento_Tarjeta_TB_Conta";
+            this.Vencimiento_Tarjeta_TB_Conta.Size = new System.Drawing.Size(75, 20);
+            this.Vencimiento_Tarjeta_TB_Conta.TabIndex = 35;
             // 
             // Form1
             // 
@@ -461,11 +772,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.atletaInfoBasicaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tritonDataSet)).EndInit();
             this.tabPage1.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cobroIndividualBindingSource)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -509,6 +823,36 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label Ganancias_Label;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label Tipo_CB_Conta;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox Correo_TB_Conta;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox Codigo_Factura_TB_Conta;
+        private System.Windows.Forms.CheckBox Descuento_Ganancias_Conta;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox CVC_TB_Conta;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox Fecha_Vencimiento_TB_Conta;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox Fecha_Pago_TB_Conta;
+        private System.Windows.Forms.Label Label_Codigo_Descuento;
+        private System.Windows.Forms.TextBox Porcentaje_TB_Descuento;
+        private System.Windows.Forms.Label Label_Porcentaje_Descuento;
+        private System.Windows.Forms.TextBox Codigo_TB_Descuento;
+        private System.Windows.Forms.Label Label_Fecha_Descuento;
+        private System.Windows.Forms.TextBox Fecha_TB_Descuento;
+        private System.Windows.Forms.Button Button_Insertar_Factura;
+        private System.Windows.Forms.BindingSource cobroIndividualBindingSource;
+        private TritonDataSetTableAdapters.Cobro_IndividualTableAdapter cobro_IndividualTableAdapter;
+        private System.Windows.Forms.Label Label_Mensaje_Descuento;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox Monto_Mensual_TB_Conta;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox Numero_Tarjeta_TB_Conta;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox Vencimiento_Tarjeta_TB_Conta;
     }
 }
 
