@@ -16,10 +16,10 @@ namespace Interfaz_Triton
         private bool cambio_checkbox;
 
         public Form1()
-		{
-            cambio_checkbox = true;
-
+        {
             InitializeComponent();
+
+            cambio_checkbox = true;
 
             Label_Codigo_Descuento.Visible = false;
             Label_Fecha_Descuento.Visible = false;
@@ -29,6 +29,14 @@ namespace Interfaz_Triton
             Fecha_TB_Descuento.Visible = false;
             Codigo_TB_Descuento.Visible = false;
             Label_Mensaje_Descuento.Visible = false;
+
+            Cantidad_Semanas_TB_Conta.Visible = false;
+            Label_Cantidad_Semanas_Conta.Visible = false;
+            Semanal_TB_Conta.Visible = false;
+            Label_Monto_Semanal_Conta.Visible = false;
+
+            Label_Monto_Mensual_Conta.Visible = false;
+            Monto_Mensual_TB_Conta.Visible = false;
         }
 
 		private void Atleta_Text_Box_TextChanged(object sender, EventArgs e)
@@ -178,7 +186,26 @@ namespace Interfaz_Triton
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if( Tipo_Cobro_CB_Conta.Text == "Mensual" )
+            {
+                Cantidad_Semanas_TB_Conta.Visible = false;
+                Label_Cantidad_Semanas_Conta.Visible = false;
+                Semanal_TB_Conta.Visible = false;
+                Label_Monto_Semanal_Conta.Visible = false;
 
+                Label_Monto_Mensual_Conta.Visible = true;
+                Monto_Mensual_TB_Conta.Visible = true;
+            }
+            else
+            {
+                Cantidad_Semanas_TB_Conta.Visible = true;
+                Label_Cantidad_Semanas_Conta.Visible = true;
+                Semanal_TB_Conta.Visible = true;
+                Label_Monto_Semanal_Conta.Visible = true;
+
+                Label_Monto_Mensual_Conta.Visible = false;
+                Monto_Mensual_TB_Conta.Visible = false;
+            }
         }
 
         private void Anno_Combo_Box_TextChanged(object sender, EventArgs e)

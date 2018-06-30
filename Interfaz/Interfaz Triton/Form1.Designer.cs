@@ -55,7 +55,7 @@
             this.Vencimiento_Tarjeta_TB_Conta = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.Numero_Tarjeta_TB_Conta = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.Label_Monto_Mensual_Conta = new System.Windows.Forms.Label();
             this.Monto_Mensual_TB_Conta = new System.Windows.Forms.TextBox();
             this.Label_Mensaje_Descuento = new System.Windows.Forms.Label();
             this.Button_Insertar_Factura = new System.Windows.Forms.Button();
@@ -74,7 +74,7 @@
             this.Fecha_Pago_TB_Conta = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.Codigo_Factura_TB_Conta = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Tipo_Cobro_CB_Conta = new System.Windows.Forms.ComboBox();
             this.Tipo_CB_Conta = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.Correo_TB_Conta = new System.Windows.Forms.TextBox();
@@ -96,6 +96,10 @@
             this.atleta_Info_BasicaTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Atleta_Info_BasicaTableAdapter();
             this.cobroIndividualBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cobro_IndividualTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Cobro_IndividualTableAdapter();
+            this.Label_Cantidad_Semanas_Conta = new System.Windows.Forms.Label();
+            this.Cantidad_Semanas_TB_Conta = new System.Windows.Forms.TextBox();
+            this.Label_Monto_Semanal_Conta = new System.Windows.Forms.Label();
+            this.Semanal_TB_Conta = new System.Windows.Forms.TextBox();
             this.Entrenamiento_Tab_Page.SuspendLayout();
             this.Atleta_Tab_Page.SuspendLayout();
             this.Bloques_Group_Box.SuspendLayout();
@@ -317,11 +321,15 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.Label_Monto_Semanal_Conta);
+            this.groupBox4.Controls.Add(this.Semanal_TB_Conta);
+            this.groupBox4.Controls.Add(this.Label_Cantidad_Semanas_Conta);
+            this.groupBox4.Controls.Add(this.Cantidad_Semanas_TB_Conta);
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.Vencimiento_Tarjeta_TB_Conta);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.Numero_Tarjeta_TB_Conta);
-            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.Label_Monto_Mensual_Conta);
             this.groupBox4.Controls.Add(this.Monto_Mensual_TB_Conta);
             this.groupBox4.Controls.Add(this.Label_Mensaje_Descuento);
             this.groupBox4.Controls.Add(this.Button_Insertar_Factura);
@@ -340,7 +348,7 @@
             this.groupBox4.Controls.Add(this.Fecha_Pago_TB_Conta);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.Codigo_Factura_TB_Conta);
-            this.groupBox4.Controls.Add(this.comboBox1);
+            this.groupBox4.Controls.Add(this.Tipo_Cobro_CB_Conta);
             this.groupBox4.Controls.Add(this.Tipo_CB_Conta);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.Correo_TB_Conta);
@@ -383,14 +391,14 @@
             this.Numero_Tarjeta_TB_Conta.Size = new System.Drawing.Size(85, 20);
             this.Numero_Tarjeta_TB_Conta.TabIndex = 33;
             // 
-            // label11
+            // Label_Monto_Mensual_Conta
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(523, 65);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(79, 13);
-            this.label11.TabIndex = 32;
-            this.label11.Text = "Monto mensual";
+            this.Label_Monto_Mensual_Conta.AutoSize = true;
+            this.Label_Monto_Mensual_Conta.Location = new System.Drawing.Point(523, 65);
+            this.Label_Monto_Mensual_Conta.Name = "Label_Monto_Mensual_Conta";
+            this.Label_Monto_Mensual_Conta.Size = new System.Drawing.Size(79, 13);
+            this.Label_Monto_Mensual_Conta.TabIndex = 32;
+            this.Label_Monto_Mensual_Conta.Text = "Monto mensual";
             // 
             // Monto_Mensual_TB_Conta
             // 
@@ -544,18 +552,18 @@
             this.Codigo_Factura_TB_Conta.Size = new System.Drawing.Size(85, 20);
             this.Codigo_Factura_TB_Conta.TabIndex = 12;
             // 
-            // comboBox1
+            // Tipo_Cobro_CB_Conta
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.Tipo_Cobro_CB_Conta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Tipo_Cobro_CB_Conta.FormattingEnabled = true;
+            this.Tipo_Cobro_CB_Conta.Items.AddRange(new object[] {
             "Mensual",
             "Individual"});
-            this.comboBox1.Location = new System.Drawing.Point(281, 60);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 11;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.Tipo_Cobro_CB_Conta.Location = new System.Drawing.Point(281, 60);
+            this.Tipo_Cobro_CB_Conta.Name = "Tipo_Cobro_CB_Conta";
+            this.Tipo_Cobro_CB_Conta.Size = new System.Drawing.Size(121, 21);
+            this.Tipo_Cobro_CB_Conta.TabIndex = 11;
+            this.Tipo_Cobro_CB_Conta.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // Tipo_CB_Conta
             // 
@@ -752,6 +760,38 @@
             // 
             this.cobro_IndividualTableAdapter.ClearBeforeFill = true;
             // 
+            // Label_Cantidad_Semanas_Conta
+            // 
+            this.Label_Cantidad_Semanas_Conta.AutoSize = true;
+            this.Label_Cantidad_Semanas_Conta.Location = new System.Drawing.Point(523, 46);
+            this.Label_Cantidad_Semanas_Conta.Name = "Label_Cantidad_Semanas_Conta";
+            this.Label_Cantidad_Semanas_Conta.Size = new System.Drawing.Size(109, 13);
+            this.Label_Cantidad_Semanas_Conta.TabIndex = 38;
+            this.Label_Cantidad_Semanas_Conta.Text = "Cantidad de semanas";
+            // 
+            // Cantidad_Semanas_TB_Conta
+            // 
+            this.Cantidad_Semanas_TB_Conta.Location = new System.Drawing.Point(424, 42);
+            this.Cantidad_Semanas_TB_Conta.Name = "Cantidad_Semanas_TB_Conta";
+            this.Cantidad_Semanas_TB_Conta.Size = new System.Drawing.Size(93, 20);
+            this.Cantidad_Semanas_TB_Conta.TabIndex = 37;
+            // 
+            // Label_Monto_Semanal_Conta
+            // 
+            this.Label_Monto_Semanal_Conta.AutoSize = true;
+            this.Label_Monto_Semanal_Conta.Location = new System.Drawing.Point(523, 81);
+            this.Label_Monto_Semanal_Conta.Name = "Label_Monto_Semanal_Conta";
+            this.Label_Monto_Semanal_Conta.Size = new System.Drawing.Size(79, 13);
+            this.Label_Monto_Semanal_Conta.TabIndex = 40;
+            this.Label_Monto_Semanal_Conta.Text = "Monto semanal";
+            // 
+            // Semanal_TB_Conta
+            // 
+            this.Semanal_TB_Conta.Location = new System.Drawing.Point(424, 77);
+            this.Semanal_TB_Conta.Name = "Semanal_TB_Conta";
+            this.Semanal_TB_Conta.Size = new System.Drawing.Size(93, 20);
+            this.Semanal_TB_Conta.TabIndex = 39;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -825,7 +865,7 @@
         private System.Windows.Forms.Label Ganancias_Label;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox Tipo_Cobro_CB_Conta;
         private System.Windows.Forms.Label Tipo_CB_Conta;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox Correo_TB_Conta;
@@ -848,12 +888,16 @@
         private System.Windows.Forms.BindingSource cobroIndividualBindingSource;
         private TritonDataSetTableAdapters.Cobro_IndividualTableAdapter cobro_IndividualTableAdapter;
         private System.Windows.Forms.Label Label_Mensaje_Descuento;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label Label_Monto_Mensual_Conta;
         private System.Windows.Forms.TextBox Monto_Mensual_TB_Conta;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox Numero_Tarjeta_TB_Conta;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox Vencimiento_Tarjeta_TB_Conta;
+        private System.Windows.Forms.Label Label_Monto_Semanal_Conta;
+        private System.Windows.Forms.TextBox Semanal_TB_Conta;
+        private System.Windows.Forms.Label Label_Cantidad_Semanas_Conta;
+        private System.Windows.Forms.TextBox Cantidad_Semanas_TB_Conta;
     }
 }
 
