@@ -28,6 +28,7 @@ namespace Interfaz_Triton
             Porcentaje_TB_Descuento.Visible = false;
             Fecha_TB_Descuento.Visible = false;
             Codigo_TB_Descuento.Visible = false;
+            Label_Mensaje_Descuento.Visible = false;
         }
 
 		private void Atleta_Text_Box_TextChanged(object sender, EventArgs e)
@@ -241,17 +242,16 @@ namespace Interfaz_Triton
             cmd.Parameters.Add("@Porcentaje_Descuento", System.Data.SqlDbType.Int);
 
             //Asigno los valores
-            // FALTA
+            cmd.Parameters["@Codigo_Atleta_FK"].Value = 21;
             cmd.Parameters["@ID_Factura_PK"].Value = Convert.ToInt32(Codigo_Factura_TB_Conta.Text);
-            //cmd.Parameters["@Codigo_Atleta_FK"].Value = textBox12.Text; FALTA
-            cmd.Parameters["@Fecha_Pago"].Value = Fecha_Pago_TB_Conta.Text;
-            cmd.Parameters["@Fecha_Finalización"].Value = Convert.ToDateTime(Fecha_Vencimiento_TB_Conta.Text);
+            cmd.Parameters["@Fecha_Pago"].Value = DateTime.Parse(Fecha_Pago_TB_Conta.Text);
+            cmd.Parameters["@Fecha_Finalización"].Value = DateTime.Parse(Fecha_Vencimiento_TB_Conta.Text);
             cmd.Parameters["@Número_Tarjeta"].Value = Numero_Tarjeta_TB_Conta.Text;
-            cmd.Parameters["@Fecha_Vencimiento"].Value = Vencimiento_Tarjeta_TB_Conta.Text;
-            cmd.Parameters["@CVC"].Value = CVC_TB_Conta.Text;
-            cmd.Parameters["@Codigo_Descuento"].Value = Codigo_Factura_TB_Conta.Text;
-            cmd.Parameters["@Duracion_Descuento"].Value = Fecha_TB_Descuento.Text;
-            cmd.Parameters["@Porcentaje_Descuento"].Value = Porcentaje_TB_Descuento.Text;
+            cmd.Parameters["@Fecha_Vencimiento"].Value = DateTime.Parse(Vencimiento_Tarjeta_TB_Conta.Text);
+            cmd.Parameters["@CVC"].Value = Convert.ToInt32(CVC_TB_Conta.Text);
+            cmd.Parameters["@Codigo_Descuento"].Value = Convert.ToInt32(Codigo_TB_Descuento.Text);
+            cmd.Parameters["@Duracion_Descuento"].Value = DateTime.Parse(Fecha_TB_Descuento.Text);
+            cmd.Parameters["@Porcentaje_Descuento"].Value = Convert.ToInt32(Porcentaje_TB_Descuento.Text);
 
 
             connection.Open();
@@ -259,8 +259,11 @@ namespace Interfaz_Triton
             cmd.ExecuteNonQuery();
             connection.Close();
 
-            DataRow[] busqueda = tritonDataSet.Entrenamiento_Individual.Select();   // Hago un SELECT acorde a la busqueda.  Ojo, es un VIEW.		
-            //EntrenamientoDG.DataSource = busqueda;
+        }
+
+        private void Fecha_TB_Descuento_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

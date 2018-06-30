@@ -466,6 +466,7 @@
             this.Fecha_TB_Descuento.Name = "Fecha_TB_Descuento";
             this.Fecha_TB_Descuento.Size = new System.Drawing.Size(121, 20);
             this.Fecha_TB_Descuento.TabIndex = 23;
+            this.Fecha_TB_Descuento.TextChanged += new System.EventHandler(this.Fecha_TB_Descuento_TextChanged);
             // 
             // Descuento_Ganancias_Conta
             // 
