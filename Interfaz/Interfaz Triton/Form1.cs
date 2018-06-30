@@ -140,26 +140,73 @@ namespace Interfaz_Triton
 
         private void button2_Click(object sender, EventArgs e)
         {
-            TritonDataSetTableAdapters.Prueba_FisicaTableAdapter pruebaTableAdapter = new TritonDataSetTableAdapters.Prueba_FisicaTableAdapter();
+            
+             try
+             {
+                String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
+                SqlConnection connection = new SqlConnection(connectionStr);
 
-            //try
-            {
+                SqlCommand cmd = new SqlCommand("Insert into Prueba_Fisica (Codigo_Atleta_FK, Fecha_Prueba_PK, Tipo_Prueba_PK, Resultados) values (@CodigoAtleta,@Fecha,@Tipo,@Resultados)", connection);
 
-            }
+                DataRowView drv = (DataRowView)comboBox3.SelectedItem;
+                String correoStr = drv["Correo"].ToString();
+
+                SqlCommand cmd2 = new SqlCommand("SELECT dbo.ObtenerCodigo(" + "'" + correoStr + "'"+ ")", connection);
+
+           
+
+
+                cmd.Parameters.Add("@CodigoAtleta", System.Data.SqlDbType.Int);
+                cmd.Parameters.Add("@Fecha", System.Data.SqlDbType.Date);
+                cmd.Parameters.Add("@Tipo", System.Data.SqlDbType.VarChar);
+                cmd.Parameters.Add("@Resultados", System.Data.SqlDbType.VarChar);
+
+                //Asigno los valores
+
+                connection.Open();
+
+                int codigoAtleta = (int)(cmd2.ExecuteScalar());
+
+                String diaStr = comboBox1.Text;
+                String mesStr = comboBox2.Text;
+                String annoStr = textBox5.Text;
+                String tipoStr = textBox4.Text;
+                String resultStr = textBox2.Text;
+
+                cmd.Parameters["@CodigoAtleta"].Value = codigoAtleta;
+                cmd.Parameters["@Fecha"].Value = annoStr + "-" + mesStr + "-" + diaStr;
+                cmd.Parameters["@Tipo"].Value = tipoStr;
+                cmd.Parameters["@Resultados"].Value = resultStr;
+
+            
+
+                cmd.ExecuteNonQuery();
+                connection.Close();
+
+                limpiarTextoPruebas();
+             }catch (Exception exception)
+             {
+                 exception.ToString();
+                 //advertenciaLabel.Visible = true;
+             }
+
         }
 
-        private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void limpiarTextoPruebas()
         {
-            //textBox1.Text = listBox1.SelectedItem.ToString();
-            DataRowView drv = (DataRowView)listBox1.SelectedItem;
-            String valueOfItem = drv["Correo"].ToString();
-            textBox1.Text = valueOfItem;
+            comboBox1.SelectedIndex = -1;
+            comboBox2.SelectedIndex = -1;
+            comboBox3.SelectedIndex = -1;
+            textBox5.Clear();
+            textBox4.Clear();
+            textBox2.Clear();
+        }
 
-        }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            textBox1.Update();
+            
         }
+        
     }
 }
