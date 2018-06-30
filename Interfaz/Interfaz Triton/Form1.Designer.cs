@@ -29,26 +29,32 @@
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            this.Entrenamiento_Tab_Page = new System.Windows.Forms.TabControl();
-            this.Atleta_Tab_Page = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.Bloques_Group_Box = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Datos_Group_Box = new System.Windows.Forms.GroupBox();
-            this.Atleta_Data_Grid_View = new System.Windows.Forms.DataGridView();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaNacimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefonosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.atletaInfoBasicaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tritonDataSet = new Interfaz_Triton.TritonDataSet();
-            this.Buscar_Atleta_Button = new System.Windows.Forms.Button();
-            this.Nombre = new System.Windows.Forms.Label();
-            this.Atleta_Text_Box = new System.Windows.Forms.TextBox();
-            this.Entrenamientos_Tab_Page = new System.Windows.Forms.TabPage();
+            this.atletaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.atletaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.atletaTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.AtletaTableAdapter();
+            this.atleta_Info_BasicaTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Atleta_Info_BasicaTableAdapter();
+            this.cobroIndividualBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cobro_IndividualTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Cobro_IndividualTableAdapter();
+            this.entrenamientoIndividualBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.entrenamiento_IndividualTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Entrenamiento_IndividualTableAdapter();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Button_Insertar_Prueba_Fisica = new System.Windows.Forms.Button();
+            this.Resultados_TB_Prueba_Fisica = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.Tipo_Prueba_Fisica_TB = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.Anno_TB_Prueba_Fisica = new System.Windows.Forms.TextBox();
+            this.Dia_CB_Prueba_Fisica = new System.Windows.Forms.ComboBox();
+            this.Mes_CB_Prueba_Fisica = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.Atleta_CB_Prueba_Fisica = new System.Windows.Forms.ComboBox();
+            this.atletaBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.Label_Monto_Semanal_Conta = new System.Windows.Forms.Label();
@@ -90,195 +96,64 @@
             this.Mes_Combo_Box = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.atletaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.atletaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.atletaTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.AtletaTableAdapter();
-            this.atleta_Info_BasicaTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Atleta_Info_BasicaTableAdapter();
-            this.cobroIndividualBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cobro_IndividualTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Cobro_IndividualTableAdapter();
+            this.Entrenamientos_Tab_Page = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.Rutina_TB = new System.Windows.Forms.TextBox();
-            this.Nivel_TB = new System.Windows.Forms.TextBox();
-            this.Deporte_TB = new System.Windows.Forms.TextBox();
-            this.Codigo_TB = new System.Windows.Forms.TextBox();
+            this.Button_Borrar = new System.Windows.Forms.Button();
+            this.Button_Modificar = new System.Windows.Forms.Button();
+            this.Button_Insertar = new System.Windows.Forms.Button();
             this.EntrenamientoDG = new System.Windows.Forms.DataGridView();
-            this.entrenamientoIndividualBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.entrenamiento_IndividualTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Entrenamiento_IndividualTableAdapter();
             this.codigoEntrenamientoPKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deporteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rutinaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nivelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Button_Insertar = new System.Windows.Forms.Button();
-            this.Button_Modificar = new System.Windows.Forms.Button();
-            this.Button_Borrar = new System.Windows.Forms.Button();
-            this.Entrenamiento_Tab_Page.SuspendLayout();
+            this.Codigo_TB = new System.Windows.Forms.TextBox();
+            this.Deporte_TB = new System.Windows.Forms.TextBox();
+            this.Nivel_TB = new System.Windows.Forms.TextBox();
+            this.Rutina_TB = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.Atleta_Tab_Page = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.Bloques_Group_Box = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Datos_Group_Box = new System.Windows.Forms.GroupBox();
+            this.Atleta_Data_Grid_View = new System.Windows.Forms.DataGridView();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaNacimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefonosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Buscar_Atleta_Button = new System.Windows.Forms.Button();
+            this.Nombre = new System.Windows.Forms.Label();
+            this.Atleta_Text_Box = new System.Windows.Forms.TextBox();
+            this.Entrenamiento_Tab_Page = new System.Windows.Forms.TabControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.atletaInfoBasicaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tritonDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cobroIndividualBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.entrenamientoIndividualBindingSource)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource2)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.Entrenamientos_Tab_Page.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EntrenamientoDG)).BeginInit();
             this.Atleta_Tab_Page.SuspendLayout();
             this.Bloques_Group_Box.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Datos_Group_Box.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Atleta_Data_Grid_View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.atletaInfoBasicaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tritonDataSet)).BeginInit();
-            this.Entrenamientos_Tab_Page.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cobroIndividualBindingSource)).BeginInit();
-            this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.EntrenamientoDG)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.entrenamientoIndividualBindingSource)).BeginInit();
+            this.Entrenamiento_Tab_Page.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Entrenamiento_Tab_Page
-            // 
-            this.Entrenamiento_Tab_Page.Controls.Add(this.Atleta_Tab_Page);
-            this.Entrenamiento_Tab_Page.Controls.Add(this.Entrenamientos_Tab_Page);
-            this.Entrenamiento_Tab_Page.Controls.Add(this.tabPage1);
-            this.Entrenamiento_Tab_Page.Controls.Add(this.tabPage2);
-            this.Entrenamiento_Tab_Page.Location = new System.Drawing.Point(0, 0);
-            this.Entrenamiento_Tab_Page.Name = "Entrenamiento_Tab_Page";
-            this.Entrenamiento_Tab_Page.SelectedIndex = 0;
-            this.Entrenamiento_Tab_Page.Size = new System.Drawing.Size(891, 710);
-            this.Entrenamiento_Tab_Page.TabIndex = 0;
-            // 
-            // Atleta_Tab_Page
-            // 
-            this.Atleta_Tab_Page.Controls.Add(this.label3);
-            this.Atleta_Tab_Page.Controls.Add(this.button1);
-            this.Atleta_Tab_Page.Controls.Add(this.Bloques_Group_Box);
-            this.Atleta_Tab_Page.Controls.Add(this.Datos_Group_Box);
-            this.Atleta_Tab_Page.Location = new System.Drawing.Point(4, 22);
-            this.Atleta_Tab_Page.Name = "Atleta_Tab_Page";
-            this.Atleta_Tab_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.Atleta_Tab_Page.Size = new System.Drawing.Size(883, 684);
-            this.Atleta_Tab_Page.TabIndex = 0;
-            this.Atleta_Tab_Page.Text = "Atleta";
-            this.Atleta_Tab_Page.UseVisualStyleBackColor = true;
-            this.Atleta_Tab_Page.Click += new System.EventHandler(this.Atleta_Tab_Page_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(18, 143);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(320, 20);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Obtener numero de pruebas fisica por atleta";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(344, 143);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 28);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Ver pruebas";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // Bloques_Group_Box
-            // 
-            this.Bloques_Group_Box.Controls.Add(this.label1);
-            this.Bloques_Group_Box.Controls.Add(this.dataGridView1);
-            this.Bloques_Group_Box.Location = new System.Drawing.Point(6, 195);
-            this.Bloques_Group_Box.Name = "Bloques_Group_Box";
-            this.Bloques_Group_Box.Size = new System.Drawing.Size(877, 294);
-            this.Bloques_Group_Box.TabIndex = 1;
-            this.Bloques_Group_Box.TabStop = false;
-            this.Bloques_Group_Box.Text = "Bloques de entrenamiento";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(11, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(412, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Números de pruebas físicas por atleta";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 72);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(841, 212);
-            this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Datos_Group_Box
-            // 
-            this.Datos_Group_Box.Controls.Add(this.Atleta_Data_Grid_View);
-            this.Datos_Group_Box.Controls.Add(this.Buscar_Atleta_Button);
-            this.Datos_Group_Box.Controls.Add(this.Nombre);
-            this.Datos_Group_Box.Controls.Add(this.Atleta_Text_Box);
-            this.Datos_Group_Box.Location = new System.Drawing.Point(6, 6);
-            this.Datos_Group_Box.Name = "Datos_Group_Box";
-            this.Datos_Group_Box.Size = new System.Drawing.Size(877, 129);
-            this.Datos_Group_Box.TabIndex = 0;
-            this.Datos_Group_Box.TabStop = false;
-            this.Datos_Group_Box.Text = "Datos";
-            this.Datos_Group_Box.Enter += new System.EventHandler(this.Atleta_Group_Box_Enter);
-            // 
-            // Atleta_Data_Grid_View
-            // 
-            this.Atleta_Data_Grid_View.AllowUserToOrderColumns = true;
-            this.Atleta_Data_Grid_View.AutoGenerateColumns = false;
-            this.Atleta_Data_Grid_View.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Atleta_Data_Grid_View.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nombreDataGridViewTextBoxColumn,
-            this.apellido1DataGridViewTextBoxColumn,
-            this.apellido2DataGridViewTextBoxColumn,
-            this.fechaNacimientoDataGridViewTextBoxColumn,
-            this.telefonosDataGridViewTextBoxColumn});
-            this.Atleta_Data_Grid_View.DataSource = this.atletaInfoBasicaBindingSource;
-            this.Atleta_Data_Grid_View.Location = new System.Drawing.Point(326, 16);
-            this.Atleta_Data_Grid_View.Name = "Atleta_Data_Grid_View";
-            this.Atleta_Data_Grid_View.Size = new System.Drawing.Size(545, 107);
-            this.Atleta_Data_Grid_View.TabIndex = 4;
-            this.Atleta_Data_Grid_View.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Atleta_Data_Grid_View_CellContentClick_1);
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            // 
-            // apellido1DataGridViewTextBoxColumn
-            // 
-            this.apellido1DataGridViewTextBoxColumn.DataPropertyName = "Apellido1";
-            this.apellido1DataGridViewTextBoxColumn.HeaderText = "Apellido1";
-            this.apellido1DataGridViewTextBoxColumn.Name = "apellido1DataGridViewTextBoxColumn";
-            // 
-            // apellido2DataGridViewTextBoxColumn
-            // 
-            this.apellido2DataGridViewTextBoxColumn.DataPropertyName = "Apellido2";
-            this.apellido2DataGridViewTextBoxColumn.HeaderText = "Apellido2";
-            this.apellido2DataGridViewTextBoxColumn.Name = "apellido2DataGridViewTextBoxColumn";
-            // 
-            // fechaNacimientoDataGridViewTextBoxColumn
-            // 
-            this.fechaNacimientoDataGridViewTextBoxColumn.DataPropertyName = "Fecha_Nacimiento";
-            this.fechaNacimientoDataGridViewTextBoxColumn.HeaderText = "Fecha_Nacimiento";
-            this.fechaNacimientoDataGridViewTextBoxColumn.Name = "fechaNacimientoDataGridViewTextBoxColumn";
-            // 
-            // telefonosDataGridViewTextBoxColumn
-            // 
-            this.telefonosDataGridViewTextBoxColumn.DataPropertyName = "Telefonos";
-            this.telefonosDataGridViewTextBoxColumn.HeaderText = "Telefonos";
-            this.telefonosDataGridViewTextBoxColumn.Name = "telefonosDataGridViewTextBoxColumn";
             // 
             // atletaInfoBasicaBindingSource
             // 
@@ -290,45 +165,238 @@
             this.tritonDataSet.DataSetName = "TritonDataSet";
             this.tritonDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // Buscar_Atleta_Button
+            // atletaBindingSource1
             // 
-            this.Buscar_Atleta_Button.Location = new System.Drawing.Point(154, 70);
-            this.Buscar_Atleta_Button.Name = "Buscar_Atleta_Button";
-            this.Buscar_Atleta_Button.Size = new System.Drawing.Size(106, 23);
-            this.Buscar_Atleta_Button.TabIndex = 3;
-            this.Buscar_Atleta_Button.Text = "Buscar atleta";
-            this.Buscar_Atleta_Button.UseVisualStyleBackColor = true;
-            this.Buscar_Atleta_Button.Click += new System.EventHandler(this.Buscar_Atleta_Button_Click);
+            this.atletaBindingSource1.DataMember = "Atleta";
+            this.atletaBindingSource1.DataSource = this.tritonDataSet;
             // 
-            // Nombre
+            // atletaBindingSource
             // 
-            this.Nombre.AutoSize = true;
-            this.Nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nombre.ForeColor = System.Drawing.Color.Black;
-            this.Nombre.Location = new System.Drawing.Point(1, 16);
-            this.Nombre.Name = "Nombre";
-            this.Nombre.Size = new System.Drawing.Size(93, 25);
-            this.Nombre.TabIndex = 2;
-            this.Nombre.Text = "Nombre";
+            this.atletaBindingSource.DataMember = "Atleta";
+            this.atletaBindingSource.DataSource = this.tritonDataSet;
             // 
-            // Atleta_Text_Box
+            // atletaTableAdapter
             // 
-            this.Atleta_Text_Box.Location = new System.Drawing.Point(2, 44);
-            this.Atleta_Text_Box.Name = "Atleta_Text_Box";
-            this.Atleta_Text_Box.Size = new System.Drawing.Size(258, 20);
-            this.Atleta_Text_Box.TabIndex = 1;
-            this.Atleta_Text_Box.TextChanged += new System.EventHandler(this.Atleta_Text_Box_TextChanged);
+            this.atletaTableAdapter.ClearBeforeFill = true;
             // 
-            // Entrenamientos_Tab_Page
+            // atleta_Info_BasicaTableAdapter
             // 
-            this.Entrenamientos_Tab_Page.Controls.Add(this.groupBox5);
-            this.Entrenamientos_Tab_Page.Location = new System.Drawing.Point(4, 22);
-            this.Entrenamientos_Tab_Page.Name = "Entrenamientos_Tab_Page";
-            this.Entrenamientos_Tab_Page.Padding = new System.Windows.Forms.Padding(3);
-            this.Entrenamientos_Tab_Page.Size = new System.Drawing.Size(883, 684);
-            this.Entrenamientos_Tab_Page.TabIndex = 1;
-            this.Entrenamientos_Tab_Page.Text = "Entrenamientos";
-            this.Entrenamientos_Tab_Page.UseVisualStyleBackColor = true;
+            this.atleta_Info_BasicaTableAdapter.ClearBeforeFill = true;
+            // 
+            // cobroIndividualBindingSource
+            // 
+            this.cobroIndividualBindingSource.DataMember = "Cobro_Individual";
+            this.cobroIndividualBindingSource.DataSource = this.tritonDataSet;
+            // 
+            // cobro_IndividualTableAdapter
+            // 
+            this.cobro_IndividualTableAdapter.ClearBeforeFill = true;
+            // 
+            // entrenamientoIndividualBindingSource
+            // 
+            this.entrenamientoIndividualBindingSource.DataMember = "Entrenamiento_Individual";
+            this.entrenamientoIndividualBindingSource.DataSource = this.tritonDataSet;
+            // 
+            // entrenamiento_IndividualTableAdapter
+            // 
+            this.entrenamiento_IndividualTableAdapter.ClearBeforeFill = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.groupBox3);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(883, 684);
+            this.tabPage2.TabIndex = 3;
+            this.tabPage2.Text = "Pruebas físicas";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.Button_Insertar_Prueba_Fisica);
+            this.groupBox3.Controls.Add(this.Resultados_TB_Prueba_Fisica);
+            this.groupBox3.Controls.Add(this.label22);
+            this.groupBox3.Controls.Add(this.Tipo_Prueba_Fisica_TB);
+            this.groupBox3.Controls.Add(this.label21);
+            this.groupBox3.Controls.Add(this.Anno_TB_Prueba_Fisica);
+            this.groupBox3.Controls.Add(this.Dia_CB_Prueba_Fisica);
+            this.groupBox3.Controls.Add(this.Mes_CB_Prueba_Fisica);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Controls.Add(this.label17);
+            this.groupBox3.Controls.Add(this.Atleta_CB_Prueba_Fisica);
+            this.groupBox3.Location = new System.Drawing.Point(3, 8);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(872, 478);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Insertar prueba física";
+            // 
+            // Button_Insertar_Prueba_Fisica
+            // 
+            this.Button_Insertar_Prueba_Fisica.Location = new System.Drawing.Point(353, 141);
+            this.Button_Insertar_Prueba_Fisica.Name = "Button_Insertar_Prueba_Fisica";
+            this.Button_Insertar_Prueba_Fisica.Size = new System.Drawing.Size(75, 23);
+            this.Button_Insertar_Prueba_Fisica.TabIndex = 11;
+            this.Button_Insertar_Prueba_Fisica.Text = "Insertar";
+            this.Button_Insertar_Prueba_Fisica.UseVisualStyleBackColor = true;
+            this.Button_Insertar_Prueba_Fisica.Click += new System.EventHandler(this.Insertar_Prueba_Fisica_Click);
+            // 
+            // Resultados_TB_Prueba_Fisica
+            // 
+            this.Resultados_TB_Prueba_Fisica.Location = new System.Drawing.Point(599, 43);
+            this.Resultados_TB_Prueba_Fisica.Multiline = true;
+            this.Resultados_TB_Prueba_Fisica.Name = "Resultados_TB_Prueba_Fisica";
+            this.Resultados_TB_Prueba_Fisica.Size = new System.Drawing.Size(267, 82);
+            this.Resultados_TB_Prueba_Fisica.TabIndex = 9;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(702, 27);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(60, 13);
+            this.label22.TabIndex = 10;
+            this.label22.Text = "Resultados";
+            // 
+            // Tipo_Prueba_Fisica_TB
+            // 
+            this.Tipo_Prueba_Fisica_TB.Location = new System.Drawing.Point(442, 81);
+            this.Tipo_Prueba_Fisica_TB.Name = "Tipo_Prueba_Fisica_TB";
+            this.Tipo_Prueba_Fisica_TB.Size = new System.Drawing.Size(133, 20);
+            this.Tipo_Prueba_Fisica_TB.TabIndex = 7;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(455, 65);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(108, 13);
+            this.label21.TabIndex = 8;
+            this.label21.Text = "Tipo de prueba física";
+            // 
+            // Anno_TB_Prueba_Fisica
+            // 
+            this.Anno_TB_Prueba_Fisica.Location = new System.Drawing.Point(353, 82);
+            this.Anno_TB_Prueba_Fisica.Name = "Anno_TB_Prueba_Fisica";
+            this.Anno_TB_Prueba_Fisica.Size = new System.Drawing.Size(51, 20);
+            this.Anno_TB_Prueba_Fisica.TabIndex = 2;
+            // 
+            // Dia_CB_Prueba_Fisica
+            // 
+            this.Dia_CB_Prueba_Fisica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Dia_CB_Prueba_Fisica.FormattingEnabled = true;
+            this.Dia_CB_Prueba_Fisica.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31"});
+            this.Dia_CB_Prueba_Fisica.Location = new System.Drawing.Point(203, 80);
+            this.Dia_CB_Prueba_Fisica.Name = "Dia_CB_Prueba_Fisica";
+            this.Dia_CB_Prueba_Fisica.Size = new System.Drawing.Size(45, 21);
+            this.Dia_CB_Prueba_Fisica.TabIndex = 6;
+            // 
+            // Mes_CB_Prueba_Fisica
+            // 
+            this.Mes_CB_Prueba_Fisica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Mes_CB_Prueba_Fisica.FormattingEnabled = true;
+            this.Mes_CB_Prueba_Fisica.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.Mes_CB_Prueba_Fisica.Location = new System.Drawing.Point(278, 80);
+            this.Mes_CB_Prueba_Fisica.Name = "Mes_CB_Prueba_Fisica";
+            this.Mes_CB_Prueba_Fisica.Size = new System.Drawing.Size(45, 21);
+            this.Mes_CB_Prueba_Fisica.TabIndex = 5;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(287, 64);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(27, 13);
+            this.label20.TabIndex = 4;
+            this.label20.Text = "Mes";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(363, 64);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(26, 13);
+            this.label19.TabIndex = 3;
+            this.label19.Text = "Año";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(212, 64);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(25, 13);
+            this.label18.TabIndex = 2;
+            this.label18.Text = "Día";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(65, 64);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(34, 13);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Atleta";
+            // 
+            // Atleta_CB_Prueba_Fisica
+            // 
+            this.Atleta_CB_Prueba_Fisica.DataSource = this.atletaBindingSource1;
+            this.Atleta_CB_Prueba_Fisica.DisplayMember = "Correo";
+            this.Atleta_CB_Prueba_Fisica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Atleta_CB_Prueba_Fisica.FormattingEnabled = true;
+            this.Atleta_CB_Prueba_Fisica.Location = new System.Drawing.Point(29, 81);
+            this.Atleta_CB_Prueba_Fisica.Name = "Atleta_CB_Prueba_Fisica";
+            this.Atleta_CB_Prueba_Fisica.Size = new System.Drawing.Size(121, 21);
+            this.Atleta_CB_Prueba_Fisica.TabIndex = 0;
+            // 
+            // atletaBindingSource2
+            // 
+            this.atletaBindingSource2.DataMember = "Atleta";
+            this.atletaBindingSource2.DataSource = this.tritonDataSet;
             // 
             // tabPage1
             // 
@@ -748,61 +816,16 @@
             this.label5.Text = "Mes";
             this.label5.Click += new System.EventHandler(this.label2_Click);
             // 
-            // tabPage2
+            // Entrenamientos_Tab_Page
             // 
-            this.tabPage2.Controls.Add(this.groupBox3);
-            this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(883, 684);
-            this.tabPage2.TabIndex = 3;
-            this.tabPage2.Text = "Atleta2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Location = new System.Drawing.Point(436, 8);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(422, 478);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Buscar atleta";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Location = new System.Drawing.Point(8, 8);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(422, 478);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Agregar atleta";
-            // 
-            // atletaBindingSource1
-            // 
-            this.atletaBindingSource1.DataMember = "Atleta";
-            this.atletaBindingSource1.DataSource = this.tritonDataSet;
-            // 
-            // atletaBindingSource
-            // 
-            this.atletaBindingSource.DataMember = "Atleta";
-            this.atletaBindingSource.DataSource = this.tritonDataSet;
-            // 
-            // atletaTableAdapter
-            // 
-            this.atletaTableAdapter.ClearBeforeFill = true;
-            // 
-            // atleta_Info_BasicaTableAdapter
-            // 
-            this.atleta_Info_BasicaTableAdapter.ClearBeforeFill = true;
-            // 
-            // cobroIndividualBindingSource
-            // 
-            this.cobroIndividualBindingSource.DataMember = "Cobro_Individual";
-            this.cobroIndividualBindingSource.DataSource = this.tritonDataSet;
-            // 
-            // cobro_IndividualTableAdapter
-            // 
-            this.cobro_IndividualTableAdapter.ClearBeforeFill = true;
+            this.Entrenamientos_Tab_Page.Controls.Add(this.groupBox5);
+            this.Entrenamientos_Tab_Page.Location = new System.Drawing.Point(4, 22);
+            this.Entrenamientos_Tab_Page.Name = "Entrenamientos_Tab_Page";
+            this.Entrenamientos_Tab_Page.Padding = new System.Windows.Forms.Padding(3);
+            this.Entrenamientos_Tab_Page.Size = new System.Drawing.Size(883, 684);
+            this.Entrenamientos_Tab_Page.TabIndex = 1;
+            this.Entrenamientos_Tab_Page.Text = "Entrenamientos";
+            this.Entrenamientos_Tab_Page.UseVisualStyleBackColor = true;
             // 
             // groupBox5
             // 
@@ -825,70 +848,35 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Acciones";
             // 
-            // label11
+            // Button_Borrar
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(24, 53);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(40, 13);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Código";
+            this.Button_Borrar.Location = new System.Drawing.Point(287, 230);
+            this.Button_Borrar.Name = "Button_Borrar";
+            this.Button_Borrar.Size = new System.Drawing.Size(75, 23);
+            this.Button_Borrar.TabIndex = 11;
+            this.Button_Borrar.Text = "Borrar";
+            this.Button_Borrar.UseVisualStyleBackColor = true;
+            this.Button_Borrar.Click += new System.EventHandler(this.Button_Borrar_Click);
             // 
-            // label14
+            // Button_Modificar
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(24, 262);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(31, 13);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "Nivel";
+            this.Button_Modificar.Location = new System.Drawing.Point(287, 159);
+            this.Button_Modificar.Name = "Button_Modificar";
+            this.Button_Modificar.Size = new System.Drawing.Size(75, 23);
+            this.Button_Modificar.TabIndex = 10;
+            this.Button_Modificar.Text = "Modificar";
+            this.Button_Modificar.UseVisualStyleBackColor = true;
+            this.Button_Modificar.Click += new System.EventHandler(this.Button_Modificar_Click);
             // 
-            // label15
+            // Button_Insertar
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(24, 127);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(45, 13);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "Deporte";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(24, 198);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(38, 13);
-            this.label16.TabIndex = 3;
-            this.label16.Text = "Rutina";
-            // 
-            // Rutina_TB
-            // 
-            this.Rutina_TB.Location = new System.Drawing.Point(124, 191);
-            this.Rutina_TB.Name = "Rutina_TB";
-            this.Rutina_TB.Size = new System.Drawing.Size(100, 20);
-            this.Rutina_TB.TabIndex = 4;
-            // 
-            // Nivel_TB
-            // 
-            this.Nivel_TB.Location = new System.Drawing.Point(124, 259);
-            this.Nivel_TB.Name = "Nivel_TB";
-            this.Nivel_TB.Size = new System.Drawing.Size(100, 20);
-            this.Nivel_TB.TabIndex = 5;
-            // 
-            // Deporte_TB
-            // 
-            this.Deporte_TB.Location = new System.Drawing.Point(124, 124);
-            this.Deporte_TB.Name = "Deporte_TB";
-            this.Deporte_TB.Size = new System.Drawing.Size(100, 20);
-            this.Deporte_TB.TabIndex = 6;
-            // 
-            // Codigo_TB
-            // 
-            this.Codigo_TB.Location = new System.Drawing.Point(124, 50);
-            this.Codigo_TB.Name = "Codigo_TB";
-            this.Codigo_TB.Size = new System.Drawing.Size(100, 20);
-            this.Codigo_TB.TabIndex = 7;
-            this.Codigo_TB.TextChanged += new System.EventHandler(this.Codigo_TB_TextChanged);
+            this.Button_Insertar.Location = new System.Drawing.Point(287, 91);
+            this.Button_Insertar.Name = "Button_Insertar";
+            this.Button_Insertar.Size = new System.Drawing.Size(75, 23);
+            this.Button_Insertar.TabIndex = 9;
+            this.Button_Insertar.Text = "Insertar";
+            this.Button_Insertar.UseVisualStyleBackColor = true;
+            this.Button_Insertar.Click += new System.EventHandler(this.Button_Insertar_Click);
             // 
             // EntrenamientoDG
             // 
@@ -905,15 +893,6 @@
             this.EntrenamientoDG.Size = new System.Drawing.Size(466, 222);
             this.EntrenamientoDG.TabIndex = 8;
             this.EntrenamientoDG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick_1);
-            // 
-            // entrenamientoIndividualBindingSource
-            // 
-            this.entrenamientoIndividualBindingSource.DataMember = "Entrenamiento_Individual";
-            this.entrenamientoIndividualBindingSource.DataSource = this.tritonDataSet;
-            // 
-            // entrenamiento_IndividualTableAdapter
-            // 
-            this.entrenamiento_IndividualTableAdapter.ClearBeforeFill = true;
             // 
             // codigoEntrenamientoPKDataGridViewTextBoxColumn
             // 
@@ -939,35 +918,245 @@
             this.nivelDataGridViewTextBoxColumn.HeaderText = "Nivel";
             this.nivelDataGridViewTextBoxColumn.Name = "nivelDataGridViewTextBoxColumn";
             // 
-            // Button_Insertar
+            // Codigo_TB
             // 
-            this.Button_Insertar.Location = new System.Drawing.Point(287, 91);
-            this.Button_Insertar.Name = "Button_Insertar";
-            this.Button_Insertar.Size = new System.Drawing.Size(75, 23);
-            this.Button_Insertar.TabIndex = 9;
-            this.Button_Insertar.Text = "Insertar";
-            this.Button_Insertar.UseVisualStyleBackColor = true;
-            this.Button_Insertar.Click += new System.EventHandler(this.Button_Insertar_Click);
+            this.Codigo_TB.Location = new System.Drawing.Point(124, 50);
+            this.Codigo_TB.Name = "Codigo_TB";
+            this.Codigo_TB.Size = new System.Drawing.Size(100, 20);
+            this.Codigo_TB.TabIndex = 7;
+            this.Codigo_TB.TextChanged += new System.EventHandler(this.Codigo_TB_TextChanged);
             // 
-            // Button_Modificar
+            // Deporte_TB
             // 
-            this.Button_Modificar.Location = new System.Drawing.Point(287, 159);
-            this.Button_Modificar.Name = "Button_Modificar";
-            this.Button_Modificar.Size = new System.Drawing.Size(75, 23);
-            this.Button_Modificar.TabIndex = 10;
-            this.Button_Modificar.Text = "Modificar";
-            this.Button_Modificar.UseVisualStyleBackColor = true;
-            this.Button_Modificar.Click += new System.EventHandler(this.Button_Modificar_Click);
+            this.Deporte_TB.Location = new System.Drawing.Point(124, 124);
+            this.Deporte_TB.Name = "Deporte_TB";
+            this.Deporte_TB.Size = new System.Drawing.Size(100, 20);
+            this.Deporte_TB.TabIndex = 6;
             // 
-            // Button_Borrar
+            // Nivel_TB
             // 
-            this.Button_Borrar.Location = new System.Drawing.Point(287, 230);
-            this.Button_Borrar.Name = "Button_Borrar";
-            this.Button_Borrar.Size = new System.Drawing.Size(75, 23);
-            this.Button_Borrar.TabIndex = 11;
-            this.Button_Borrar.Text = "Borrar";
-            this.Button_Borrar.UseVisualStyleBackColor = true;
-            this.Button_Borrar.Click += new System.EventHandler(this.Button_Borrar_Click);
+            this.Nivel_TB.Location = new System.Drawing.Point(124, 259);
+            this.Nivel_TB.Name = "Nivel_TB";
+            this.Nivel_TB.Size = new System.Drawing.Size(100, 20);
+            this.Nivel_TB.TabIndex = 5;
+            // 
+            // Rutina_TB
+            // 
+            this.Rutina_TB.Location = new System.Drawing.Point(124, 191);
+            this.Rutina_TB.Name = "Rutina_TB";
+            this.Rutina_TB.Size = new System.Drawing.Size(100, 20);
+            this.Rutina_TB.TabIndex = 4;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(24, 198);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(38, 13);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "Rutina";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(24, 127);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(45, 13);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "Deporte";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(24, 262);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(31, 13);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Nivel";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(24, 53);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(40, 13);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Código";
+            // 
+            // Atleta_Tab_Page
+            // 
+            this.Atleta_Tab_Page.Controls.Add(this.label3);
+            this.Atleta_Tab_Page.Controls.Add(this.button1);
+            this.Atleta_Tab_Page.Controls.Add(this.Bloques_Group_Box);
+            this.Atleta_Tab_Page.Controls.Add(this.Datos_Group_Box);
+            this.Atleta_Tab_Page.Location = new System.Drawing.Point(4, 22);
+            this.Atleta_Tab_Page.Name = "Atleta_Tab_Page";
+            this.Atleta_Tab_Page.Padding = new System.Windows.Forms.Padding(3);
+            this.Atleta_Tab_Page.Size = new System.Drawing.Size(883, 684);
+            this.Atleta_Tab_Page.TabIndex = 0;
+            this.Atleta_Tab_Page.Text = "Atleta";
+            this.Atleta_Tab_Page.UseVisualStyleBackColor = true;
+            this.Atleta_Tab_Page.Click += new System.EventHandler(this.Atleta_Tab_Page_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(18, 143);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(320, 20);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Obtener numero de pruebas fisica por atleta";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(344, 143);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(80, 28);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Ver pruebas";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Bloques_Group_Box
+            // 
+            this.Bloques_Group_Box.Controls.Add(this.label1);
+            this.Bloques_Group_Box.Controls.Add(this.dataGridView1);
+            this.Bloques_Group_Box.Location = new System.Drawing.Point(6, 195);
+            this.Bloques_Group_Box.Name = "Bloques_Group_Box";
+            this.Bloques_Group_Box.Size = new System.Drawing.Size(877, 294);
+            this.Bloques_Group_Box.TabIndex = 1;
+            this.Bloques_Group_Box.TabStop = false;
+            this.Bloques_Group_Box.Text = "Bloques de entrenamiento";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(11, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(412, 25);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Números de pruebas físicas por atleta";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(16, 72);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(841, 212);
+            this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Datos_Group_Box
+            // 
+            this.Datos_Group_Box.Controls.Add(this.Atleta_Data_Grid_View);
+            this.Datos_Group_Box.Controls.Add(this.Buscar_Atleta_Button);
+            this.Datos_Group_Box.Controls.Add(this.Nombre);
+            this.Datos_Group_Box.Controls.Add(this.Atleta_Text_Box);
+            this.Datos_Group_Box.Location = new System.Drawing.Point(6, 6);
+            this.Datos_Group_Box.Name = "Datos_Group_Box";
+            this.Datos_Group_Box.Size = new System.Drawing.Size(877, 129);
+            this.Datos_Group_Box.TabIndex = 0;
+            this.Datos_Group_Box.TabStop = false;
+            this.Datos_Group_Box.Text = "Datos";
+            this.Datos_Group_Box.Enter += new System.EventHandler(this.Atleta_Group_Box_Enter);
+            // 
+            // Atleta_Data_Grid_View
+            // 
+            this.Atleta_Data_Grid_View.AllowUserToOrderColumns = true;
+            this.Atleta_Data_Grid_View.AutoGenerateColumns = false;
+            this.Atleta_Data_Grid_View.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Atleta_Data_Grid_View.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nombreDataGridViewTextBoxColumn,
+            this.apellido1DataGridViewTextBoxColumn,
+            this.apellido2DataGridViewTextBoxColumn,
+            this.fechaNacimientoDataGridViewTextBoxColumn,
+            this.telefonosDataGridViewTextBoxColumn});
+            this.Atleta_Data_Grid_View.DataSource = this.atletaInfoBasicaBindingSource;
+            this.Atleta_Data_Grid_View.Location = new System.Drawing.Point(326, 16);
+            this.Atleta_Data_Grid_View.Name = "Atleta_Data_Grid_View";
+            this.Atleta_Data_Grid_View.Size = new System.Drawing.Size(545, 107);
+            this.Atleta_Data_Grid_View.TabIndex = 4;
+            this.Atleta_Data_Grid_View.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Atleta_Data_Grid_View_CellContentClick_1);
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            // 
+            // apellido1DataGridViewTextBoxColumn
+            // 
+            this.apellido1DataGridViewTextBoxColumn.DataPropertyName = "Apellido1";
+            this.apellido1DataGridViewTextBoxColumn.HeaderText = "Apellido1";
+            this.apellido1DataGridViewTextBoxColumn.Name = "apellido1DataGridViewTextBoxColumn";
+            // 
+            // apellido2DataGridViewTextBoxColumn
+            // 
+            this.apellido2DataGridViewTextBoxColumn.DataPropertyName = "Apellido2";
+            this.apellido2DataGridViewTextBoxColumn.HeaderText = "Apellido2";
+            this.apellido2DataGridViewTextBoxColumn.Name = "apellido2DataGridViewTextBoxColumn";
+            // 
+            // fechaNacimientoDataGridViewTextBoxColumn
+            // 
+            this.fechaNacimientoDataGridViewTextBoxColumn.DataPropertyName = "Fecha_Nacimiento";
+            this.fechaNacimientoDataGridViewTextBoxColumn.HeaderText = "Fecha_Nacimiento";
+            this.fechaNacimientoDataGridViewTextBoxColumn.Name = "fechaNacimientoDataGridViewTextBoxColumn";
+            // 
+            // telefonosDataGridViewTextBoxColumn
+            // 
+            this.telefonosDataGridViewTextBoxColumn.DataPropertyName = "Telefonos";
+            this.telefonosDataGridViewTextBoxColumn.HeaderText = "Telefonos";
+            this.telefonosDataGridViewTextBoxColumn.Name = "telefonosDataGridViewTextBoxColumn";
+            // 
+            // Buscar_Atleta_Button
+            // 
+            this.Buscar_Atleta_Button.Location = new System.Drawing.Point(154, 70);
+            this.Buscar_Atleta_Button.Name = "Buscar_Atleta_Button";
+            this.Buscar_Atleta_Button.Size = new System.Drawing.Size(106, 23);
+            this.Buscar_Atleta_Button.TabIndex = 3;
+            this.Buscar_Atleta_Button.Text = "Buscar atleta";
+            this.Buscar_Atleta_Button.UseVisualStyleBackColor = true;
+            this.Buscar_Atleta_Button.Click += new System.EventHandler(this.Buscar_Atleta_Button_Click);
+            // 
+            // Nombre
+            // 
+            this.Nombre.AutoSize = true;
+            this.Nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nombre.ForeColor = System.Drawing.Color.Black;
+            this.Nombre.Location = new System.Drawing.Point(1, 16);
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Size = new System.Drawing.Size(93, 25);
+            this.Nombre.TabIndex = 2;
+            this.Nombre.Text = "Nombre";
+            // 
+            // Atleta_Text_Box
+            // 
+            this.Atleta_Text_Box.Location = new System.Drawing.Point(2, 44);
+            this.Atleta_Text_Box.Name = "Atleta_Text_Box";
+            this.Atleta_Text_Box.Size = new System.Drawing.Size(258, 20);
+            this.Atleta_Text_Box.TabIndex = 1;
+            this.Atleta_Text_Box.TextChanged += new System.EventHandler(this.Atleta_Text_Box_TextChanged);
+            // 
+            // Entrenamiento_Tab_Page
+            // 
+            this.Entrenamiento_Tab_Page.Controls.Add(this.Atleta_Tab_Page);
+            this.Entrenamiento_Tab_Page.Controls.Add(this.Entrenamientos_Tab_Page);
+            this.Entrenamiento_Tab_Page.Controls.Add(this.tabPage1);
+            this.Entrenamiento_Tab_Page.Controls.Add(this.tabPage2);
+            this.Entrenamiento_Tab_Page.Location = new System.Drawing.Point(0, 0);
+            this.Entrenamiento_Tab_Page.Name = "Entrenamiento_Tab_Page";
+            this.Entrenamiento_Tab_Page.SelectedIndex = 0;
+            this.Entrenamiento_Tab_Page.Size = new System.Drawing.Size(891, 710);
+            this.Entrenamiento_Tab_Page.TabIndex = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // Form1
             // 
@@ -978,7 +1167,25 @@
             this.Name = "Form1";
             this.Text = "Triton";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.Entrenamiento_Tab_Page.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.atletaInfoBasicaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tritonDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cobroIndividualBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.entrenamientoIndividualBindingSource)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource2)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.Entrenamientos_Tab_Page.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EntrenamientoDG)).EndInit();
             this.Atleta_Tab_Page.ResumeLayout(false);
             this.Atleta_Tab_Page.PerformLayout();
             this.Bloques_Group_Box.ResumeLayout(false);
@@ -987,72 +1194,44 @@
             this.Datos_Group_Box.ResumeLayout(false);
             this.Datos_Group_Box.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Atleta_Data_Grid_View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.atletaInfoBasicaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tritonDataSet)).EndInit();
-            this.Entrenamientos_Tab_Page.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cobroIndividualBindingSource)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.EntrenamientoDG)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.entrenamientoIndividualBindingSource)).EndInit();
+            this.Entrenamiento_Tab_Page.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
 
 		#endregion
-
-		private System.Windows.Forms.TabControl Entrenamiento_Tab_Page;
-		private System.Windows.Forms.TabPage Atleta_Tab_Page;
-		private System.Windows.Forms.GroupBox Datos_Group_Box;
-		private System.Windows.Forms.TextBox Atleta_Text_Box;
-		private System.Windows.Forms.Button Buscar_Atleta_Button;
-		private System.Windows.Forms.Label Nombre;
 		private TritonDataSet tritonDataSet;
 		private System.Windows.Forms.BindingSource atletaBindingSource;
 		private TritonDataSetTableAdapters.AtletaTableAdapter atletaTableAdapter;
-		private System.Windows.Forms.GroupBox Bloques_Group_Box;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.DataGridView dataGridView1;
-		private System.Windows.Forms.TabPage Entrenamientos_Tab_Page;
 		private System.Windows.Forms.BindingSource atletaBindingSource1;
-		private System.Windows.Forms.DataGridView Atleta_Data_Grid_View;
 		private System.Windows.Forms.BindingSource atletaInfoBasicaBindingSource;
 		private TritonDataSetTableAdapters.Atleta_Info_BasicaTableAdapter atleta_Info_BasicaTableAdapter;
-		private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn apellido1DataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn apellido2DataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn fechaNacimientoDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn telefonosDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox Mes_Combo_Box;
-        private System.Windows.Forms.TextBox Anno_Combo_Box;
-        private System.Windows.Forms.Button Ganancias_Button;
-        private System.Windows.Forms.Label Error_Label;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.BindingSource cobroIndividualBindingSource;
+        private TritonDataSetTableAdapters.Cobro_IndividualTableAdapter cobro_IndividualTableAdapter;
+        private System.Windows.Forms.BindingSource entrenamientoIndividualBindingSource;
+        private TritonDataSetTableAdapters.Entrenamiento_IndividualTableAdapter entrenamiento_IndividualTableAdapter;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label Ganancias_Label;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox Atleta_CB_Prueba_Fisica;
+        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ComboBox Tipo_Cobro_CB_Conta;
-        private System.Windows.Forms.Label Tipo_CB_Conta;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox Correo_TB_Conta;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox Codigo_Factura_TB_Conta;
+        private System.Windows.Forms.Label Label_Monto_Semanal_Conta;
+        private System.Windows.Forms.TextBox Semanal_TB_Conta;
+        private System.Windows.Forms.Label Label_Cantidad_Semanas_Conta;
+        private System.Windows.Forms.TextBox Cantidad_Semanas_TB_Conta;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox Vencimiento_Tarjeta_TB_Conta;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox Numero_Tarjeta_TB_Conta;
+        private System.Windows.Forms.Label Label_Monto_Mensual_Conta;
+        private System.Windows.Forms.TextBox Monto_Mensual_TB_Conta;
+        private System.Windows.Forms.Button Button_Insertar_Factura;
+        private System.Windows.Forms.Label Label_Codigo_Descuento;
+        private System.Windows.Forms.TextBox Porcentaje_TB_Descuento;
+        private System.Windows.Forms.Label Label_Porcentaje_Descuento;
+        private System.Windows.Forms.TextBox Codigo_TB_Descuento;
+        private System.Windows.Forms.Label Label_Fecha_Descuento;
+        private System.Windows.Forms.TextBox Fecha_TB_Descuento;
         private System.Windows.Forms.CheckBox Descuento_Ganancias_Conta;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox CVC_TB_Conta;
@@ -1060,27 +1239,31 @@
         private System.Windows.Forms.TextBox Fecha_Vencimiento_TB_Conta;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox Fecha_Pago_TB_Conta;
-        private System.Windows.Forms.Label Label_Codigo_Descuento;
-        private System.Windows.Forms.TextBox Porcentaje_TB_Descuento;
-        private System.Windows.Forms.Label Label_Porcentaje_Descuento;
-        private System.Windows.Forms.TextBox Codigo_TB_Descuento;
-        private System.Windows.Forms.Label Label_Fecha_Descuento;
-        private System.Windows.Forms.TextBox Fecha_TB_Descuento;
-        private System.Windows.Forms.Button Button_Insertar_Factura;
-        private System.Windows.Forms.BindingSource cobroIndividualBindingSource;
-        private TritonDataSetTableAdapters.Cobro_IndividualTableAdapter cobro_IndividualTableAdapter;
-        private System.Windows.Forms.Label Label_Monto_Mensual_Conta;
-        private System.Windows.Forms.TextBox Monto_Mensual_TB_Conta;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox Numero_Tarjeta_TB_Conta;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox Vencimiento_Tarjeta_TB_Conta;
-        private System.Windows.Forms.Label Label_Monto_Semanal_Conta;
-        private System.Windows.Forms.TextBox Semanal_TB_Conta;
-        private System.Windows.Forms.Label Label_Cantidad_Semanas_Conta;
-        private System.Windows.Forms.TextBox Cantidad_Semanas_TB_Conta;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox Codigo_Factura_TB_Conta;
+        private System.Windows.Forms.ComboBox Tipo_Cobro_CB_Conta;
+        private System.Windows.Forms.Label Tipo_CB_Conta;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox Correo_TB_Conta;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label Error_Label;
+        private System.Windows.Forms.Label Ganancias_Label;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button Ganancias_Button;
+        private System.Windows.Forms.TextBox Anno_Combo_Box;
+        private System.Windows.Forms.ComboBox Mes_Combo_Box;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TabPage Entrenamientos_Tab_Page;
         private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button Button_Borrar;
+        private System.Windows.Forms.Button Button_Modificar;
+        private System.Windows.Forms.Button Button_Insertar;
         private System.Windows.Forms.DataGridView EntrenamientoDG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoEntrenamientoPKDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deporteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rutinaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nivelDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox Codigo_TB;
         private System.Windows.Forms.TextBox Deporte_TB;
         private System.Windows.Forms.TextBox Nivel_TB;
@@ -1089,15 +1272,37 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.BindingSource entrenamientoIndividualBindingSource;
-        private TritonDataSetTableAdapters.Entrenamiento_IndividualTableAdapter entrenamiento_IndividualTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoEntrenamientoPKDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deporteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rutinaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nivelDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button Button_Borrar;
-        private System.Windows.Forms.Button Button_Modificar;
-        private System.Windows.Forms.Button Button_Insertar;
+        private System.Windows.Forms.TabPage Atleta_Tab_Page;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox Bloques_Group_Box;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.GroupBox Datos_Group_Box;
+        private System.Windows.Forms.DataGridView Atleta_Data_Grid_View;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellido1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellido2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaNacimientoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefonosDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button Buscar_Atleta_Button;
+        private System.Windows.Forms.Label Nombre;
+        private System.Windows.Forms.TextBox Atleta_Text_Box;
+        private System.Windows.Forms.TabControl Entrenamiento_Tab_Page;
+        private System.Windows.Forms.TextBox Anno_TB_Prueba_Fisica;
+        private System.Windows.Forms.ComboBox Dia_CB_Prueba_Fisica;
+        private System.Windows.Forms.ComboBox Mes_CB_Prueba_Fisica;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.BindingSource atletaBindingSource2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.TextBox Resultados_TB_Prueba_Fisica;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox Tipo_Prueba_Fisica_TB;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button Button_Insertar_Prueba_Fisica;
     }
 }
 

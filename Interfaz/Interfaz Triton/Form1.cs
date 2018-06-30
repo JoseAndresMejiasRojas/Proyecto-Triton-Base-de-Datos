@@ -280,14 +280,12 @@ namespace Interfaz_Triton
 
             if (descuento == true)
             {
-                MessageBox.Show("descuento true");
                 cmd.Parameters["@Codigo_Descuento"].Value = Convert.ToInt32(Codigo_TB_Descuento.Text);
                 cmd.Parameters["@Duracion_Descuento"].Value = DateTime.Parse(Fecha_TB_Descuento.Text);
                 cmd.Parameters["@Porcentaje_Descuento"].Value = Convert.ToInt32(Porcentaje_TB_Descuento.Text);
             }
             else
             {
-                MessageBox.Show("descuento false");
                 cmd.Parameters["@Codigo_Descuento"].Value = DBNull.Value;
                 cmd.Parameters["@Duracion_Descuento"].Value = DBNull.Value;
                 cmd.Parameters["@Porcentaje_Descuento"].Value = DBNull.Value;
@@ -544,6 +542,67 @@ namespace Interfaz_Triton
             }
 
             connection.Close();
+        }
+
+        private void Insertar_Prueba_Fisica_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
+                SqlConnection connection = new SqlConnection(connectionStr);
+
+                SqlCommand cmd = new SqlCommand("Insert into Prueba_Fisica (Codigo_Atleta_FK, Fecha_Prueba_PK, Tipo_Prueba_PK, Resultados) values (@CodigoAtleta,@Fecha,@Tipo,@Resultados)", connection);
+
+                DataRowView drv = (DataRowView)Atleta_CB_Prueba_Fisica.SelectedItem;
+                String correoStr = drv["Correo"].ToString();
+
+                SqlCommand cmd2 = new SqlCommand("SELECT dbo.ObtenerCodigo(" + "'" + correoStr + "'" + ")", connection);
+
+                cmd.Parameters.Add("@CodigoAtleta", System.Data.SqlDbType.Int);
+                cmd.Parameters.Add("@Fecha", System.Data.SqlDbType.Date);
+                cmd.Parameters.Add("@Tipo", System.Data.SqlDbType.VarChar);
+                cmd.Parameters.Add("@Resultados", System.Data.SqlDbType.VarChar);
+
+                //Asigno los valores
+
+                connection.Open();
+
+                int codigoAtleta = (int)(cmd2.ExecuteScalar());
+
+                String diaStr = Dia_CB_Prueba_Fisica.Text;
+                String mesStr = Mes_CB_Prueba_Fisica.Text;
+                String annoStr = Anno_TB_Prueba_Fisica.Text;
+                String tipoStr = Tipo_Prueba_Fisica_TB.Text;
+                String resultStr = Resultados_TB_Prueba_Fisica.Text;
+
+                cmd.Parameters["@CodigoAtleta"].Value = codigoAtleta;
+                cmd.Parameters["@Fecha"].Value = annoStr + "-" + mesStr + "-" + diaStr;
+                cmd.Parameters["@Tipo"].Value = tipoStr;
+                cmd.Parameters["@Resultados"].Value = resultStr;
+
+                cmd.ExecuteNonQuery();
+                connection.Close();
+
+                MessageBox.Show("Ha insertado una prueba física al atleta " + correoStr, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                limpiarTextoPruebas();
+            }
+            catch (Exception exception)
+            {
+                exception.ToString();
+                MessageBox.Show("Error al insertar prueba física", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void limpiarTextoPruebas()
+        {
+            Atleta_CB_Prueba_Fisica.SelectedIndex = -1;
+            Mes_CB_Prueba_Fisica.SelectedIndex = -1;
+            Dia_CB_Prueba_Fisica.SelectedIndex = -1;
+            Anno_TB_Prueba_Fisica.Clear();
+            Resultados_TB_Prueba_Fisica.Clear();
+            Tipo_Prueba_Fisica_TB.Clear();
         }
     }
 }
