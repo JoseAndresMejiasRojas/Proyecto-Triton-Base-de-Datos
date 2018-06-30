@@ -51,13 +51,16 @@
             this.Entrenamientos_Tab_Page = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.Label_Monto_Semanal_Conta = new System.Windows.Forms.Label();
+            this.Semanal_TB_Conta = new System.Windows.Forms.TextBox();
+            this.Label_Cantidad_Semanas_Conta = new System.Windows.Forms.Label();
+            this.Cantidad_Semanas_TB_Conta = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.Vencimiento_Tarjeta_TB_Conta = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.Numero_Tarjeta_TB_Conta = new System.Windows.Forms.TextBox();
             this.Label_Monto_Mensual_Conta = new System.Windows.Forms.Label();
             this.Monto_Mensual_TB_Conta = new System.Windows.Forms.TextBox();
-            this.Label_Mensaje_Descuento = new System.Windows.Forms.Label();
             this.Button_Insertar_Factura = new System.Windows.Forms.Button();
             this.Label_Codigo_Descuento = new System.Windows.Forms.Label();
             this.Porcentaje_TB_Descuento = new System.Windows.Forms.TextBox();
@@ -96,10 +99,25 @@
             this.atleta_Info_BasicaTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Atleta_Info_BasicaTableAdapter();
             this.cobroIndividualBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cobro_IndividualTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Cobro_IndividualTableAdapter();
-            this.Label_Cantidad_Semanas_Conta = new System.Windows.Forms.Label();
-            this.Cantidad_Semanas_TB_Conta = new System.Windows.Forms.TextBox();
-            this.Label_Monto_Semanal_Conta = new System.Windows.Forms.Label();
-            this.Semanal_TB_Conta = new System.Windows.Forms.TextBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.Rutina_TB = new System.Windows.Forms.TextBox();
+            this.Nivel_TB = new System.Windows.Forms.TextBox();
+            this.Deporte_TB = new System.Windows.Forms.TextBox();
+            this.Codigo_TB = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.entrenamientoIndividualBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.entrenamiento_IndividualTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Entrenamiento_IndividualTableAdapter();
+            this.codigoEntrenamientoPKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deporteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rutinaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nivelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Button_Insertar = new System.Windows.Forms.Button();
+            this.Button_Modificar = new System.Windows.Forms.Button();
+            this.Button_Borrar = new System.Windows.Forms.Button();
             this.Entrenamiento_Tab_Page.SuspendLayout();
             this.Atleta_Tab_Page.SuspendLayout();
             this.Bloques_Group_Box.SuspendLayout();
@@ -108,6 +126,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Atleta_Data_Grid_View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaInfoBasicaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tritonDataSet)).BeginInit();
+            this.Entrenamientos_Tab_Page.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -115,6 +134,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cobroIndividualBindingSource)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.entrenamientoIndividualBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // Entrenamiento_Tab_Page
@@ -299,6 +321,7 @@
             // 
             // Entrenamientos_Tab_Page
             // 
+            this.Entrenamientos_Tab_Page.Controls.Add(this.groupBox5);
             this.Entrenamientos_Tab_Page.Location = new System.Drawing.Point(4, 22);
             this.Entrenamientos_Tab_Page.Name = "Entrenamientos_Tab_Page";
             this.Entrenamientos_Tab_Page.Padding = new System.Windows.Forms.Padding(3);
@@ -331,7 +354,6 @@
             this.groupBox4.Controls.Add(this.Numero_Tarjeta_TB_Conta);
             this.groupBox4.Controls.Add(this.Label_Monto_Mensual_Conta);
             this.groupBox4.Controls.Add(this.Monto_Mensual_TB_Conta);
-            this.groupBox4.Controls.Add(this.Label_Mensaje_Descuento);
             this.groupBox4.Controls.Add(this.Button_Insertar_Factura);
             this.groupBox4.Controls.Add(this.Label_Codigo_Descuento);
             this.groupBox4.Controls.Add(this.Porcentaje_TB_Descuento);
@@ -358,6 +380,38 @@
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Facturación";
+            // 
+            // Label_Monto_Semanal_Conta
+            // 
+            this.Label_Monto_Semanal_Conta.AutoSize = true;
+            this.Label_Monto_Semanal_Conta.Location = new System.Drawing.Point(523, 80);
+            this.Label_Monto_Semanal_Conta.Name = "Label_Monto_Semanal_Conta";
+            this.Label_Monto_Semanal_Conta.Size = new System.Drawing.Size(79, 13);
+            this.Label_Monto_Semanal_Conta.TabIndex = 40;
+            this.Label_Monto_Semanal_Conta.Text = "Monto semanal";
+            // 
+            // Semanal_TB_Conta
+            // 
+            this.Semanal_TB_Conta.Location = new System.Drawing.Point(424, 77);
+            this.Semanal_TB_Conta.Name = "Semanal_TB_Conta";
+            this.Semanal_TB_Conta.Size = new System.Drawing.Size(93, 20);
+            this.Semanal_TB_Conta.TabIndex = 39;
+            // 
+            // Label_Cantidad_Semanas_Conta
+            // 
+            this.Label_Cantidad_Semanas_Conta.AutoSize = true;
+            this.Label_Cantidad_Semanas_Conta.Location = new System.Drawing.Point(523, 45);
+            this.Label_Cantidad_Semanas_Conta.Name = "Label_Cantidad_Semanas_Conta";
+            this.Label_Cantidad_Semanas_Conta.Size = new System.Drawing.Size(109, 13);
+            this.Label_Cantidad_Semanas_Conta.TabIndex = 38;
+            this.Label_Cantidad_Semanas_Conta.Text = "Cantidad de semanas";
+            // 
+            // Cantidad_Semanas_TB_Conta
+            // 
+            this.Cantidad_Semanas_TB_Conta.Location = new System.Drawing.Point(424, 42);
+            this.Cantidad_Semanas_TB_Conta.Name = "Cantidad_Semanas_TB_Conta";
+            this.Cantidad_Semanas_TB_Conta.Size = new System.Drawing.Size(93, 20);
+            this.Cantidad_Semanas_TB_Conta.TabIndex = 37;
             // 
             // label13
             // 
@@ -407,19 +461,9 @@
             this.Monto_Mensual_TB_Conta.Size = new System.Drawing.Size(93, 20);
             this.Monto_Mensual_TB_Conta.TabIndex = 31;
             // 
-            // Label_Mensaje_Descuento
-            // 
-            this.Label_Mensaje_Descuento.AutoSize = true;
-            this.Label_Mensaje_Descuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label_Mensaje_Descuento.Location = new System.Drawing.Point(554, 197);
-            this.Label_Mensaje_Descuento.Name = "Label_Mensaje_Descuento";
-            this.Label_Mensaje_Descuento.Size = new System.Drawing.Size(101, 31);
-            this.Label_Mensaje_Descuento.TabIndex = 30;
-            this.Label_Mensaje_Descuento.Text = "label11";
-            // 
             // Button_Insertar_Factura
             // 
-            this.Button_Insertar_Factura.Location = new System.Drawing.Point(190, 207);
+            this.Button_Insertar_Factura.Location = new System.Drawing.Point(396, 193);
             this.Button_Insertar_Factura.Name = "Button_Insertar_Factura";
             this.Button_Insertar_Factura.Size = new System.Drawing.Size(87, 23);
             this.Button_Insertar_Factura.TabIndex = 29;
@@ -760,37 +804,167 @@
             // 
             this.cobro_IndividualTableAdapter.ClearBeforeFill = true;
             // 
-            // Label_Cantidad_Semanas_Conta
+            // groupBox5
             // 
-            this.Label_Cantidad_Semanas_Conta.AutoSize = true;
-            this.Label_Cantidad_Semanas_Conta.Location = new System.Drawing.Point(523, 46);
-            this.Label_Cantidad_Semanas_Conta.Name = "Label_Cantidad_Semanas_Conta";
-            this.Label_Cantidad_Semanas_Conta.Size = new System.Drawing.Size(109, 13);
-            this.Label_Cantidad_Semanas_Conta.TabIndex = 38;
-            this.Label_Cantidad_Semanas_Conta.Text = "Cantidad de semanas";
+            this.groupBox5.Controls.Add(this.Button_Borrar);
+            this.groupBox5.Controls.Add(this.Button_Modificar);
+            this.groupBox5.Controls.Add(this.Button_Insertar);
+            this.groupBox5.Controls.Add(this.dataGridView2);
+            this.groupBox5.Controls.Add(this.Codigo_TB);
+            this.groupBox5.Controls.Add(this.Deporte_TB);
+            this.groupBox5.Controls.Add(this.Nivel_TB);
+            this.groupBox5.Controls.Add(this.Rutina_TB);
+            this.groupBox5.Controls.Add(this.label16);
+            this.groupBox5.Controls.Add(this.label15);
+            this.groupBox5.Controls.Add(this.label14);
+            this.groupBox5.Controls.Add(this.label11);
+            this.groupBox5.Location = new System.Drawing.Point(8, 8);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(872, 482);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Acciones";
             // 
-            // Cantidad_Semanas_TB_Conta
+            // label11
             // 
-            this.Cantidad_Semanas_TB_Conta.Location = new System.Drawing.Point(424, 42);
-            this.Cantidad_Semanas_TB_Conta.Name = "Cantidad_Semanas_TB_Conta";
-            this.Cantidad_Semanas_TB_Conta.Size = new System.Drawing.Size(93, 20);
-            this.Cantidad_Semanas_TB_Conta.TabIndex = 37;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(24, 53);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(40, 13);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Código";
             // 
-            // Label_Monto_Semanal_Conta
+            // label14
             // 
-            this.Label_Monto_Semanal_Conta.AutoSize = true;
-            this.Label_Monto_Semanal_Conta.Location = new System.Drawing.Point(523, 81);
-            this.Label_Monto_Semanal_Conta.Name = "Label_Monto_Semanal_Conta";
-            this.Label_Monto_Semanal_Conta.Size = new System.Drawing.Size(79, 13);
-            this.Label_Monto_Semanal_Conta.TabIndex = 40;
-            this.Label_Monto_Semanal_Conta.Text = "Monto semanal";
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(24, 262);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(31, 13);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Nivel";
             // 
-            // Semanal_TB_Conta
+            // label15
             // 
-            this.Semanal_TB_Conta.Location = new System.Drawing.Point(424, 77);
-            this.Semanal_TB_Conta.Name = "Semanal_TB_Conta";
-            this.Semanal_TB_Conta.Size = new System.Drawing.Size(93, 20);
-            this.Semanal_TB_Conta.TabIndex = 39;
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(24, 127);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(45, 13);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "Deporte";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(24, 198);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(38, 13);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "Rutina";
+            // 
+            // Rutina_TB
+            // 
+            this.Rutina_TB.Location = new System.Drawing.Point(124, 191);
+            this.Rutina_TB.Name = "Rutina_TB";
+            this.Rutina_TB.Size = new System.Drawing.Size(100, 20);
+            this.Rutina_TB.TabIndex = 4;
+            // 
+            // Nivel_TB
+            // 
+            this.Nivel_TB.Location = new System.Drawing.Point(124, 259);
+            this.Nivel_TB.Name = "Nivel_TB";
+            this.Nivel_TB.Size = new System.Drawing.Size(100, 20);
+            this.Nivel_TB.TabIndex = 5;
+            // 
+            // Deporte_TB
+            // 
+            this.Deporte_TB.Location = new System.Drawing.Point(124, 124);
+            this.Deporte_TB.Name = "Deporte_TB";
+            this.Deporte_TB.Size = new System.Drawing.Size(100, 20);
+            this.Deporte_TB.TabIndex = 6;
+            // 
+            // Codigo_TB
+            // 
+            this.Codigo_TB.Location = new System.Drawing.Point(124, 50);
+            this.Codigo_TB.Name = "Codigo_TB";
+            this.Codigo_TB.Size = new System.Drawing.Size(100, 20);
+            this.Codigo_TB.TabIndex = 7;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codigoEntrenamientoPKDataGridViewTextBoxColumn,
+            this.deporteDataGridViewTextBoxColumn,
+            this.rutinaDataGridViewTextBoxColumn,
+            this.nivelDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.entrenamientoIndividualBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(400, 50);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(445, 222);
+            this.dataGridView2.TabIndex = 8;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick_1);
+            // 
+            // entrenamientoIndividualBindingSource
+            // 
+            this.entrenamientoIndividualBindingSource.DataMember = "Entrenamiento_Individual";
+            this.entrenamientoIndividualBindingSource.DataSource = this.tritonDataSet;
+            // 
+            // entrenamiento_IndividualTableAdapter
+            // 
+            this.entrenamiento_IndividualTableAdapter.ClearBeforeFill = true;
+            // 
+            // codigoEntrenamientoPKDataGridViewTextBoxColumn
+            // 
+            this.codigoEntrenamientoPKDataGridViewTextBoxColumn.DataPropertyName = "Codigo_Entrenamiento_PK";
+            this.codigoEntrenamientoPKDataGridViewTextBoxColumn.HeaderText = "Codigo_Entrenamiento_PK";
+            this.codigoEntrenamientoPKDataGridViewTextBoxColumn.Name = "codigoEntrenamientoPKDataGridViewTextBoxColumn";
+            // 
+            // deporteDataGridViewTextBoxColumn
+            // 
+            this.deporteDataGridViewTextBoxColumn.DataPropertyName = "Deporte";
+            this.deporteDataGridViewTextBoxColumn.HeaderText = "Deporte";
+            this.deporteDataGridViewTextBoxColumn.Name = "deporteDataGridViewTextBoxColumn";
+            // 
+            // rutinaDataGridViewTextBoxColumn
+            // 
+            this.rutinaDataGridViewTextBoxColumn.DataPropertyName = "Rutina";
+            this.rutinaDataGridViewTextBoxColumn.HeaderText = "Rutina";
+            this.rutinaDataGridViewTextBoxColumn.Name = "rutinaDataGridViewTextBoxColumn";
+            // 
+            // nivelDataGridViewTextBoxColumn
+            // 
+            this.nivelDataGridViewTextBoxColumn.DataPropertyName = "Nivel";
+            this.nivelDataGridViewTextBoxColumn.HeaderText = "Nivel";
+            this.nivelDataGridViewTextBoxColumn.Name = "nivelDataGridViewTextBoxColumn";
+            // 
+            // Button_Insertar
+            // 
+            this.Button_Insertar.Location = new System.Drawing.Point(287, 91);
+            this.Button_Insertar.Name = "Button_Insertar";
+            this.Button_Insertar.Size = new System.Drawing.Size(75, 23);
+            this.Button_Insertar.TabIndex = 9;
+            this.Button_Insertar.Text = "Insertar";
+            this.Button_Insertar.UseVisualStyleBackColor = true;
+            this.Button_Insertar.Click += new System.EventHandler(this.Button_Insertar_Click);
+            // 
+            // Button_Modificar
+            // 
+            this.Button_Modificar.Location = new System.Drawing.Point(287, 159);
+            this.Button_Modificar.Name = "Button_Modificar";
+            this.Button_Modificar.Size = new System.Drawing.Size(75, 23);
+            this.Button_Modificar.TabIndex = 10;
+            this.Button_Modificar.Text = "Modificar";
+            this.Button_Modificar.UseVisualStyleBackColor = true;
+            // 
+            // Button_Borrar
+            // 
+            this.Button_Borrar.Location = new System.Drawing.Point(287, 230);
+            this.Button_Borrar.Name = "Button_Borrar";
+            this.Button_Borrar.Size = new System.Drawing.Size(75, 23);
+            this.Button_Borrar.TabIndex = 11;
+            this.Button_Borrar.Text = "Borrar";
+            this.Button_Borrar.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -812,6 +986,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Atleta_Data_Grid_View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaInfoBasicaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tritonDataSet)).EndInit();
+            this.Entrenamientos_Tab_Page.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -821,6 +996,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cobroIndividualBindingSource)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.entrenamientoIndividualBindingSource)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -887,7 +1066,6 @@
         private System.Windows.Forms.Button Button_Insertar_Factura;
         private System.Windows.Forms.BindingSource cobroIndividualBindingSource;
         private TritonDataSetTableAdapters.Cobro_IndividualTableAdapter cobro_IndividualTableAdapter;
-        private System.Windows.Forms.Label Label_Mensaje_Descuento;
         private System.Windows.Forms.Label Label_Monto_Mensual_Conta;
         private System.Windows.Forms.TextBox Monto_Mensual_TB_Conta;
         private System.Windows.Forms.Label label12;
@@ -898,6 +1076,25 @@
         private System.Windows.Forms.TextBox Semanal_TB_Conta;
         private System.Windows.Forms.Label Label_Cantidad_Semanas_Conta;
         private System.Windows.Forms.TextBox Cantidad_Semanas_TB_Conta;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.TextBox Codigo_TB;
+        private System.Windows.Forms.TextBox Deporte_TB;
+        private System.Windows.Forms.TextBox Nivel_TB;
+        private System.Windows.Forms.TextBox Rutina_TB;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.BindingSource entrenamientoIndividualBindingSource;
+        private TritonDataSetTableAdapters.Entrenamiento_IndividualTableAdapter entrenamiento_IndividualTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoEntrenamientoPKDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deporteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rutinaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nivelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button Button_Borrar;
+        private System.Windows.Forms.Button Button_Modificar;
+        private System.Windows.Forms.Button Button_Insertar;
     }
 }
 
