@@ -26,7 +26,7 @@ namespace Interfaz_Triton
             Label_Porcentaje_Descuento.Visible = false;
 
             Porcentaje_TB_Descuento.Visible = false;
-            Fecha_TB_Descuento.Visible = false;
+            Vencimiento_Descuento_MTB_Conta.Visible = false;
             Codigo_TB_Descuento.Visible = false;
 
             Cantidad_Semanas_TB_Conta.Visible = false;
@@ -227,7 +227,7 @@ namespace Interfaz_Triton
                 Label_Porcentaje_Descuento.Visible = true;
 
                 Porcentaje_TB_Descuento.Visible = true;
-                Fecha_TB_Descuento.Visible = true;
+                Vencimiento_Descuento_MTB_Conta.Visible = true;
                 Codigo_TB_Descuento.Visible = true;
             }
             else // No hay descuento.
@@ -239,7 +239,7 @@ namespace Interfaz_Triton
                 Label_Porcentaje_Descuento.Visible = false;
 
                 Porcentaje_TB_Descuento.Visible = false;
-                Fecha_TB_Descuento.Visible = false;
+                Vencimiento_Descuento_MTB_Conta.Visible = false;
                 Codigo_TB_Descuento.Visible = false;
             }
         }
@@ -251,73 +251,147 @@ namespace Interfaz_Triton
 
         private void Button_Insertar_Factura_Click(object sender, EventArgs e)
         {
-            String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
-            SqlConnection connection = new SqlConnection(connectionStr);
-
-            SqlCommand cmd = new SqlCommand("Insert into Cobro (ID_Factura_PK,Codigo_Atleta_FK,Fecha_Pago,Fecha_Finalización,Número_Tarjeta,Fecha_Vencimiento,CVC,Codigo_Descuento, Duracion_Descuento,Porcentaje_Descuento ) values (@ID_Factura_PK,@Codigo_Atleta_FK,@Fecha_Pago,@Fecha_Finalización,@Número_Tarjeta,@Fecha_Vencimiento,@CVC,@Codigo_Descuento, @Duracion_Descuento,@Porcentaje_Descuento)", connection);
-            int id_factura = Convert.ToInt32(Codigo_Factura_TB_Conta.Text);
-            connection.Open();
-
-            // Obtengo el número del atleta acorde al correo.
-            DataRowView drv = (DataRowView)Correo_CB_Conta.SelectedItem;
-            String correo = drv["Correo"].ToString();
-            SqlCommand cmd2 = new SqlCommand("SELECT dbo.ObtenerCodigo(" + "'" + correo + "'" + ")", connection);
-            int codigoAtleta = (int)(cmd2.ExecuteScalar());
-
-
-            //Creo los Parametros
-            cmd.Parameters.Add("@ID_Factura_PK", System.Data.SqlDbType.Int);
-            cmd.Parameters.Add("@Codigo_Atleta_FK", System.Data.SqlDbType.Int);
-            cmd.Parameters.Add("@Fecha_Pago", System.Data.SqlDbType.Date);
-            cmd.Parameters.Add("@Fecha_Finalización", System.Data.SqlDbType.Date);
-            cmd.Parameters.Add("@Número_Tarjeta", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@Fecha_Vencimiento", System.Data.SqlDbType.Date);
-            cmd.Parameters.Add("@CVC", System.Data.SqlDbType.Int);
-            cmd.Parameters.Add("@Codigo_Descuento", System.Data.SqlDbType.Int);
-            cmd.Parameters.Add("@Duracion_Descuento", System.Data.SqlDbType.Date);
-            cmd.Parameters.Add("@Porcentaje_Descuento", System.Data.SqlDbType.Int);
-
-            //Asigno los valores
-            cmd.Parameters["@Codigo_Atleta_FK"].Value = codigoAtleta;
-            cmd.Parameters["@ID_Factura_PK"].Value = id_factura;
-            cmd.Parameters["@Fecha_Pago"].Value = DateTime.Parse(Fecha_Pago_MTB_Conta.Text);
-            cmd.Parameters["@Fecha_Finalización"].Value = DateTime.Parse(Fecha_Finalizacion_MTB_Conta.Text);
-            cmd.Parameters["@Número_Tarjeta"].Value = Numero_Tarjeta_TB_Conta.Text;
-            cmd.Parameters["@Fecha_Vencimiento"].Value = DateTime.Parse(Fecha_Vencimiento_MTB_Conta.Text);
-            cmd.Parameters["@CVC"].Value = Convert.ToInt32(CVC_TB_Conta.Text);
-
-            if (descuento == true)
+            if (parseo_errores_conta() == false)    // So no hay errores.
             {
-                cmd.Parameters["@Codigo_Descuento"].Value = Convert.ToInt32(Codigo_TB_Descuento.Text);
-                cmd.Parameters["@Duracion_Descuento"].Value = DateTime.Parse(Vencimiento_Descuento_MTB_Conta.Text);
-                cmd.Parameters["@Porcentaje_Descuento"].Value = Convert.ToInt32(Porcentaje_TB_Descuento.Text);
+                try
+                {
+                    String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
+                    SqlConnection connection = new SqlConnection(connectionStr);
+
+                    SqlCommand cmd = new SqlCommand("Insert into Cobro (ID_Factura_PK,Codigo_Atleta_FK,Fecha_Pago,Fecha_Finalización,Número_Tarjeta,Fecha_Vencimiento,CVC,Codigo_Descuento, Duracion_Descuento,Porcentaje_Descuento ) values (@ID_Factura_PK,@Codigo_Atleta_FK,@Fecha_Pago,@Fecha_Finalización,@Número_Tarjeta,@Fecha_Vencimiento,@CVC,@Codigo_Descuento, @Duracion_Descuento,@Porcentaje_Descuento)", connection);
+                    int id_factura = Convert.ToInt32(Codigo_Factura_TB_Conta.Text);
+                    connection.Open();
+
+                    // Obtengo el número del atleta acorde al correo.
+                    DataRowView drv = (DataRowView)Correo_CB_Conta.SelectedItem;
+                    String correo = drv["Correo"].ToString();
+                    SqlCommand cmd2 = new SqlCommand("SELECT dbo.ObtenerCodigo(" + "'" + correo + "'" + ")", connection);
+                    int codigoAtleta = (int)(cmd2.ExecuteScalar());
+
+                    //Creo los Parametros
+                    cmd.Parameters.Add("@ID_Factura_PK", System.Data.SqlDbType.Int);
+                    cmd.Parameters.Add("@Codigo_Atleta_FK", System.Data.SqlDbType.Int);
+                    cmd.Parameters.Add("@Fecha_Pago", System.Data.SqlDbType.Date);
+                    cmd.Parameters.Add("@Fecha_Finalización", System.Data.SqlDbType.Date);
+                    cmd.Parameters.Add("@Número_Tarjeta", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters.Add("@Fecha_Vencimiento", System.Data.SqlDbType.Date);
+                    cmd.Parameters.Add("@CVC", System.Data.SqlDbType.Int);
+                    cmd.Parameters.Add("@Codigo_Descuento", System.Data.SqlDbType.Int);
+                    cmd.Parameters.Add("@Duracion_Descuento", System.Data.SqlDbType.Date);
+                    cmd.Parameters.Add("@Porcentaje_Descuento", System.Data.SqlDbType.Int);
+
+                    //Asigno los valores
+                    cmd.Parameters["@Codigo_Atleta_FK"].Value = codigoAtleta;
+                    cmd.Parameters["@ID_Factura_PK"].Value = id_factura;
+                    cmd.Parameters["@Fecha_Pago"].Value = DateTime.Parse(Fecha_Pago_MTB_Conta.Text);
+                    cmd.Parameters["@Fecha_Finalización"].Value = DateTime.Parse(Fecha_Finalizacion_MTB_Conta.Text);
+                    cmd.Parameters["@Número_Tarjeta"].Value = Numero_Tarjeta_TB_Conta.Text;
+                    cmd.Parameters["@Fecha_Vencimiento"].Value = DateTime.Parse(Fecha_Vencimiento_MTB_Conta.Text);
+                    cmd.Parameters["@CVC"].Value = Convert.ToInt32(CVC_TB_Conta.Text);
+
+                    if (descuento == true)
+                    {
+                        cmd.Parameters["@Codigo_Descuento"].Value = Convert.ToInt32(Codigo_TB_Descuento.Text);
+                        cmd.Parameters["@Duracion_Descuento"].Value = DateTime.Parse(Vencimiento_Descuento_MTB_Conta.Text);
+                        cmd.Parameters["@Porcentaje_Descuento"].Value = Convert.ToInt32(Porcentaje_TB_Descuento.Text);
+                    }
+                    else
+                    {
+                        cmd.Parameters["@Codigo_Descuento"].Value = DBNull.Value;
+                        cmd.Parameters["@Duracion_Descuento"].Value = DBNull.Value;
+                        cmd.Parameters["@Porcentaje_Descuento"].Value = DBNull.Value;
+                    }
+
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+
+                    // Inserto el tipo de Cobro.
+                    if (Tipo_Cobro_CB_Conta.Text == "Mensual")
+                    {
+                        insertar_cobro_mensual(id_factura, Convert.ToDecimal(Monto_Mensual_TB_Conta.Text));
+                    }
+                    else
+                    {
+                        insertar_cobro_individual(id_factura, Convert.ToDecimal(Semanal_TB_Conta.Text), Convert.ToInt32(Cantidad_Semanas_TB_Conta.Text));
+                    }
+                    MessageBox.Show("Se ha agregado la factura " + id_factura.ToString() + " al atleta " + correo, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch( Exception exception )
+                {
+                    MessageBox.Show("Error al insertar los datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+        }
+
+        // Retorna true si hay un error, false si todoe está bien.
+        bool parseo_errores_conta()
+        {
+            bool error = false;
+            if( Tipo_Cobro_CB_Conta.Text != "Mensual" && Tipo_Cobro_CB_Conta.Text != "Individual" )
             {
-                cmd.Parameters["@Codigo_Descuento"].Value = DBNull.Value;
-                cmd.Parameters["@Duracion_Descuento"].Value = DBNull.Value;
-                cmd.Parameters["@Porcentaje_Descuento"].Value = DBNull.Value;
+                error = true;
+            }
+            else if( int.TryParse(Codigo_Factura_TB_Conta.Text, out int n) == false )
+            {
+                error = true;
+            }
+            else if( String.IsNullOrEmpty(Numero_Tarjeta_TB_Conta.Text) == true )
+            {
+                error = true;
+            }
+            else if( String.IsNullOrEmpty(Fecha_Vencimiento_MTB_Conta.Text) )
+            {
+                error = true;
+            }
+            else if ( String.IsNullOrEmpty(Fecha_Pago_MTB_Conta.Text) )
+            {
+                error = true;
+            }
+            else if ( String.IsNullOrEmpty(Fecha_Finalizacion_MTB_Conta.Text) )
+            {
+                error = true;
+            }
+            else if (int.TryParse(CVC_TB_Conta.Text, out n) == false)
+            {
+                error = true;
+            }
+            else if( descuento == true )
+            {
+                if (String.IsNullOrEmpty(Vencimiento_Descuento_MTB_Conta.Text) == true)
+                {
+                    error = true;
+                }
+                else if (int.TryParse(Codigo_TB_Descuento.Text, out n) == false)
+                {
+                    error = true;
+                }
+                else if (int.TryParse(Porcentaje_TB_Descuento.Text, out n) == false)
+                {
+                    error = true;
+                }
+            }
+            else if (Tipo_Cobro_CB_Conta.Text == "Mensual")
+            {
+                if( int.TryParse(Monto_Mensual_TB_Conta.Text, out n) == false )
+                {
+                    error = true;
+                }
+            }
+            else if(Tipo_Cobro_CB_Conta.Text == "Individual")
+            {
+                if (int.TryParse(Semanal_TB_Conta.Text, out n) == false || int.TryParse(Cantidad_Semanas_TB_Conta.Text, out n) == false)
+                {
+                    error = true;
+                }
             }
 
-            cmd.ExecuteNonQuery();
-            connection.Close();
 
-            // Inserto el tipo de Cobro.
-            if (Tipo_Cobro_CB_Conta.Text == "Mensual")
+            if ( error == true )
             {
-                insertar_cobro_mensual(id_factura, Convert.ToDecimal(Monto_Mensual_TB_Conta.Text) );
-            }
-            else if (Tipo_Cobro_CB_Conta.Text == "Individual")
-            {
-                insertar_cobro_individual(id_factura, Convert.ToDecimal(Semanal_TB_Conta.Text), Convert.ToInt32(Cantidad_Semanas_TB_Conta.Text));
-            }
-            else
-            {
-                // Error, estoy insertando un cobro sin tipo.
-                MessageBox.Show("Debe de escoger un tipo de pago", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al insertar los datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            MessageBox.Show("Se ha agregado la factura " + id_factura.ToString() + " al atleta " + correo, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return error;
         }
 
         private void Fecha_TB_Descuento_TextChanged(object sender, EventArgs e)
@@ -350,7 +424,7 @@ namespace Interfaz_Triton
             SqlConnection connection = new SqlConnection(connectionStr);
 
             SqlDataAdapter databaseAdapter = new SqlDataAdapter();
-            SqlCommand cmd = new SqlCommand("Insert into Cobro_Mensual (ID_Factura_FK,Monto_Semanal,Monto_Total,Cantidad_Semanas) values (@ID_Factura_FK,@Monto_Semanal,@Monto_Total,@Cantidad_Semanas)", connection);
+            SqlCommand cmd = new SqlCommand("Insert into Cobro_Individual (ID_Factura_FK,Monto_Semanal,Monto_Total,Cantidad_Semanas) values (@ID_Factura_FK,@Monto_Semanal,@Monto_Total,@Cantidad_Semanas)", connection);
 
             cmd.Parameters.Add("@ID_Factura_FK", System.Data.SqlDbType.Int);
             cmd.Parameters.Add("@Monto_Semanal", System.Data.SqlDbType.Money);
@@ -358,7 +432,7 @@ namespace Interfaz_Triton
             cmd.Parameters.Add("@Cantidad_Semanas", System.Data.SqlDbType.Money);
 
             cmd.Parameters["@ID_Factura_FK"].Value = factura;
-            cmd.Parameters["@Monto_Mensual"].Value = monto_semanal;
+            cmd.Parameters["@Monto_Semanal"].Value = monto_semanal;
             cmd.Parameters["@Monto_Total"].Value = monto_semanal*cantidad_semanas;
             cmd.Parameters["@Cantidad_Semanas"].Value = cantidad_semanas;
 
@@ -639,6 +713,11 @@ namespace Interfaz_Triton
         }
 
         private void Fecha_Vencimiento_Tarjeta_TB_Conta_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Vencimiento_Descuento_MTB_Conta_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }

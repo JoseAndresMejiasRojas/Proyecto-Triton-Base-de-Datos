@@ -687,7 +687,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(80, 36);
+            this.label6.Location = new System.Drawing.Point(71, 36);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 25);
             this.label6.TabIndex = 9;
@@ -1201,6 +1201,7 @@
             this.Vencimiento_Descuento_MTB_Conta.Size = new System.Drawing.Size(64, 20);
             this.Vencimiento_Descuento_MTB_Conta.TabIndex = 45;
             this.Vencimiento_Descuento_MTB_Conta.ValidatingType = typeof(System.DateTime);
+            this.Vencimiento_Descuento_MTB_Conta.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.Vencimiento_Descuento_MTB_Conta_MaskInputRejected);
             // 
             // Form1
             // 
