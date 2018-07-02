@@ -843,5 +843,47 @@ namespace Interfaz_Triton
         {
 
         }
+
+        private void button_verPruebasAtleta_Click(object sender, EventArgs e)
+        {
+            String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
+            SqlConnection connection = new SqlConnection(connectionStr);
+            SqlDataAdapter databaseAdapter = new SqlDataAdapter();
+            DataSet dataset = new DataSet();
+
+            ///select pruebas fisicas
+            ///
+            SqlCommand cmd = new SqlCommand("SELECT P.Tipo_Prueba_PK AS 'Tipo prueba', P.Resultados AS 'Resultados', P.Fecha_Prueba_PK AS 'Fecha prueba' FROM Prueba_Fisica P, Atleta A WHERE A.Codigo_Atleta_PK = @CodigoAtleta AND A.Codigo_Atleta_PK = P.Codigo_Atleta_FK", connection);
+
+            databaseAdapter.SelectCommand = cmd;
+
+            ///obtener codigo atleta
+
+            DataRowView drv = (DataRowView)Atleta_CB_Prueba_Fisica2.SelectedItem;
+            String correoStr = drv["Correo"].ToString();
+
+            SqlCommand cmd2 = new SqlCommand("SELECT dbo.ObtenerCodigo(" + "'" + correoStr + "'" + ")", connection);
+
+            ///
+
+            cmd.Parameters.Add("@CodigoAtleta", System.Data.SqlDbType.Int);
+
+            connection.Open();
+
+            int codigoAtleta = (int)(cmd2.ExecuteScalar());
+
+            cmd.Parameters["@CodigoAtleta"].Value = codigoAtleta;
+
+
+            databaseAdapter.SelectCommand = cmd;
+            databaseAdapter.Fill(dataset);
+            dataGridView_pruebasAtleta.DataSource = dataset.Tables[0];
+            connection.Close();
+        }
+
+        private void dataGridView_pruebasAtleta_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
