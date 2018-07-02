@@ -56,7 +56,6 @@ namespace Interfaz_Triton
             this.cobro_IndividualTableAdapter.Fill(this.tritonDataSet.Cobro_Individual);
 			// TODO: This line of code loads data into the 'tritonDataSet.Atleta' table. You can move, or remove it, as needed.
 			this.atletaTableAdapter.Fill(this.tritonDataSet.Atleta);
-
 		}
 
 		private void Atleta_Tab_Page_Click(object sender, EventArgs e)
@@ -836,12 +835,79 @@ namespace Interfaz_Triton
 
         private void Rutinas_Radio_Button_CheckedChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("Cambio");
+
+            String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
+            SqlConnection connection = new SqlConnection(connectionStr);
+            SqlDataAdapter databaseAdapter;
+            SqlCommand cmd = connection.CreateCommand();
+            DataSet dataset = new DataSet();
+            DataTable dt = new DataTable();
+
+            SqlCommand cmd2 = new SqlCommand("SELECT dbo.ObtenerCodigo(" + "'" + Correo_CB_Busquedas.Text + "'" + ")", connection);
+
+            connection.Open();
+
+            int codigoAtleta = (int)(cmd2.ExecuteScalar());
+
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT DISTINCT e.Rutina " +
+                "FROM Atleta a JOIN Bloque_Entrenamiento b ON b.Codigo_Atleta_FK = a.Codigo_Atleta_PK " +
+                "JOIN Compuesto c ON c.Codigo_Atleta_FK = b.Codigo_Atleta_FK " +
+                "JOIN Entrenamiento_Individual e ON e.Codigo_Entrenamiento_PK = c.Codigo_Entrenamiento_FK " +
+                "WHERE a.Codigo_Atleta_PK = "+ codigoAtleta;
+
+            databaseAdapter = new SqlDataAdapter(cmd);
+            databaseAdapter.Fill(dt);
+            Varios_Data_Grid_View.DataSource = dt;
+
+            connection.Close();
         }
 
         private void Etiqueta_Radio_Button_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Rutinas_Radio_Button_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_verPruebasAtleta_Click(object sender, EventArgs e)
+        {
+            String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
+            SqlConnection connection = new SqlConnection(connectionStr);
+            SqlDataAdapter databaseAdapter = new SqlDataAdapter();
+            DataSet dataset = new DataSet();
+
+            ///select pruebas fisicas
+            ///
+            SqlCommand cmd = new SqlCommand("SELECT P.Tipo_Prueba_PK AS 'Tipo prueba', P.Resultados AS 'Resultados', P.Fecha_Prueba_PK AS 'Fecha prueba' FROM Prueba_Fisica P, Atleta A WHERE A.Codigo_Atleta_PK = @CodigoAtleta AND A.Codigo_Atleta_PK = P.Codigo_Atleta_FK", connection);
+
+            databaseAdapter.SelectCommand = cmd;
+
+            ///obtener codigo atleta
+
+            DataRowView drv = (DataRowView)Atleta_CB_Prueba_Fisica2.SelectedItem;
+            String correoStr = drv["Correo"].ToString();
+
+            SqlCommand cmd2 = new SqlCommand("SELECT dbo.ObtenerCodigo(" + "'" + correoStr + "'" + ")", connection);
+
+            ///
+
+            cmd.Parameters.Add("@CodigoAtleta", System.Data.SqlDbType.Int);
+
+            connection.Open();
+
+            int codigoAtleta = (int)(cmd2.ExecuteScalar());
+
+            cmd.Parameters["@CodigoAtleta"].Value = codigoAtleta;
+
+
+            databaseAdapter.SelectCommand = cmd;
+            databaseAdapter.Fill(dataset);
+            dataGridView_pruebasAtleta.DataSource = dataset.Tables[0];
+            connection.Close();
         }
     }
 }

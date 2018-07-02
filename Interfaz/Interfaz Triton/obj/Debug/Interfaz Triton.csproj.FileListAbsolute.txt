@@ -17,4 +17,3 @@ C:\Users\b52513\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\o
 C:\Users\b52513\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\bin\Debug\Interfaz Triton.exe.config
 C:\Users\b52513\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\bin\Debug\Interfaz Triton.exe
 C:\Users\b52513\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\bin\Debug\Interfaz Triton.pdb
-C:\Users\b54275\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\obj\Debug\Interfaz Triton.csprojResolveAssemblyReference.cache
