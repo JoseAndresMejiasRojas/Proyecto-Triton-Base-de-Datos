@@ -26,7 +26,7 @@ namespace Interfaz_Triton
             Label_Porcentaje_Descuento.Visible = false;
 
             Porcentaje_TB_Descuento.Visible = false;
-            Fecha_TB_Descuento.Visible = false;
+            //Fecha_TB_Descuento.Visible = false;
             Codigo_TB_Descuento.Visible = false;
 
             Cantidad_Semanas_TB_Conta.Visible = false;
@@ -227,7 +227,7 @@ namespace Interfaz_Triton
                 Label_Porcentaje_Descuento.Visible = true;
 
                 Porcentaje_TB_Descuento.Visible = true;
-                Fecha_TB_Descuento.Visible = true;
+                //Fecha_TB_Descuento.Visible = true;
                 Codigo_TB_Descuento.Visible = true;
             }
             else // No hay descuento.
@@ -239,7 +239,7 @@ namespace Interfaz_Triton
                 Label_Porcentaje_Descuento.Visible = false;
 
                 Porcentaje_TB_Descuento.Visible = false;
-                Fecha_TB_Descuento.Visible = false;
+                //Fecha_TB_Descuento.Visible = false;
                 Codigo_TB_Descuento.Visible = false;
             }
         }
@@ -578,15 +578,14 @@ namespace Interfaz_Triton
                 connection.Open();
 
                 int codigoAtleta = (int)(cmd2.ExecuteScalar());
-
-                String diaStr = Dia_CB_Prueba_Fisica.Text;
-                String mesStr = Mes_CB_Prueba_Fisica.Text;
-                String annoStr = Anno_TB_Prueba_Fisica.Text;
+                
                 String tipoStr = Tipo_Prueba_Fisica_TB.Text;
                 String resultStr = Resultados_TB_Prueba_Fisica.Text;
 
+                
+
                 cmd.Parameters["@CodigoAtleta"].Value = codigoAtleta;
-                cmd.Parameters["@Fecha"].Value = annoStr + "-" + mesStr + "-" + diaStr;
+                cmd.Parameters["@Fecha"].Value = DateTime.Parse(maskedTextBox_fechaPruebaFisica.Text);
                 cmd.Parameters["@Tipo"].Value = tipoStr;
                 cmd.Parameters["@Resultados"].Value = resultStr;
 
@@ -607,11 +606,10 @@ namespace Interfaz_Triton
         private void limpiarTextoPruebas()
         {
             Atleta_CB_Prueba_Fisica.SelectedIndex = -1;
-            Mes_CB_Prueba_Fisica.SelectedIndex = -1;
-            Dia_CB_Prueba_Fisica.SelectedIndex = -1;
-            Anno_TB_Prueba_Fisica.Clear();
+
             Resultados_TB_Prueba_Fisica.Clear();
             Tipo_Prueba_Fisica_TB.Clear();
+            maskedTextBox_fechaPruebaFisica.Clear();
         }
 
         private void Todos_Atletas_Button_Click(object sender, EventArgs e)
@@ -639,6 +637,16 @@ namespace Interfaz_Triton
         }
 
         private void Fecha_Vencimiento_Tarjeta_TB_Conta_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox_fechaPruebaFisica_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            
+        }
+
+        private void Fecha_Pago_MTB_Conta_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }
