@@ -30,6 +30,10 @@ namespace Interfaz_Triton
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
+            // TODO: This line of code loads data into the 'tritonDataSet.Bloque_Entrenamiento' table. You can move, or remove it, as needed.
+            this.bloque_EntrenamientoTableAdapter.Fill(this.tritonDataSet.Bloque_Entrenamiento);
+            // TODO: This line of code loads data into the 'tritonDataSet.Etiqueta' table. You can move, or remove it, as needed.
+            this.etiquetaTableAdapter.Fill(this.tritonDataSet.Etiqueta);
             // TODO: This line of code loads data into the 'tritonDataSet.Entrenamiento_Individual' table. You can move, or remove it, as needed.
             this.entrenamiento_IndividualTableAdapter.Fill(this.tritonDataSet.Entrenamiento_Individual);
             // TODO: This line of code loads data into the 'tritonDataSet.Atleta_Info_Basica' table. You can move, or remove it, as needed.
@@ -331,38 +335,95 @@ namespace Interfaz_Triton
 
 
             SqlDataAdapter databaseAdapter = new SqlDataAdapter();
-            SqlCommand cmd = new SqlCommand("Update Entrenamiento_Individual set Deporte=@Deporte, Rutina=@Rutina, Nivel=@Nivel where Codigo_Entrenamiento_PK =@Codigo", connection);
 
+            //
+            String comando = "Update Entrenamiento_Individual set ";
+            bool hayValor = false;
+            if (!String.IsNullOrEmpty(BorrarDep.Text))//------------------------------->Deporte
+            {
+                if (hayValor) //Calcula si hay que poner un OR
+                {
+                    comando = comando + " , ";
+                }
+                comando = comando + "Deporte=@Deporte";
+                hayValor = true;
+            }
+            if (!String.IsNullOrEmpty(BorrarRut.Text))//------------------------------->Rutina
+            {
+                if (hayValor) //Calcula si hay que poner un OR
+                {
+                    comando = comando + " , ";
+                }
+                comando = comando + "Rutina=@Rutina";
+                hayValor = true;
+            }
+            if (!String.IsNullOrEmpty(BorrarNiv.Text))//------------------------------->niv
+            {
+                if (hayValor) //Calcula si hay que poner un OR
+                {
+                    comando = comando + " , ";
+                }
+                comando = comando + "Nivel=@Nivel";
+                hayValor = true;
+            }
+            if (!String.IsNullOrEmpty(BorrarCod.Text)) //------------------------------->Codigo
+            {
+                if (hayValor) //Calcula si hay que poner un OR
+                {
+                    comando = comando + " where ";
+                }
+                comando = comando + "Codigo_Entrenamiento_PK =@Codigo";
+                hayValor = true;
+            }
+
+            MessageBox.Show(comando);
+            
+            SqlCommand cmd = new SqlCommand(comando, connection);
 
             //Creo los Parametros
-            cmd.Parameters.Add("@Codigo", System.Data.SqlDbType.Int);
-            cmd.Parameters.Add("@Deporte", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@Rutina", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@Nivel", System.Data.SqlDbType.VarChar);
+            if (!String.IsNullOrEmpty(BorrarCod.Text)) //------------------------------->Codigo
+            {
+                cmd.Parameters.Add("@Codigo", System.Data.SqlDbType.Int);
+                cmd.Parameters["@Codigo"].Value = Convert.ToInt32(BorrarCod.Text);
+            }
 
-            //Asigno los valores
+            if (!String.IsNullOrEmpty(BorrarDep.Text))//------------------------------->Deporte
+            {
+                cmd.Parameters.Add("@Deporte", System.Data.SqlDbType.VarChar);
+                cmd.Parameters["@Deporte"].Value = BorrarDep.Text;
 
-            cmd.Parameters["@Codigo"].Value = Convert.ToInt32(ModCod.Text);
-            cmd.Parameters["@Deporte"].Value = ModDep.Text;
-            cmd.Parameters["@Rutina"].Value = ModRut.Text;
-            cmd.Parameters["@Nivel"].Value = ModNiv.Text;
-            //MessageBox.Show(ModNiv.Text);
+            }
+
+            if (!String.IsNullOrEmpty(BorrarRut.Text))//------------------------------->Rutina
+            {
+                cmd.Parameters.Add("@Rutina", System.Data.SqlDbType.VarChar);
+                cmd.Parameters["@Rutina"].Value = BorrarRut.Text;
+            }
+
+            if (!String.IsNullOrEmpty(BorrarNiv.Text))//------------------------------->Nivel
+            {
+                cmd.Parameters.Add("@Nivel", System.Data.SqlDbType.VarChar);
+                cmd.Parameters["@Nivel"].Value = BorrarNiv.Text;
+            }
+
+
 
             connection.Open();
-
-            cmd.ExecuteNonQuery();
-
-            //////////Actualiza Datos en Tabla///////////////////////////////
-            DataTable dt = new DataTable();
-            String querySelect = "SELECT * FROM Entrenamiento_Individual";
-            SqlCommand cmd2 = new SqlCommand(querySelect, connection);
-            SqlDataAdapter adap = new SqlDataAdapter(cmd2);
-            adap.Fill(dt);
-            EntrenamientoDG.DataSource = dt;
-            /////////////////////////////////////////////////////////////////
-
+            if (hayValor)
+            {
+                cmd.ExecuteNonQuery();
+                //////////Actualiza Datos en Tabla///////////////////////////////
+                DataTable dt = new DataTable();
+                String querySelect = "SELECT * FROM Entrenamiento_Individual";
+                SqlCommand cmd2 = new SqlCommand(querySelect, connection);
+                SqlDataAdapter adap = new SqlDataAdapter(cmd2);
+                adap.Fill(dt);
+                EntrenamientoDG.DataSource = dt;
+                /////////////////////////////////////////////////////////////////
+            }
 
             connection.Close();
+            ////////////////////////////////////////////////////////////////////////////////////////////////*/
         }
 
         private void textBox4_TextChanged_1(object sender, EventArgs e)
@@ -486,6 +547,21 @@ namespace Interfaz_Triton
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
 
         }

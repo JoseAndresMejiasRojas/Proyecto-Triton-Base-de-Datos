@@ -75,6 +75,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.BorrarDep = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ModNiv = new System.Windows.Forms.TextBox();
             this.ModCod = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -93,12 +94,24 @@
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox12 = new System.Windows.Forms.TextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.atletaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.atletaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.atletaTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.AtletaTableAdapter();
             this.atleta_Info_BasicaTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Atleta_Info_BasicaTableAdapter();
             this.entrenamiento_IndividualTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Entrenamiento_IndividualTableAdapter();
-            this.ModNiv = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.etiquetaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.etiquetaTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.EtiquetaTableAdapter();
+            this.etiquetaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.bloqueEntrenamientoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bloque_EntrenamientoTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Bloque_EntrenamientoTableAdapter();
+            this.atletaBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.Entrenamiento_Tab_Page.SuspendLayout();
             this.Atleta_Tab_Page.SuspendLayout();
             this.Bloques_Group_Box.SuspendLayout();
@@ -115,8 +128,14 @@
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etiquetaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etiquetaBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bloqueEntrenamientoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // Entrenamiento_Tab_Page
@@ -125,6 +144,7 @@
             this.Entrenamiento_Tab_Page.Controls.Add(this.Entrenamientos_Tab_Page);
             this.Entrenamiento_Tab_Page.Controls.Add(this.tabPage1);
             this.Entrenamiento_Tab_Page.Controls.Add(this.tabPage2);
+            this.Entrenamiento_Tab_Page.Controls.Add(this.tabPage3);
             this.Entrenamiento_Tab_Page.Location = new System.Drawing.Point(0, 0);
             this.Entrenamiento_Tab_Page.Name = "Entrenamiento_Tab_Page";
             this.Entrenamiento_Tab_Page.SelectedIndex = 0;
@@ -584,6 +604,14 @@
             this.groupBox2.Text = "Modificar Entrenamientos";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter_1);
             // 
+            // ModNiv
+            // 
+            this.ModNiv.Location = new System.Drawing.Point(92, 106);
+            this.ModNiv.Name = "ModNiv";
+            this.ModNiv.Size = new System.Drawing.Size(100, 20);
+            this.ModNiv.TabIndex = 33;
+            this.ModNiv.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // ModCod
             // 
             this.ModCod.Location = new System.Drawing.Point(92, 26);
@@ -762,6 +790,22 @@
             this.textBox12.TabIndex = 28;
             this.textBox12.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.radioButton4);
+            this.tabPage3.Controls.Add(this.radioButton3);
+            this.tabPage3.Controls.Add(this.radioButton1);
+            this.tabPage3.Controls.Add(this.radioButton2);
+            this.tabPage3.Controls.Add(this.comboBox1);
+            this.tabPage3.Controls.Add(this.dataGridView2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(883, 684);
+            this.tabPage3.TabIndex = 4;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // atletaBindingSource1
             // 
             this.atletaBindingSource1.DataMember = "Atleta";
@@ -784,13 +828,98 @@
             // 
             this.entrenamiento_IndividualTableAdapter.ClearBeforeFill = true;
             // 
-            // ModNiv
+            // dataGridView2
             // 
-            this.ModNiv.Location = new System.Drawing.Point(92, 106);
-            this.ModNiv.Name = "ModNiv";
-            this.ModNiv.Size = new System.Drawing.Size(100, 20);
-            this.ModNiv.TabIndex = 33;
-            this.ModNiv.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(416, 33);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(337, 405);
+            this.dataGridView2.TabIndex = 0;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DataSource = this.atletaBindingSource2;
+            this.comboBox1.DisplayMember = "Correo";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(29, 33);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 1;
+            // 
+            // etiquetaBindingSource
+            // 
+            this.etiquetaBindingSource.DataMember = "Etiqueta";
+            this.etiquetaBindingSource.DataSource = this.tritonDataSet;
+            // 
+            // etiquetaTableAdapter
+            // 
+            this.etiquetaTableAdapter.ClearBeforeFill = true;
+            // 
+            // etiquetaBindingSource1
+            // 
+            this.etiquetaBindingSource1.DataMember = "Etiqueta";
+            this.etiquetaBindingSource1.DataSource = this.tritonDataSet;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(29, 114);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(63, 17);
+            this.radioButton2.TabIndex = 3;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Deporte";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(29, 79);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(69, 17);
+            this.radioButton1.TabIndex = 4;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Etiquetas";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(29, 149);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(56, 17);
+            this.radioButton3.TabIndex = 5;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Correo";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(29, 184);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(133, 17);
+            this.radioButton4.TabIndex = 6;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Numero Entrenamiento";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // bloqueEntrenamientoBindingSource
+            // 
+            this.bloqueEntrenamientoBindingSource.DataMember = "Bloque_Entrenamiento";
+            this.bloqueEntrenamientoBindingSource.DataSource = this.tritonDataSet;
+            // 
+            // bloque_EntrenamientoTableAdapter
+            // 
+            this.bloque_EntrenamientoTableAdapter.ClearBeforeFill = true;
+            // 
+            // atletaBindingSource2
+            // 
+            this.atletaBindingSource2.DataMember = "Atleta";
+            this.atletaBindingSource2.DataSource = this.tritonDataSet;
             // 
             // Form1
             // 
@@ -824,8 +953,15 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etiquetaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.etiquetaBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bloqueEntrenamientoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource2)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -904,6 +1040,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rutinaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nivelDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox ModNiv;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.BindingSource etiquetaBindingSource;
+        private TritonDataSetTableAdapters.EtiquetaTableAdapter etiquetaTableAdapter;
+        private System.Windows.Forms.BindingSource etiquetaBindingSource1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.BindingSource bloqueEntrenamientoBindingSource;
+        private TritonDataSetTableAdapters.Bloque_EntrenamientoTableAdapter bloque_EntrenamientoTableAdapter;
+        private System.Windows.Forms.BindingSource atletaBindingSource2;
     }
 }
 
