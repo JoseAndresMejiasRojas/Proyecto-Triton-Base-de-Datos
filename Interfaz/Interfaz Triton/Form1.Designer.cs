@@ -47,17 +47,14 @@
             this.label22 = new System.Windows.Forms.Label();
             this.Tipo_Prueba_Fisica_TB = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.Anno_TB_Prueba_Fisica = new System.Windows.Forms.TextBox();
-            this.Dia_CB_Prueba_Fisica = new System.Windows.Forms.ComboBox();
-            this.Mes_CB_Prueba_Fisica = new System.Windows.Forms.ComboBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.Atleta_CB_Prueba_Fisica = new System.Windows.Forms.ComboBox();
             this.atletaBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.Vencimiento_Descuento_MTB_Conta = new System.Windows.Forms.MaskedTextBox();
+            this.Fecha_Finalizacion_MTB_Conta = new System.Windows.Forms.MaskedTextBox();
+            this.Fecha_Pago_MTB_Conta = new System.Windows.Forms.MaskedTextBox();
             this.Fecha_Vencimiento_MTB_Conta = new System.Windows.Forms.MaskedTextBox();
             this.Correo_CB_Conta = new System.Windows.Forms.ComboBox();
             this.Label_Monto_Semanal_Conta = new System.Windows.Forms.Label();
@@ -104,7 +101,6 @@
             this.deporteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rutinaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nivelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo_TB = new System.Windows.Forms.TextBox();
             this.Deporte_TB = new System.Windows.Forms.TextBox();
             this.Nivel_TB = new System.Windows.Forms.TextBox();
             this.Rutina_TB = new System.Windows.Forms.TextBox();
@@ -113,10 +109,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.Atleta_Tab_Page = new System.Windows.Forms.TabPage();
-            this.Bloques_Group_Box = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Datos_Group_Box = new System.Windows.Forms.GroupBox();
             this.Todos_Atletas_Button = new System.Windows.Forms.Button();
             this.Atleta_Data_Grid_View = new System.Windows.Forms.DataGridView();
@@ -132,9 +124,13 @@
             this.Entrenamiento_Tab_Page = new System.Windows.Forms.TabControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.atletaBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.Fecha_Pago_MTB_Conta = new System.Windows.Forms.MaskedTextBox();
-            this.Fecha_Finalizacion_MTB_Conta = new System.Windows.Forms.MaskedTextBox();
-            this.Vencimiento_Descuento_MTB_Conta = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox_fechaPruebaFisica = new System.Windows.Forms.MaskedTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Codigo_TB = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.atletaInfoBasicaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tritonDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).BeginInit();
@@ -151,13 +147,13 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EntrenamientoDG)).BeginInit();
             this.Atleta_Tab_Page.SuspendLayout();
-            this.Bloques_Group_Box.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Datos_Group_Box.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Atleta_Data_Grid_View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource4)).BeginInit();
             this.Entrenamiento_Tab_Page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource3)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // atletaInfoBasicaBindingSource
@@ -208,6 +204,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -218,29 +215,25 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.maskedTextBox_fechaPruebaFisica);
             this.groupBox3.Controls.Add(this.Button_Insertar_Prueba_Fisica);
             this.groupBox3.Controls.Add(this.Resultados_TB_Prueba_Fisica);
             this.groupBox3.Controls.Add(this.label22);
             this.groupBox3.Controls.Add(this.Tipo_Prueba_Fisica_TB);
             this.groupBox3.Controls.Add(this.label21);
-            this.groupBox3.Controls.Add(this.Anno_TB_Prueba_Fisica);
-            this.groupBox3.Controls.Add(this.Dia_CB_Prueba_Fisica);
-            this.groupBox3.Controls.Add(this.Mes_CB_Prueba_Fisica);
-            this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.Atleta_CB_Prueba_Fisica);
             this.groupBox3.Location = new System.Drawing.Point(3, 8);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(872, 478);
+            this.groupBox3.Size = new System.Drawing.Size(391, 478);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Insertar prueba física";
             // 
             // Button_Insertar_Prueba_Fisica
             // 
-            this.Button_Insertar_Prueba_Fisica.Location = new System.Drawing.Point(353, 141);
+            this.Button_Insertar_Prueba_Fisica.Location = new System.Drawing.Point(262, 410);
             this.Button_Insertar_Prueba_Fisica.Name = "Button_Insertar_Prueba_Fisica";
             this.Button_Insertar_Prueba_Fisica.Size = new System.Drawing.Size(75, 23);
             this.Button_Insertar_Prueba_Fisica.TabIndex = 11;
@@ -250,16 +243,16 @@
             // 
             // Resultados_TB_Prueba_Fisica
             // 
-            this.Resultados_TB_Prueba_Fisica.Location = new System.Drawing.Point(599, 43);
+            this.Resultados_TB_Prueba_Fisica.Location = new System.Drawing.Point(29, 317);
             this.Resultados_TB_Prueba_Fisica.Multiline = true;
             this.Resultados_TB_Prueba_Fisica.Name = "Resultados_TB_Prueba_Fisica";
-            this.Resultados_TB_Prueba_Fisica.Size = new System.Drawing.Size(267, 82);
+            this.Resultados_TB_Prueba_Fisica.Size = new System.Drawing.Size(308, 75);
             this.Resultados_TB_Prueba_Fisica.TabIndex = 9;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(702, 27);
+            this.label22.Location = new System.Drawing.Point(26, 301);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(60, 13);
             this.label22.TabIndex = 10;
@@ -267,7 +260,7 @@
             // 
             // Tipo_Prueba_Fisica_TB
             // 
-            this.Tipo_Prueba_Fisica_TB.Location = new System.Drawing.Point(442, 81);
+            this.Tipo_Prueba_Fisica_TB.Location = new System.Drawing.Point(29, 225);
             this.Tipo_Prueba_Fisica_TB.Name = "Tipo_Prueba_Fisica_TB";
             this.Tipo_Prueba_Fisica_TB.Size = new System.Drawing.Size(133, 20);
             this.Tipo_Prueba_Fisica_TB.TabIndex = 7;
@@ -275,117 +268,21 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(455, 65);
+            this.label21.Location = new System.Drawing.Point(26, 209);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(108, 13);
             this.label21.TabIndex = 8;
             this.label21.Text = "Tipo de prueba física";
             // 
-            // Anno_TB_Prueba_Fisica
-            // 
-            this.Anno_TB_Prueba_Fisica.Location = new System.Drawing.Point(353, 82);
-            this.Anno_TB_Prueba_Fisica.Name = "Anno_TB_Prueba_Fisica";
-            this.Anno_TB_Prueba_Fisica.Size = new System.Drawing.Size(51, 20);
-            this.Anno_TB_Prueba_Fisica.TabIndex = 2;
-            // 
-            // Dia_CB_Prueba_Fisica
-            // 
-            this.Dia_CB_Prueba_Fisica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Dia_CB_Prueba_Fisica.FormattingEnabled = true;
-            this.Dia_CB_Prueba_Fisica.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31"});
-            this.Dia_CB_Prueba_Fisica.Location = new System.Drawing.Point(203, 80);
-            this.Dia_CB_Prueba_Fisica.Name = "Dia_CB_Prueba_Fisica";
-            this.Dia_CB_Prueba_Fisica.Size = new System.Drawing.Size(45, 21);
-            this.Dia_CB_Prueba_Fisica.TabIndex = 6;
-            // 
-            // Mes_CB_Prueba_Fisica
-            // 
-            this.Mes_CB_Prueba_Fisica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Mes_CB_Prueba_Fisica.FormattingEnabled = true;
-            this.Mes_CB_Prueba_Fisica.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.Mes_CB_Prueba_Fisica.Location = new System.Drawing.Point(278, 80);
-            this.Mes_CB_Prueba_Fisica.Name = "Mes_CB_Prueba_Fisica";
-            this.Mes_CB_Prueba_Fisica.Size = new System.Drawing.Size(45, 21);
-            this.Mes_CB_Prueba_Fisica.TabIndex = 5;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(287, 64);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(27, 13);
-            this.label20.TabIndex = 4;
-            this.label20.Text = "Mes";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(363, 64);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(26, 13);
-            this.label19.TabIndex = 3;
-            this.label19.Text = "Año";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(212, 64);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(25, 13);
-            this.label18.TabIndex = 2;
-            this.label18.Text = "Día";
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(65, 64);
+            this.label17.Location = new System.Drawing.Point(26, 64);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(34, 13);
             this.label17.TabIndex = 1;
             this.label17.Text = "Atleta";
+            this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
             // Atleta_CB_Prueba_Fisica
             // 
@@ -393,7 +290,7 @@
             this.Atleta_CB_Prueba_Fisica.DisplayMember = "Correo";
             this.Atleta_CB_Prueba_Fisica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Atleta_CB_Prueba_Fisica.FormattingEnabled = true;
-            this.Atleta_CB_Prueba_Fisica.Location = new System.Drawing.Point(29, 81);
+            this.Atleta_CB_Prueba_Fisica.Location = new System.Drawing.Point(29, 80);
             this.Atleta_CB_Prueba_Fisica.Name = "Atleta_CB_Prueba_Fisica";
             this.Atleta_CB_Prueba_Fisica.Size = new System.Drawing.Size(121, 21);
             this.Atleta_CB_Prueba_Fisica.TabIndex = 0;
@@ -453,6 +350,37 @@
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Facturación";
+            // 
+            // Vencimiento_Descuento_MTB_Conta
+            // 
+            this.Vencimiento_Descuento_MTB_Conta.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.Vencimiento_Descuento_MTB_Conta.Location = new System.Drawing.Point(718, 142);
+            this.Vencimiento_Descuento_MTB_Conta.Mask = "0000-00-00";
+            this.Vencimiento_Descuento_MTB_Conta.Name = "Vencimiento_Descuento_MTB_Conta";
+            this.Vencimiento_Descuento_MTB_Conta.Size = new System.Drawing.Size(64, 20);
+            this.Vencimiento_Descuento_MTB_Conta.TabIndex = 45;
+            this.Vencimiento_Descuento_MTB_Conta.ValidatingType = typeof(System.DateTime);
+            this.Vencimiento_Descuento_MTB_Conta.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.Vencimiento_Descuento_MTB_Conta_MaskInputRejected);
+            // 
+            // Fecha_Finalizacion_MTB_Conta
+            // 
+            this.Fecha_Finalizacion_MTB_Conta.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.Fecha_Finalizacion_MTB_Conta.Location = new System.Drawing.Point(408, 142);
+            this.Fecha_Finalizacion_MTB_Conta.Mask = "0000-00-00";
+            this.Fecha_Finalizacion_MTB_Conta.Name = "Fecha_Finalizacion_MTB_Conta";
+            this.Fecha_Finalizacion_MTB_Conta.Size = new System.Drawing.Size(61, 20);
+            this.Fecha_Finalizacion_MTB_Conta.TabIndex = 44;
+            this.Fecha_Finalizacion_MTB_Conta.ValidatingType = typeof(System.DateTime);
+            // 
+            // Fecha_Pago_MTB_Conta
+            // 
+            this.Fecha_Pago_MTB_Conta.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.Fecha_Pago_MTB_Conta.Location = new System.Drawing.Point(310, 142);
+            this.Fecha_Pago_MTB_Conta.Mask = "0000-00-00";
+            this.Fecha_Pago_MTB_Conta.Name = "Fecha_Pago_MTB_Conta";
+            this.Fecha_Pago_MTB_Conta.Size = new System.Drawing.Size(64, 20);
+            this.Fecha_Pago_MTB_Conta.TabIndex = 43;
+            this.Fecha_Pago_MTB_Conta.ValidatingType = typeof(System.DateTime);
             // 
             // Fecha_Vencimiento_MTB_Conta
             // 
@@ -914,14 +842,6 @@
             this.nivelDataGridViewTextBoxColumn.Name = "nivelDataGridViewTextBoxColumn";
             this.nivelDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // Codigo_TB
-            // 
-            this.Codigo_TB.Location = new System.Drawing.Point(124, 50);
-            this.Codigo_TB.Name = "Codigo_TB";
-            this.Codigo_TB.Size = new System.Drawing.Size(100, 20);
-            this.Codigo_TB.TabIndex = 7;
-            this.Codigo_TB.TextChanged += new System.EventHandler(this.Codigo_TB_TextChanged);
-            // 
             // Deporte_TB
             // 
             this.Deporte_TB.Location = new System.Drawing.Point(124, 124);
@@ -981,7 +901,6 @@
             // 
             // Atleta_Tab_Page
             // 
-            this.Atleta_Tab_Page.Controls.Add(this.Bloques_Group_Box);
             this.Atleta_Tab_Page.Controls.Add(this.Datos_Group_Box);
             this.Atleta_Tab_Page.Location = new System.Drawing.Point(4, 22);
             this.Atleta_Tab_Page.Name = "Atleta_Tab_Page";
@@ -992,49 +911,6 @@
             this.Atleta_Tab_Page.UseVisualStyleBackColor = true;
             this.Atleta_Tab_Page.Click += new System.EventHandler(this.Atleta_Tab_Page_Click);
             // 
-            // Bloques_Group_Box
-            // 
-            this.Bloques_Group_Box.Controls.Add(this.button1);
-            this.Bloques_Group_Box.Controls.Add(this.label1);
-            this.Bloques_Group_Box.Controls.Add(this.dataGridView1);
-            this.Bloques_Group_Box.Location = new System.Drawing.Point(6, 195);
-            this.Bloques_Group_Box.Name = "Bloques_Group_Box";
-            this.Bloques_Group_Box.Size = new System.Drawing.Size(877, 294);
-            this.Bloques_Group_Box.TabIndex = 1;
-            this.Bloques_Group_Box.TabStop = false;
-            this.Bloques_Group_Box.Text = "Bloques de entrenamiento";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(420, 38);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 28);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Ver";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(11, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(412, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Números de pruebas físicas por atleta";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 72);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(841, 212);
-            this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
             // Datos_Group_Box
             // 
             this.Datos_Group_Box.Controls.Add(this.Todos_Atletas_Button);
@@ -1044,7 +920,7 @@
             this.Datos_Group_Box.Controls.Add(this.Atleta_Text_Box);
             this.Datos_Group_Box.Location = new System.Drawing.Point(6, 6);
             this.Datos_Group_Box.Name = "Datos_Group_Box";
-            this.Datos_Group_Box.Size = new System.Drawing.Size(877, 183);
+            this.Datos_Group_Box.Size = new System.Drawing.Size(877, 485);
             this.Datos_Group_Box.TabIndex = 0;
             this.Datos_Group_Box.TabStop = false;
             this.Datos_Group_Box.Text = "Datos";
@@ -1172,36 +1048,72 @@
             this.atletaBindingSource3.DataMember = "Atleta";
             this.atletaBindingSource3.DataSource = this.tritonDataSet;
             // 
-            // Fecha_Pago_MTB_Conta
+            // maskedTextBox_fechaPruebaFisica
             // 
-            this.Fecha_Pago_MTB_Conta.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.Fecha_Pago_MTB_Conta.Location = new System.Drawing.Point(310, 142);
-            this.Fecha_Pago_MTB_Conta.Mask = "0000-00-00";
-            this.Fecha_Pago_MTB_Conta.Name = "Fecha_Pago_MTB_Conta";
-            this.Fecha_Pago_MTB_Conta.Size = new System.Drawing.Size(64, 20);
-            this.Fecha_Pago_MTB_Conta.TabIndex = 43;
-            this.Fecha_Pago_MTB_Conta.ValidatingType = typeof(System.DateTime);
+            this.maskedTextBox_fechaPruebaFisica.Location = new System.Drawing.Point(29, 158);
+            this.maskedTextBox_fechaPruebaFisica.Mask = "0000-00-00";
+            this.maskedTextBox_fechaPruebaFisica.Name = "maskedTextBox_fechaPruebaFisica";
+            this.maskedTextBox_fechaPruebaFisica.Size = new System.Drawing.Size(100, 20);
+            this.maskedTextBox_fechaPruebaFisica.TabIndex = 12;
             // 
-            // Fecha_Finalizacion_MTB_Conta
+            // label3
             // 
-            this.Fecha_Finalizacion_MTB_Conta.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.Fecha_Finalizacion_MTB_Conta.Location = new System.Drawing.Point(408, 142);
-            this.Fecha_Finalizacion_MTB_Conta.Mask = "0000-00-00";
-            this.Fecha_Finalizacion_MTB_Conta.Name = "Fecha_Finalizacion_MTB_Conta";
-            this.Fecha_Finalizacion_MTB_Conta.Size = new System.Drawing.Size(61, 20);
-            this.Fecha_Finalizacion_MTB_Conta.TabIndex = 44;
-            this.Fecha_Finalizacion_MTB_Conta.ValidatingType = typeof(System.DateTime);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(26, 142);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Fecha de prueba";
             // 
-            // Vencimiento_Descuento_MTB_Conta
+            // groupBox2
             // 
-            this.Vencimiento_Descuento_MTB_Conta.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.Vencimiento_Descuento_MTB_Conta.Location = new System.Drawing.Point(718, 142);
-            this.Vencimiento_Descuento_MTB_Conta.Mask = "0000-00-00";
-            this.Vencimiento_Descuento_MTB_Conta.Name = "Vencimiento_Descuento_MTB_Conta";
-            this.Vencimiento_Descuento_MTB_Conta.Size = new System.Drawing.Size(64, 20);
-            this.Vencimiento_Descuento_MTB_Conta.TabIndex = 45;
-            this.Vencimiento_Descuento_MTB_Conta.ValidatingType = typeof(System.DateTime);
-            this.Vencimiento_Descuento_MTB_Conta.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.Vencimiento_Descuento_MTB_Conta_MaskInputRejected);
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.label19);
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Location = new System.Drawing.Point(398, 8);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(477, 481);
+            this.groupBox2.TabIndex = 17;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Bloques de entrenamiento";
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(391, 37);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(80, 28);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Ver";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.Location = new System.Drawing.Point(6, 37);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(362, 24);
+            this.label19.TabIndex = 4;
+            this.label19.Text = "Números de pruebas físicas por atleta";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(2, 71);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(469, 375);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // Codigo_TB
+            // 
+            this.Codigo_TB.Location = new System.Drawing.Point(124, 50);
+            this.Codigo_TB.Name = "Codigo_TB";
+            this.Codigo_TB.Size = new System.Drawing.Size(100, 20);
+            this.Codigo_TB.TabIndex = 7;
+            this.Codigo_TB.TextChanged += new System.EventHandler(this.Codigo_TB_TextChanged);
             // 
             // Form1
             // 
@@ -1233,15 +1145,15 @@
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EntrenamientoDG)).EndInit();
             this.Atleta_Tab_Page.ResumeLayout(false);
-            this.Bloques_Group_Box.ResumeLayout(false);
-            this.Bloques_Group_Box.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.Datos_Group_Box.ResumeLayout(false);
             this.Datos_Group_Box.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Atleta_Data_Grid_View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource4)).EndInit();
             this.Entrenamiento_Tab_Page.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource3)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -1302,7 +1214,6 @@
         private System.Windows.Forms.Button Button_Modificar;
         private System.Windows.Forms.Button Button_Insertar;
         private System.Windows.Forms.DataGridView EntrenamientoDG;
-        private System.Windows.Forms.TextBox Codigo_TB;
         private System.Windows.Forms.TextBox Deporte_TB;
         private System.Windows.Forms.TextBox Nivel_TB;
         private System.Windows.Forms.TextBox Rutina_TB;
@@ -1311,22 +1222,12 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TabPage Atleta_Tab_Page;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.GroupBox Bloques_Group_Box;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox Datos_Group_Box;
         private System.Windows.Forms.DataGridView Atleta_Data_Grid_View;
         private System.Windows.Forms.Button Buscar_Atleta_Button;
         private System.Windows.Forms.Label Nombre;
         private System.Windows.Forms.TextBox Atleta_Text_Box;
         private System.Windows.Forms.TabControl Entrenamiento_Tab_Page;
-        private System.Windows.Forms.TextBox Anno_TB_Prueba_Fisica;
-        private System.Windows.Forms.ComboBox Dia_CB_Prueba_Fisica;
-        private System.Windows.Forms.ComboBox Mes_CB_Prueba_Fisica;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.BindingSource atletaBindingSource2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
@@ -1352,6 +1253,13 @@
         private System.Windows.Forms.MaskedTextBox Fecha_Pago_MTB_Conta;
         private System.Windows.Forms.MaskedTextBox Fecha_Finalizacion_MTB_Conta;
         private System.Windows.Forms.MaskedTextBox Vencimiento_Descuento_MTB_Conta;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox_fechaPruebaFisica;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox Codigo_TB;
     }
 }
 
