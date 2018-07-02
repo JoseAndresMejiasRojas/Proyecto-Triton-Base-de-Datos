@@ -17,13 +17,4 @@ C:\Users\b52513\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\o
 C:\Users\b52513\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\bin\Debug\Interfaz Triton.exe.config
 C:\Users\b52513\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\bin\Debug\Interfaz Triton.exe
 C:\Users\b52513\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\bin\Debug\Interfaz Triton.pdb
-C:\Users\B26505\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\obj\Debug\Interfaz Triton.csprojResolveAssemblyReference.cache
-C:\Users\B26505\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\obj\Debug\Interfaz_Triton.Form1.resources
-C:\Users\B26505\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\obj\Debug\Interfaz_Triton.Properties.Resources.resources
-C:\Users\B26505\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\obj\Debug\Interfaz Triton.csproj.GenerateResource.Cache
-C:\Users\B26505\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\obj\Debug\Interfaz Triton.csproj.CoreCompileInputs.cache
-C:\Users\B26505\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\obj\Debug\Interfaz Triton.exe
-C:\Users\B26505\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\obj\Debug\Interfaz Triton.pdb
-C:\Users\B26505\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\bin\Debug\Interfaz Triton.exe.config
-C:\Users\B26505\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\bin\Debug\Interfaz Triton.exe
-C:\Users\B26505\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\bin\Debug\Interfaz Triton.pdb
+C:\Users\b54275\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\obj\Debug\Interfaz Triton.csprojResolveAssemblyReference.cache

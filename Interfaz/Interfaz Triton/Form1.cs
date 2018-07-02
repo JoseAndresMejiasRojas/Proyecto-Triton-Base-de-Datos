@@ -26,7 +26,7 @@ namespace Interfaz_Triton
             Label_Porcentaje_Descuento.Visible = false;
 
             Porcentaje_TB_Descuento.Visible = false;
-            //Fecha_TB_Descuento.Visible = false;
+            Vencimiento_Descuento_MTB_Conta.Visible = false;
             Codigo_TB_Descuento.Visible = false;
 
             Cantidad_Semanas_TB_Conta.Visible = false;
@@ -54,8 +54,6 @@ namespace Interfaz_Triton
             this.entrenamiento_IndividualTableAdapter.Fill(this.tritonDataSet.Entrenamiento_Individual);
             // TODO: This line of code loads data into the 'tritonDataSet.Cobro_Individual' table. You can move, or remove it, as needed.
             this.cobro_IndividualTableAdapter.Fill(this.tritonDataSet.Cobro_Individual);
-            // TODO: This line of code loads data into the 'tritonDataSet.Atleta_Info_Basica' table. You can move, or remove it, as needed.
-            this.atleta_Info_BasicaTableAdapter.Fill(this.tritonDataSet.Atleta_Info_Basica);
 			// TODO: This line of code loads data into the 'tritonDataSet.Atleta' table. You can move, or remove it, as needed.
 			this.atletaTableAdapter.Fill(this.tritonDataSet.Atleta);
 
@@ -217,7 +215,6 @@ namespace Interfaz_Triton
 
         private void Descuento_Ganancias_Conta_CheckedChanged(object sender, EventArgs e)
         {
-            //MessageBox.Show("You are in the CheckBox.CheckedChanged event.");
             if( descuento == false )   // Si se marca, hay descuento.
             {
                 descuento = !descuento;
@@ -227,7 +224,7 @@ namespace Interfaz_Triton
                 Label_Porcentaje_Descuento.Visible = true;
 
                 Porcentaje_TB_Descuento.Visible = true;
-                //Fecha_TB_Descuento.Visible = true;
+                Vencimiento_Descuento_MTB_Conta.Visible = true;
                 Codigo_TB_Descuento.Visible = true;
             }
             else // No hay descuento.
@@ -239,7 +236,7 @@ namespace Interfaz_Triton
                 Label_Porcentaje_Descuento.Visible = false;
 
                 Porcentaje_TB_Descuento.Visible = false;
-                //Fecha_TB_Descuento.Visible = false;
+                Vencimiento_Descuento_MTB_Conta.Visible = false;
                 Codigo_TB_Descuento.Visible = false;
             }
         }
@@ -251,73 +248,147 @@ namespace Interfaz_Triton
 
         private void Button_Insertar_Factura_Click(object sender, EventArgs e)
         {
-            String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
-            SqlConnection connection = new SqlConnection(connectionStr);
-
-            SqlCommand cmd = new SqlCommand("Insert into Cobro (ID_Factura_PK,Codigo_Atleta_FK,Fecha_Pago,Fecha_Finalización,Número_Tarjeta,Fecha_Vencimiento,CVC,Codigo_Descuento, Duracion_Descuento,Porcentaje_Descuento ) values (@ID_Factura_PK,@Codigo_Atleta_FK,@Fecha_Pago,@Fecha_Finalización,@Número_Tarjeta,@Fecha_Vencimiento,@CVC,@Codigo_Descuento, @Duracion_Descuento,@Porcentaje_Descuento)", connection);
-            int id_factura = Convert.ToInt32(Codigo_Factura_TB_Conta.Text);
-            connection.Open();
-
-            // Obtengo el número del atleta acorde al correo.
-            DataRowView drv = (DataRowView)Correo_CB_Conta.SelectedItem;
-            String correo = drv["Correo"].ToString();
-            SqlCommand cmd2 = new SqlCommand("SELECT dbo.ObtenerCodigo(" + "'" + correo + "'" + ")", connection);
-            int codigoAtleta = (int)(cmd2.ExecuteScalar());
-
-
-            //Creo los Parametros
-            cmd.Parameters.Add("@ID_Factura_PK", System.Data.SqlDbType.Int);
-            cmd.Parameters.Add("@Codigo_Atleta_FK", System.Data.SqlDbType.Int);
-            cmd.Parameters.Add("@Fecha_Pago", System.Data.SqlDbType.Date);
-            cmd.Parameters.Add("@Fecha_Finalización", System.Data.SqlDbType.Date);
-            cmd.Parameters.Add("@Número_Tarjeta", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@Fecha_Vencimiento", System.Data.SqlDbType.Date);
-            cmd.Parameters.Add("@CVC", System.Data.SqlDbType.Int);
-            cmd.Parameters.Add("@Codigo_Descuento", System.Data.SqlDbType.Int);
-            cmd.Parameters.Add("@Duracion_Descuento", System.Data.SqlDbType.Date);
-            cmd.Parameters.Add("@Porcentaje_Descuento", System.Data.SqlDbType.Int);
-
-            //Asigno los valores
-            cmd.Parameters["@Codigo_Atleta_FK"].Value = codigoAtleta;
-            cmd.Parameters["@ID_Factura_PK"].Value = id_factura;
-            cmd.Parameters["@Fecha_Pago"].Value = DateTime.Parse(Fecha_Pago_MTB_Conta.Text);
-            cmd.Parameters["@Fecha_Finalización"].Value = DateTime.Parse(Fecha_Finalizacion_MTB_Conta.Text);
-            cmd.Parameters["@Número_Tarjeta"].Value = Numero_Tarjeta_TB_Conta.Text;
-            cmd.Parameters["@Fecha_Vencimiento"].Value = DateTime.Parse(Fecha_Vencimiento_MTB_Conta.Text);
-            cmd.Parameters["@CVC"].Value = Convert.ToInt32(CVC_TB_Conta.Text);
-
-            if (descuento == true)
+            if (parseo_errores_conta() == false)    // So no hay errores.
             {
-                cmd.Parameters["@Codigo_Descuento"].Value = Convert.ToInt32(Codigo_TB_Descuento.Text);
-                cmd.Parameters["@Duracion_Descuento"].Value = DateTime.Parse(Vencimiento_Descuento_MTB_Conta.Text);
-                cmd.Parameters["@Porcentaje_Descuento"].Value = Convert.ToInt32(Porcentaje_TB_Descuento.Text);
+                try
+                {
+                    String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
+                    SqlConnection connection = new SqlConnection(connectionStr);
+
+                    SqlCommand cmd = new SqlCommand("Insert into Cobro (ID_Factura_PK,Codigo_Atleta_FK,Fecha_Pago,Fecha_Finalización,Número_Tarjeta,Fecha_Vencimiento,CVC,Codigo_Descuento, Duracion_Descuento,Porcentaje_Descuento ) values (@ID_Factura_PK,@Codigo_Atleta_FK,@Fecha_Pago,@Fecha_Finalización,@Número_Tarjeta,@Fecha_Vencimiento,@CVC,@Codigo_Descuento, @Duracion_Descuento,@Porcentaje_Descuento)", connection);
+                    int id_factura = Convert.ToInt32(Codigo_Factura_TB_Conta.Text);
+                    connection.Open();
+
+                    // Obtengo el número del atleta acorde al correo.
+                    DataRowView drv = (DataRowView)Correo_CB_Conta.SelectedItem;
+                    String correo = drv["Correo"].ToString();
+                    SqlCommand cmd2 = new SqlCommand("SELECT dbo.ObtenerCodigo(" + "'" + correo + "'" + ")", connection);
+                    int codigoAtleta = (int)(cmd2.ExecuteScalar());
+
+                    //Creo los Parametros
+                    cmd.Parameters.Add("@ID_Factura_PK", System.Data.SqlDbType.Int);
+                    cmd.Parameters.Add("@Codigo_Atleta_FK", System.Data.SqlDbType.Int);
+                    cmd.Parameters.Add("@Fecha_Pago", System.Data.SqlDbType.Date);
+                    cmd.Parameters.Add("@Fecha_Finalización", System.Data.SqlDbType.Date);
+                    cmd.Parameters.Add("@Número_Tarjeta", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters.Add("@Fecha_Vencimiento", System.Data.SqlDbType.Date);
+                    cmd.Parameters.Add("@CVC", System.Data.SqlDbType.Int);
+                    cmd.Parameters.Add("@Codigo_Descuento", System.Data.SqlDbType.Int);
+                    cmd.Parameters.Add("@Duracion_Descuento", System.Data.SqlDbType.Date);
+                    cmd.Parameters.Add("@Porcentaje_Descuento", System.Data.SqlDbType.Int);
+
+                    //Asigno los valores
+                    cmd.Parameters["@Codigo_Atleta_FK"].Value = codigoAtleta;
+                    cmd.Parameters["@ID_Factura_PK"].Value = id_factura;
+                    cmd.Parameters["@Fecha_Pago"].Value = DateTime.Parse(Fecha_Pago_MTB_Conta.Text);
+                    cmd.Parameters["@Fecha_Finalización"].Value = DateTime.Parse(Fecha_Finalizacion_MTB_Conta.Text);
+                    cmd.Parameters["@Número_Tarjeta"].Value = Numero_Tarjeta_TB_Conta.Text;
+                    cmd.Parameters["@Fecha_Vencimiento"].Value = DateTime.Parse(Fecha_Vencimiento_MTB_Conta.Text);
+                    cmd.Parameters["@CVC"].Value = Convert.ToInt32(CVC_TB_Conta.Text);
+
+                    if (descuento == true)
+                    {
+                        cmd.Parameters["@Codigo_Descuento"].Value = Convert.ToInt32(Codigo_TB_Descuento.Text);
+                        cmd.Parameters["@Duracion_Descuento"].Value = DateTime.Parse(Vencimiento_Descuento_MTB_Conta.Text);
+                        cmd.Parameters["@Porcentaje_Descuento"].Value = Convert.ToInt32(Porcentaje_TB_Descuento.Text);
+                    }
+                    else
+                    {
+                        cmd.Parameters["@Codigo_Descuento"].Value = DBNull.Value;
+                        cmd.Parameters["@Duracion_Descuento"].Value = DBNull.Value;
+                        cmd.Parameters["@Porcentaje_Descuento"].Value = DBNull.Value;
+                    }
+
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+
+                    // Inserto el tipo de Cobro.
+                    if (Tipo_Cobro_CB_Conta.Text == "Mensual")
+                    {
+                        insertar_cobro_mensual(id_factura, Convert.ToDecimal(Monto_Mensual_TB_Conta.Text));
+                    }
+                    else
+                    {
+                        insertar_cobro_individual(id_factura, Convert.ToDecimal(Semanal_TB_Conta.Text), Convert.ToInt32(Cantidad_Semanas_TB_Conta.Text));
+                    }
+                    MessageBox.Show("Se ha agregado la factura " + id_factura.ToString() + " al atleta " + correo, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch( Exception exception )
+                {
+                    MessageBox.Show("Error al insertar los datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+        }
+
+        // Retorna true si hay un error, false si todoe está bien.
+        bool parseo_errores_conta()
+        {
+            bool error = false;
+            if( Tipo_Cobro_CB_Conta.Text != "Mensual" && Tipo_Cobro_CB_Conta.Text != "Individual" )
             {
-                cmd.Parameters["@Codigo_Descuento"].Value = DBNull.Value;
-                cmd.Parameters["@Duracion_Descuento"].Value = DBNull.Value;
-                cmd.Parameters["@Porcentaje_Descuento"].Value = DBNull.Value;
+                error = true;
+            }
+            else if( int.TryParse(Codigo_Factura_TB_Conta.Text, out int n) == false )
+            {
+                error = true;
+            }
+            else if( String.IsNullOrEmpty(Numero_Tarjeta_TB_Conta.Text) == true )
+            {
+                error = true;
+            }
+            else if( String.IsNullOrEmpty(Fecha_Vencimiento_MTB_Conta.Text) )
+            {
+                error = true;
+            }
+            else if ( String.IsNullOrEmpty(Fecha_Pago_MTB_Conta.Text) )
+            {
+                error = true;
+            }
+            else if ( String.IsNullOrEmpty(Fecha_Finalizacion_MTB_Conta.Text) )
+            {
+                error = true;
+            }
+            else if (int.TryParse(CVC_TB_Conta.Text, out n) == false)
+            {
+                error = true;
+            }
+            else if( descuento == true )
+            {
+                if (String.IsNullOrEmpty(Vencimiento_Descuento_MTB_Conta.Text) == true)
+                {
+                    error = true;
+                }
+                else if (int.TryParse(Codigo_TB_Descuento.Text, out n) == false)
+                {
+                    error = true;
+                }
+                else if (int.TryParse(Porcentaje_TB_Descuento.Text, out n) == false)
+                {
+                    error = true;
+                }
+            }
+            else if (Tipo_Cobro_CB_Conta.Text == "Mensual")
+            {
+                if( int.TryParse(Monto_Mensual_TB_Conta.Text, out n) == false )
+                {
+                    error = true;
+                }
+            }
+            else if(Tipo_Cobro_CB_Conta.Text == "Individual")
+            {
+                if (int.TryParse(Semanal_TB_Conta.Text, out n) == false || int.TryParse(Cantidad_Semanas_TB_Conta.Text, out n) == false)
+                {
+                    error = true;
+                }
             }
 
-            cmd.ExecuteNonQuery();
-            connection.Close();
 
-            // Inserto el tipo de Cobro.
-            if (Tipo_Cobro_CB_Conta.Text == "Mensual")
+            if ( error == true )
             {
-                insertar_cobro_mensual(id_factura, Convert.ToDecimal(Monto_Mensual_TB_Conta.Text) );
-            }
-            else if (Tipo_Cobro_CB_Conta.Text == "Individual")
-            {
-                insertar_cobro_individual(id_factura, Convert.ToDecimal(Semanal_TB_Conta.Text), Convert.ToInt32(Cantidad_Semanas_TB_Conta.Text));
-            }
-            else
-            {
-                // Error, estoy insertando un cobro sin tipo.
-                MessageBox.Show("Debe de escoger un tipo de pago", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al insertar los datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            MessageBox.Show("Se ha agregado la factura " + id_factura.ToString() + " al atleta " + correo, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return error;
         }
 
         private void Fecha_TB_Descuento_TextChanged(object sender, EventArgs e)
@@ -350,7 +421,7 @@ namespace Interfaz_Triton
             SqlConnection connection = new SqlConnection(connectionStr);
 
             SqlDataAdapter databaseAdapter = new SqlDataAdapter();
-            SqlCommand cmd = new SqlCommand("Insert into Cobro_Mensual (ID_Factura_FK,Monto_Semanal,Monto_Total,Cantidad_Semanas) values (@ID_Factura_FK,@Monto_Semanal,@Monto_Total,@Cantidad_Semanas)", connection);
+            SqlCommand cmd = new SqlCommand("Insert into Cobro_Individual (ID_Factura_FK,Monto_Semanal,Monto_Total,Cantidad_Semanas) values (@ID_Factura_FK,@Monto_Semanal,@Monto_Total,@Cantidad_Semanas)", connection);
 
             cmd.Parameters.Add("@ID_Factura_FK", System.Data.SqlDbType.Int);
             cmd.Parameters.Add("@Monto_Semanal", System.Data.SqlDbType.Money);
@@ -358,7 +429,7 @@ namespace Interfaz_Triton
             cmd.Parameters.Add("@Cantidad_Semanas", System.Data.SqlDbType.Money);
 
             cmd.Parameters["@ID_Factura_FK"].Value = factura;
-            cmd.Parameters["@Monto_Mensual"].Value = monto_semanal;
+            cmd.Parameters["@Monto_Semanal"].Value = monto_semanal;
             cmd.Parameters["@Monto_Total"].Value = monto_semanal*cantidad_semanas;
             cmd.Parameters["@Cantidad_Semanas"].Value = cantidad_semanas;
 
@@ -374,83 +445,175 @@ namespace Interfaz_Triton
 
         private void Button_Insertar_Click(object sender, EventArgs e)
         {
-            String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
-            SqlConnection connection = new SqlConnection(connectionStr);
+            if( int.TryParse(Codigo_TB.Text, out int n) == true )   // Si es numérico, todo bien.
+            {
+                try
+                {
+                    String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
+                    SqlConnection connection = new SqlConnection(connectionStr);
 
 
-            SqlDataAdapter databaseAdapter = new SqlDataAdapter();
-            SqlCommand cmd = new SqlCommand("Insert into Entrenamiento_Individual (Codigo_Entrenamiento_PK,Deporte,Rutina,Nivel) values (@Codigo,@Deporte,@Rutina,@Nivel)", connection);
+                    SqlDataAdapter databaseAdapter = new SqlDataAdapter();
+                    SqlCommand cmd = new SqlCommand("Insert into Entrenamiento_Individual (Codigo_Entrenamiento_PK,Deporte,Rutina,Nivel) values (@Codigo,@Deporte,@Rutina,@Nivel)", connection);
 
-            //Creo los Parametros
-            cmd.Parameters.Add("@Codigo", System.Data.SqlDbType.Int);
-            cmd.Parameters.Add("@Deporte", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@Rutina", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@Nivel", System.Data.SqlDbType.VarChar);
+                    //Creo los Parametros
+                    cmd.Parameters.Add("@Codigo", System.Data.SqlDbType.Int);
+                    cmd.Parameters.Add("@Deporte", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters.Add("@Rutina", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters.Add("@Nivel", System.Data.SqlDbType.VarChar);
 
-            //Asigno los valores
+                    //Asigno los valores
 
-            cmd.Parameters["@Codigo"].Value = Convert.ToInt32(Codigo_TB.Text);
-            cmd.Parameters["@Deporte"].Value = Deporte_TB.Text;
-            cmd.Parameters["@Rutina"].Value = Rutina_TB.Text;
-            cmd.Parameters["@Nivel"].Value = Nivel_TB.Text;
+                    cmd.Parameters["@Codigo"].Value = Convert.ToInt32(Codigo_TB.Text);
+                    cmd.Parameters["@Deporte"].Value = Deporte_TB.Text;
+                    cmd.Parameters["@Rutina"].Value = Rutina_TB.Text;
+                    cmd.Parameters["@Nivel"].Value = Nivel_TB.Text;
 
 
-            connection.Open();
+                    connection.Open();
 
-            cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
 
-            //////////Actualiza Datos en Tabla///////////////////////////////
-            DataTable dt = new DataTable();
-            String querySelect = "SELECT * FROM Entrenamiento_Individual";
-            SqlCommand cmd2 = new SqlCommand(querySelect, connection);
-            SqlDataAdapter adap = new SqlDataAdapter(cmd2);
-            adap.Fill(dt);
-            EntrenamientoDG.DataSource = dt;
-            EntrenamientoDG.AutoResizeColumns();
-            /////////////////////////////////////////////////////////////////
+                    //////////Actualiza Datos en Tabla///////////////////////////////
+                    DataTable dt = new DataTable();
+                    String querySelect = "SELECT * FROM Entrenamiento_Individual";
+                    SqlCommand cmd2 = new SqlCommand(querySelect, connection);
+                    SqlDataAdapter adap = new SqlDataAdapter(cmd2);
+                    adap.Fill(dt);
+                    EntrenamientoDG.DataSource = dt;
+                    EntrenamientoDG.AutoResizeColumns();
+                    /////////////////////////////////////////////////////////////////
 
-            connection.Close();
+                    connection.Close();
+                }
+                catch
+                {
+                    MessageBox.Show("Error al insertar datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Solo puede haber números en código.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Button_Modificar_Click(object sender, EventArgs e)
         {
-            String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
-            SqlConnection connection = new SqlConnection(connectionStr);
+            if (int.TryParse(Codigo_TB.Text, out int n) == true)   // Si es numérico, todo bien.
+            {
+                try
+                {
+                    String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
+                    SqlConnection connection = new SqlConnection(connectionStr);
 
 
-            SqlDataAdapter databaseAdapter = new SqlDataAdapter();
-            SqlCommand cmd = new SqlCommand("Update Entrenamiento_Individual set Deporte=@Deporte, Rutina=@Rutina, Nivel=@Nivel where Codigo_Entrenamiento_PK =@Codigo", connection);
+                    SqlDataAdapter databaseAdapter = new SqlDataAdapter();
+
+                    //
+                    String comando = "Update Entrenamiento_Individual set ";
+                    bool hayValor = false;
+                    bool hayCodigo = false;
 
 
-            //Creo los Parametros
-            cmd.Parameters.Add("@Codigo", System.Data.SqlDbType.Int);
-            cmd.Parameters.Add("@Deporte", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@Rutina", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@Nivel", System.Data.SqlDbType.VarChar);
+                    if (!String.IsNullOrEmpty(Deporte_TB.Text))//------------------------------->Deporte
+                    {
+                        if (hayValor) //Calcula si hay que poner un OR
+                        {
+                            comando = comando + " , ";
+                        }
+                        comando = comando + "Deporte=@Deporte";
+                        hayValor = true;
+                    }
+                    if (!String.IsNullOrEmpty(Rutina_TB.Text))//------------------------------->Rutina
+                    {
+                        if (hayValor) //Calcula si hay que poner un OR
+                        {
+                            comando = comando + " , ";
+                        }
+                        comando = comando + "Rutina=@Rutina";
+                        hayValor = true;
+                    }
+                    if (!String.IsNullOrEmpty(Nivel_TB.Text))//------------------------------->niv
+                    {
+                        if (hayValor) //Calcula si hay que poner un OR
+                        {
+                            comando = comando + " , ";
+                        }
+                        comando = comando + "Nivel=@Nivel";
+                        hayValor = true;
+                    }
+                    if (!String.IsNullOrEmpty(Codigo_TB.Text)) //------------------------------->Codigo
+                    {
+                        if (hayValor) //Calcula si hay que poner un OR
+                        {
+                            comando = comando + " where ";
+                        }
+                        comando = comando + "Codigo_Entrenamiento_PK =@Codigo";
+                        hayValor = true;
+                        hayCodigo = true;
+                    }
+                    if (String.IsNullOrEmpty(Codigo_TB.Text)) //------------------------------->Codigo
+                    {
+                        MessageBox.Show("Error, favor agregar el codigo de entrenamiento desea modificar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
-            //Asigno los valores
 
-            cmd.Parameters["@Codigo"].Value = Convert.ToInt32(Codigo_TB.Text);
-            cmd.Parameters["@Deporte"].Value = Deporte_TB.Text;
-            cmd.Parameters["@Rutina"].Value = Rutina_TB.Text;
-            cmd.Parameters["@Nivel"].Value = Nivel_TB.Text;
-            //MessageBox.Show(ModNiv.Text);
+                    SqlCommand cmd = new SqlCommand(comando, connection);
 
-            connection.Open();
+                    //Creo los Parametros
+                    if (!String.IsNullOrEmpty(Codigo_TB.Text)) //------------------------------->Codigo
+                    {
+                        cmd.Parameters.Add("@Codigo", System.Data.SqlDbType.Int);
+                        cmd.Parameters["@Codigo"].Value = Convert.ToInt32(Codigo_TB.Text);
+                    }
 
-            cmd.ExecuteNonQuery();
+                    if (!String.IsNullOrEmpty(Deporte_TB.Text))//------------------------------->Deporte
+                    {
+                        cmd.Parameters.Add("@Deporte", System.Data.SqlDbType.VarChar);
+                        cmd.Parameters["@Deporte"].Value = Deporte_TB.Text;
 
-            //////////Actualiza Datos en Tabla///////////////////////////////
-            DataTable dt = new DataTable();
-            String querySelect = "SELECT * FROM Entrenamiento_Individual";
-            SqlCommand cmd2 = new SqlCommand(querySelect, connection);
-            SqlDataAdapter adap = new SqlDataAdapter(cmd2);
-            adap.Fill(dt);
-            EntrenamientoDG.DataSource = dt;
-            /////////////////////////////////////////////////////////////////
+                    }
+
+                    if (!String.IsNullOrEmpty(Rutina_TB.Text))//------------------------------->Rutina
+                    {
+                        cmd.Parameters.Add("@Rutina", System.Data.SqlDbType.VarChar);
+                        cmd.Parameters["@Rutina"].Value = Rutina_TB.Text;
+                    }
+
+                    if (!String.IsNullOrEmpty(Nivel_TB.Text))//------------------------------->Nivel
+                    {
+                        cmd.Parameters.Add("@Nivel", System.Data.SqlDbType.VarChar);
+                        cmd.Parameters["@Nivel"].Value = Nivel_TB.Text;
+                    }
 
 
-            connection.Close();
+
+                    connection.Open();
+                    if (hayValor && hayCodigo)
+                    {
+                        cmd.ExecuteNonQuery();
+                        //////////Actualiza Datos en Tabla///////////////////////////////
+                        DataTable dt = new DataTable();
+                        String querySelect = "SELECT * FROM Entrenamiento_Individual";
+                        SqlCommand cmd2 = new SqlCommand(querySelect, connection);
+                        SqlDataAdapter adap = new SqlDataAdapter(cmd2);
+                        adap.Fill(dt);
+                        EntrenamientoDG.DataSource = dt;
+                        /////////////////////////////////////////////////////////////////
+                    }
+
+                    connection.Close();
+                    ////////////////////////////////////////////////////////////////////////////////////////////////*/
+                }
+                catch
+                {
+                    MessageBox.Show("Error al insertar datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Solo puede haber números en código.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Codigo_TB_TextChanged(object sender, EventArgs e)
@@ -460,102 +623,108 @@ namespace Interfaz_Triton
 
         private void Button_Borrar_Click(object sender, EventArgs e)
         {
-            String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
-            SqlConnection connection = new SqlConnection(connectionStr);
-
-
-            SqlDataAdapter databaseAdapter = new SqlDataAdapter();
-
-            //
-            String comando = "delete from Entrenamiento_Individual where ";
-            bool hayValor = false;
-            if (!String.IsNullOrEmpty(Codigo_TB.Text)) //------------------------------->Codigo
+            if (int.TryParse(Codigo_TB.Text, out int n) == true)   // Si es numérico, todo bien.
             {
-                if (hayValor) //Calcula si hay que poner un OR
+                String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
+                SqlConnection connection = new SqlConnection(connectionStr);
+
+
+                SqlDataAdapter databaseAdapter = new SqlDataAdapter();
+
+                //
+                String comando = "delete from Entrenamiento_Individual where ";
+                bool hayValor = false;
+                if (!String.IsNullOrEmpty(Codigo_TB.Text)) //------------------------------->Codigo
                 {
-                    comando = comando + " AND ";
+                    if (hayValor) //Calcula si hay que poner un OR
+                    {
+                        comando = comando + " AND ";
+                    }
+                    comando = comando + "Codigo_Entrenamiento_PK =@Codigo";
+                    hayValor = true;
                 }
-                comando = comando + "Codigo_Entrenamiento_PK =@Codigo";
-                hayValor = true;
-            }
-            if (!String.IsNullOrEmpty(Deporte_TB.Text))//------------------------------->Deporte
-            {
-                if (hayValor) //Calcula si hay que poner un OR
+                if (!String.IsNullOrEmpty(Deporte_TB.Text))//------------------------------->Deporte
                 {
-                    comando = comando + " AND ";
+                    if (hayValor) //Calcula si hay que poner un OR
+                    {
+                        comando = comando + " AND ";
+                    }
+                    comando = comando + "Deporte=@Deporte";
+                    hayValor = true;
                 }
-                comando = comando + "Deporte=@Deporte";
-                hayValor = true;
-            }
-            if (!String.IsNullOrEmpty(Rutina_TB.Text))//------------------------------->Rutina
-            {
-                if (hayValor) //Calcula si hay que poner un OR
+                if (!String.IsNullOrEmpty(Rutina_TB.Text))//------------------------------->Rutina
                 {
-                    comando = comando + " AND ";
+                    if (hayValor) //Calcula si hay que poner un OR
+                    {
+                        comando = comando + " AND ";
+                    }
+                    comando = comando + "Rutina=@Rutina";
+                    hayValor = true;
                 }
-                comando = comando + "Rutina=@Rutina";
-                hayValor = true;
-            }
-            if (!String.IsNullOrEmpty(Nivel_TB.Text))//------------------------------->Nivel
-            {
-                if (hayValor) //Calcula si hay que poner un OR
+                if (!String.IsNullOrEmpty(Nivel_TB.Text))//------------------------------->Nivel
                 {
-                    comando = comando + " AND ";
+                    if (hayValor) //Calcula si hay que poner un OR
+                    {
+                        comando = comando + " AND ";
+                    }
+                    comando = comando + "Nivel=@Nivel";
+                    hayValor = true;
                 }
-                comando = comando + "Nivel=@Nivel";
-                hayValor = true;
+
+                SqlCommand cmd = new SqlCommand(comando, connection);
+
+                //Creo los Parametros
+                if (!String.IsNullOrEmpty(Codigo_TB.Text)) //------------------------------->Codigo
+                {
+                    cmd.Parameters.Add("@Codigo", System.Data.SqlDbType.Int);
+                    cmd.Parameters["@Codigo"].Value = Convert.ToInt32(Codigo_TB.Text);
+                }
+
+                if (!String.IsNullOrEmpty(Deporte_TB.Text))//------------------------------->Deporte
+                {
+                    cmd.Parameters.Add("@Deporte", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@Deporte"].Value = Deporte_TB.Text;
+
+                }
+
+                if (!String.IsNullOrEmpty(Rutina_TB.Text))//------------------------------->Rutina
+                {
+                    cmd.Parameters.Add("@Rutina", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@Rutina"].Value = Rutina_TB.Text;
+                }
+
+                if (!String.IsNullOrEmpty(Nivel_TB.Text))//------------------------------->Nivel
+                {
+                    cmd.Parameters.Add("@Nivel", System.Data.SqlDbType.VarChar);
+                    cmd.Parameters["@Nivel"].Value = Nivel_TB.Text;
+                }
+
+
+
+                connection.Open();
+                if (hayValor)
+                {
+                    cmd.ExecuteNonQuery();
+                    //////////Actualiza Datos en Tabla///////////////////////////////
+                    DataTable dt = new DataTable();
+                    String querySelect = "SELECT * FROM Entrenamiento_Individual";
+                    SqlCommand cmd2 = new SqlCommand(querySelect, connection);
+                    SqlDataAdapter adap = new SqlDataAdapter(cmd2);
+                    adap.Fill(dt);
+                    EntrenamientoDG.DataSource = dt;
+                    /////////////////////////////////////////////////////////////////
+                }
+
+                connection.Close();
             }
-
-            SqlCommand cmd = new SqlCommand(comando, connection);
-
-            //Creo los Parametros
-            if (!String.IsNullOrEmpty(Codigo_TB.Text)) //------------------------------->Codigo
+            else
             {
-                cmd.Parameters.Add("@Codigo", System.Data.SqlDbType.Int);
-                cmd.Parameters["@Codigo"].Value = Convert.ToInt32(Codigo_TB.Text);
+                MessageBox.Show("Solo puede haber números en código.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            if (!String.IsNullOrEmpty(Deporte_TB.Text))//------------------------------->Deporte
-            {
-                cmd.Parameters.Add("@Deporte", System.Data.SqlDbType.VarChar);
-                cmd.Parameters["@Deporte"].Value = Deporte_TB.Text;
-
-            }
-
-            if (!String.IsNullOrEmpty(Rutina_TB.Text))//------------------------------->Rutina
-            {
-                cmd.Parameters.Add("@Rutina", System.Data.SqlDbType.VarChar);
-                cmd.Parameters["@Rutina"].Value = Rutina_TB.Text;
-            }
-
-            if (!String.IsNullOrEmpty(Nivel_TB.Text))//------------------------------->Nivel
-            {
-                cmd.Parameters.Add("@Nivel", System.Data.SqlDbType.VarChar);
-                cmd.Parameters["@Nivel"].Value = Nivel_TB.Text;
-            }
-
-
-
-            connection.Open();
-            if (hayValor)
-            {
-                cmd.ExecuteNonQuery();
-                //////////Actualiza Datos en Tabla///////////////////////////////
-                DataTable dt = new DataTable();
-                String querySelect = "SELECT * FROM Entrenamiento_Individual";
-                SqlCommand cmd2 = new SqlCommand(querySelect, connection);
-                SqlDataAdapter adap = new SqlDataAdapter(cmd2);
-                adap.Fill(dt);
-                EntrenamientoDG.DataSource = dt;
-                /////////////////////////////////////////////////////////////////
-            }
-
-            connection.Close();
         }
 
         private void Insertar_Prueba_Fisica_Click(object sender, EventArgs e)
         {
-
             try
             {
                 String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
@@ -578,11 +747,11 @@ namespace Interfaz_Triton
                 connection.Open();
 
                 int codigoAtleta = (int)(cmd2.ExecuteScalar());
-                
+
                 String tipoStr = Tipo_Prueba_Fisica_TB.Text;
                 String resultStr = Resultados_TB_Prueba_Fisica.Text;
 
-                
+
 
                 cmd.Parameters["@CodigoAtleta"].Value = codigoAtleta;
                 cmd.Parameters["@Fecha"].Value = DateTime.Parse(maskedTextBox_fechaPruebaFisica.Text);
@@ -606,7 +775,6 @@ namespace Interfaz_Triton
         private void limpiarTextoPruebas()
         {
             Atleta_CB_Prueba_Fisica.SelectedIndex = -1;
-
             Resultados_TB_Prueba_Fisica.Clear();
             Tipo_Prueba_Fisica_TB.Clear();
             maskedTextBox_fechaPruebaFisica.Clear();
@@ -641,12 +809,37 @@ namespace Interfaz_Triton
 
         }
 
-        private void maskedTextBox_fechaPruebaFisica_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        private void Vencimiento_Descuento_MTB_Conta_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            
+
         }
 
-        private void Fecha_Pago_MTB_Conta_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        private void Dia_CB_Prueba_Fisica_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Rutinas_Radio_Button_CheckedChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Cambio");
+        }
+
+        private void Etiqueta_Radio_Button_CheckedChanged(object sender, EventArgs e)
         {
 
         }
