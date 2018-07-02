@@ -72,7 +72,8 @@ namespace Interfaz_Triton
 			String filtro = "Nombre like '%" + texto_busqueda_atleta + "%' or Apellido1 like '%" +
 							texto_busqueda_atleta + "%' or Apellido2 like '%" + texto_busqueda_atleta + "%'";
 
-			DataRow[] resultados_busqueda = tritonDataSet.Atleta_Info_Basica.Select(filtro);	// Hago un SELECT acorde a la busqueda.  Ojo, es un VIEW.		
+			DataRow[] resultados_busqueda = tritonDataSet.Atleta.Select(filtro);    // Hago un SELECT acorde a la busqueda.
+
 			Atleta_Data_Grid_View.DataSource = resultados_busqueda;
 		}
 
@@ -279,16 +280,16 @@ namespace Interfaz_Triton
             //Asigno los valores
             cmd.Parameters["@Codigo_Atleta_FK"].Value = codigoAtleta;
             cmd.Parameters["@ID_Factura_PK"].Value = id_factura;
-            cmd.Parameters["@Fecha_Pago"].Value = DateTime.Parse(Fecha_Pago_TB_Conta.Text);
-            cmd.Parameters["@Fecha_Finalización"].Value = DateTime.Parse(Fecha_Vencimiento_TB_Conta.Text);
+            cmd.Parameters["@Fecha_Pago"].Value = DateTime.Parse(Fecha_Pago_MTB_Conta.Text);
+            cmd.Parameters["@Fecha_Finalización"].Value = DateTime.Parse(Fecha_Finalizacion_MTB_Conta.Text);
             cmd.Parameters["@Número_Tarjeta"].Value = Numero_Tarjeta_TB_Conta.Text;
-            cmd.Parameters["@Fecha_Vencimiento"].Value = DateTime.Parse(Vencimiento_Tarjeta_TB_Conta.Text);
+            cmd.Parameters["@Fecha_Vencimiento"].Value = DateTime.Parse(Fecha_Vencimiento_MTB_Conta.Text);
             cmd.Parameters["@CVC"].Value = Convert.ToInt32(CVC_TB_Conta.Text);
 
             if (descuento == true)
             {
                 cmd.Parameters["@Codigo_Descuento"].Value = Convert.ToInt32(Codigo_TB_Descuento.Text);
-                cmd.Parameters["@Duracion_Descuento"].Value = DateTime.Parse(Fecha_TB_Descuento.Text);
+                cmd.Parameters["@Duracion_Descuento"].Value = DateTime.Parse(Vencimiento_Descuento_MTB_Conta.Text);
                 cmd.Parameters["@Porcentaje_Descuento"].Value = Convert.ToInt32(Porcentaje_TB_Descuento.Text);
             }
             else
@@ -611,6 +612,35 @@ namespace Interfaz_Triton
             Anno_TB_Prueba_Fisica.Clear();
             Resultados_TB_Prueba_Fisica.Clear();
             Tipo_Prueba_Fisica_TB.Clear();
+        }
+
+        private void Todos_Atletas_Button_Click(object sender, EventArgs e)
+        {
+            String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
+            SqlConnection connection = new SqlConnection(connectionStr);
+            SqlDataAdapter databaseAdapter = new SqlDataAdapter();
+            SqlCommand cmd = connection.CreateCommand();
+            DataSet dataset = new DataSet();
+
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT * FROM Atleta";
+
+            databaseAdapter.SelectCommand = cmd;
+
+            connection.Open();
+            databaseAdapter.Fill(dataset);
+            Atleta_Data_Grid_View.DataSource = dataset.Tables[0];
+            connection.Close();
+        }
+
+        private void Fecha_Vencimiento_Tarjeta_TB_Conta_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Fecha_Vencimiento_Tarjeta_TB_Conta_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
