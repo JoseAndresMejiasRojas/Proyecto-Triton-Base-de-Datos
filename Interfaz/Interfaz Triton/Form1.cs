@@ -54,8 +54,6 @@ namespace Interfaz_Triton
             this.entrenamiento_IndividualTableAdapter.Fill(this.tritonDataSet.Entrenamiento_Individual);
             // TODO: This line of code loads data into the 'tritonDataSet.Cobro_Individual' table. You can move, or remove it, as needed.
             this.cobro_IndividualTableAdapter.Fill(this.tritonDataSet.Cobro_Individual);
-            // TODO: This line of code loads data into the 'tritonDataSet.Atleta_Info_Basica' table. You can move, or remove it, as needed.
-            this.atleta_Info_BasicaTableAdapter.Fill(this.tritonDataSet.Atleta_Info_Basica);
 			// TODO: This line of code loads data into the 'tritonDataSet.Atleta' table. You can move, or remove it, as needed.
 			this.atletaTableAdapter.Fill(this.tritonDataSet.Atleta);
 
@@ -827,6 +825,21 @@ namespace Interfaz_Triton
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Rutinas_Radio_Button_CheckedChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Cambio");
+        }
+
+        private void Etiqueta_Radio_Button_CheckedChanged(object sender, EventArgs e)
         {
 
         }
