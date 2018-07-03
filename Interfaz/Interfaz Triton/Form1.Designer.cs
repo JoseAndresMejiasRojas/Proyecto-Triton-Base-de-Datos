@@ -1140,6 +1140,7 @@
             this.Rutinas_Radio_Button.TabStop = true;
             this.Rutinas_Radio_Button.Text = "Rutinas";
             this.Rutinas_Radio_Button.UseVisualStyleBackColor = true;
+            this.Rutinas_Radio_Button.CheckedChanged += new System.EventHandler(this.Rutinas_Radio_Button_CheckedChanged_2);
             this.Rutinas_Radio_Button.Click += new System.EventHandler(this.Rutinas_Radio_Button_CheckedChanged);
             // 
             // pictureBox1
@@ -1279,7 +1280,7 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(-4, 0);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;

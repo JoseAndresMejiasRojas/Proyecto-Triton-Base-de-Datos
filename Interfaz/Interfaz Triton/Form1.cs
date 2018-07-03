@@ -953,5 +953,10 @@ namespace Interfaz_Triton
         {
 
         }
+
+        private void Rutinas_Radio_Button_CheckedChanged_2(object sender, EventArgs e)
+        {
+
+        }
     }
 }
