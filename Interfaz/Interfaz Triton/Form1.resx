@@ -150,12 +150,23 @@
   <metadata name="atletaBindingSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>699, 56</value>
   </metadata>
-  <metadata name="atletaBindingSource4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1033, 56</value>
-  </metadata>
   <metadata name="atletaBindingSource6.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1367, 56</value>
   </metadata>
+  <metadata name="atletaBindingSource4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1033, 56</value>
+  </metadata>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Base de datos Triton Multisport
+
+-Atleta: se le da la oportunidad de poder buscar un atleta en específico.  Para esto, basta con escribir parte del nombre o apellidos de atleta respectivo.  Además, se incluye el botón "Todos los atletas" el cual despliega la totalidad de los atletas.  También hay una funcionalidad que consiste en desplegar las rutinas o las etiquetas adjudicadas, acorde al atleta que se selecciones.
+
+-Entrenamientos: acorde al botón que se presiones y los cuadros que se llenen, se hace la acción.  Por ejemplo, si se escribre "Mariposa" en la rutina y se presiona borrar, borrará todos los entrenamientos que tengan la rutina "Mariposa".
+
+-Contabilidad: permite ver las ganancias de un mes y año en específico.  Además de agregar facturas, note que ningún campo debe de estar vacío. No se permite repetir el número de una factura.
+
+-Pruebas físicas: permite insertar pruebas acorde a lo que se digite en los cuadros.  Es obligatorio poner una fecha.  Además, se puede ver el número de purebas por atleta y los detalles seleccionando el correo del atleta.</value>
+  </data>
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>544, 56</value>
   </metadata>
@@ -165,8 +176,11 @@
   <metadata name="atletaBindingSource5.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1200, 56</value>
   </metadata>
+  <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 95</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>60</value>
+    <value>25</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

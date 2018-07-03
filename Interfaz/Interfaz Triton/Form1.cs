@@ -622,7 +622,7 @@ namespace Interfaz_Triton
 
         private void Button_Borrar_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(Codigo_TB.Text, out int n) == true)   // Si es numérico, todo bien.
+            if (int.TryParse(Codigo_TB.Text, out int n) == true || String.IsNullOrEmpty(Codigo_TB.Text) == true )   // Si es numérico, todo bien.
             {
                 String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
                 SqlConnection connection = new SqlConnection(connectionStr);
@@ -803,11 +803,6 @@ namespace Interfaz_Triton
             
         }
 
-        private void Fecha_Vencimiento_Tarjeta_TB_Conta_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void Vencimiento_Descuento_MTB_Conta_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
@@ -843,7 +838,7 @@ namespace Interfaz_Triton
             DataSet dataset = new DataSet();
             DataTable dt = new DataTable();
 
-            SqlCommand cmd2 = new SqlCommand("SELECT dbo.ObtenerCodigo(" + "'" + Correo_CB_Busquedas.Text + "'" + ")", connection);
+            SqlCommand cmd2 = new SqlCommand("SELECT dbo.ObtenerCodigo(" + "'" + Correo_CB_Atleta.Text + "'" + ")", connection);
 
             connection.Open();
 
@@ -858,6 +853,7 @@ namespace Interfaz_Triton
 
             databaseAdapter = new SqlDataAdapter(cmd);
             databaseAdapter.Fill(dt);
+            //Varios_Data_Grid_View.Columns[1].HeaderCell.Value = "Rutina";
             Varios_Data_Grid_View.DataSource = dt;
 
             connection.Close();
@@ -865,7 +861,33 @@ namespace Interfaz_Triton
 
         private void Etiqueta_Radio_Button_CheckedChanged(object sender, EventArgs e)
         {
+            String connectionStr = Interfaz_Triton.Properties.Settings.Default.TritonConnectionString;
+            SqlConnection connection = new SqlConnection(connectionStr);
+            SqlDataAdapter databaseAdapter;
+            SqlCommand cmd = connection.CreateCommand();
+            DataSet dataset = new DataSet();
+            DataTable dt = new DataTable();
 
+            SqlCommand cmd2 = new SqlCommand("SELECT dbo.ObtenerCodigo(" + "'" + Correo_CB_Atleta.Text + "'" + ")", connection);
+
+            connection.Open();
+
+            int codigoAtleta = (int)(cmd2.ExecuteScalar());
+
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText =   "SELECT DISTINCT et.Etiqueta_PK "+
+                                "FROM Atleta a JOIN Bloque_Entrenamiento b ON b.Codigo_Atleta_FK = a.Codigo_Atleta_PK "+
+                                "JOIN Compuesto c ON c.Codigo_Atleta_FK = b.Codigo_Atleta_FK "+
+                                "JOIN Entrenamiento_Individual e ON e.Codigo_Entrenamiento_PK = c.Codigo_Entrenamiento_FK "+
+                                "JOIN Etiqueta et ON et.Codigo_Entrenamiento_FK = e.Codigo_Entrenamiento_PK "+
+                                "WHERE a.Codigo_Atleta_PK = " + codigoAtleta;
+
+            databaseAdapter = new SqlDataAdapter(cmd);
+            databaseAdapter.Fill(dt);
+            //Varios_Data_Grid_View.Columns[1].HeaderCell.Value = "Etiqueta";
+            Varios_Data_Grid_View.DataSource = dt;
+
+            connection.Close();
         }
 
         private void Rutinas_Radio_Button_CheckedChanged_1(object sender, EventArgs e)
@@ -908,6 +930,21 @@ namespace Interfaz_Triton
             databaseAdapter.Fill(dataset);
             dataGridView_pruebasAtleta.DataSource = dataset.Tables[0];
             connection.Close();
+        }
+
+        private void Etiqueta_Radio_Button_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Etiqueta_Radio_Button_CheckedChanged_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

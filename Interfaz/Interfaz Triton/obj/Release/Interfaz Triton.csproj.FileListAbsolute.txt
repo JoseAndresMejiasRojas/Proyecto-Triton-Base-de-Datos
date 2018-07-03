@@ -1,0 +1,9 @@
+C:\Users\b54275\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\bin\Release\Interfaz Triton.exe.config
+C:\Users\b54275\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\bin\Release\Interfaz Triton.exe
+C:\Users\b54275\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\bin\Release\Interfaz Triton.pdb
+C:\Users\b54275\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\obj\Release\Interfaz_Triton.Form1.resources
+C:\Users\b54275\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\obj\Release\Interfaz_Triton.Properties.Resources.resources
+C:\Users\b54275\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\obj\Release\Interfaz Triton.csproj.GenerateResource.Cache
+C:\Users\b54275\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\obj\Release\Interfaz Triton.csproj.CoreCompileInputs.cache
+C:\Users\b54275\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\obj\Release\Interfaz Triton.exe
+C:\Users\b54275\Desktop\Proyecto-Triton-Base-de-Datos\Interfaz\Interfaz Triton\obj\Release\Interfaz Triton.pdb

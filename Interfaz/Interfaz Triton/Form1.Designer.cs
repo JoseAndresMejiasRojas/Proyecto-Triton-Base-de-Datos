@@ -41,6 +41,11 @@
             this.entrenamientoIndividualBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.entrenamiento_IndividualTableAdapter = new Interfaz_Triton.TritonDataSetTableAdapters.Entrenamiento_IndividualTableAdapter();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.Atleta_CB_Prueba_Fisica2 = new System.Windows.Forms.ComboBox();
+            this.button_verPruebasAtleta = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView_pruebasAtleta = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
@@ -117,6 +122,11 @@
             this.label11 = new System.Windows.Forms.Label();
             this.Atleta_Tab_Page = new System.Windows.Forms.TabPage();
             this.Datos_Group_Box = new System.Windows.Forms.GroupBox();
+            this.Correo_CB_Atleta = new System.Windows.Forms.ComboBox();
+            this.atletaBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
+            this.Varios_Data_Grid_View = new System.Windows.Forms.DataGridView();
+            this.Etiqueta_Radio_Button = new System.Windows.Forms.RadioButton();
+            this.Rutinas_Radio_Button = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Todos_Atletas_Button = new System.Windows.Forms.Button();
             this.Atleta_Data_Grid_View = new System.Windows.Forms.DataGridView();
@@ -129,22 +139,13 @@
             this.Buscar_Atleta_Button = new System.Windows.Forms.Button();
             this.Nombre = new System.Windows.Forms.Label();
             this.Atleta_Text_Box = new System.Windows.Forms.TextBox();
-            this.Búsquedas = new System.Windows.Forms.TabControl();
+            this.Ayuda = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.Etiqueta_Radio_Button = new System.Windows.Forms.RadioButton();
-            this.Rutinas_Radio_Button = new System.Windows.Forms.RadioButton();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.atletaBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.Varios_Data_Grid_View = new System.Windows.Forms.DataGridView();
-            this.Correo_CB_Busquedas = new System.Windows.Forms.ComboBox();
             this.atletaBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
-            this.atletaBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.button_verPruebasAtleta = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView_pruebasAtleta = new System.Windows.Forms.DataGridView();
-            this.Atleta_CB_Prueba_Fisica2 = new System.Windows.Forms.ComboBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.atletaInfoBasicaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tritonDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).BeginInit();
@@ -152,6 +153,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cobroIndividualBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.entrenamientoIndividualBindingSource)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_pruebasAtleta)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -164,17 +167,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.EntrenamientoDG)).BeginInit();
             this.Atleta_Tab_Page.SuspendLayout();
             this.Datos_Group_Box.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Varios_Data_Grid_View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Atleta_Data_Grid_View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource4)).BeginInit();
-            this.Búsquedas.SuspendLayout();
+            this.Ayuda.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Varios_Data_Grid_View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource6)).BeginInit();
-            this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_pruebasAtleta)).BeginInit();
             this.SuspendLayout();
             // 
             // atletaInfoBasicaBindingSource
@@ -235,6 +236,63 @@
             this.tabPage2.Text = "Pruebas físicas";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.Atleta_CB_Prueba_Fisica2);
+            this.groupBox6.Controls.Add(this.button_verPruebasAtleta);
+            this.groupBox6.Controls.Add(this.label1);
+            this.groupBox6.Controls.Add(this.dataGridView_pruebasAtleta);
+            this.groupBox6.Location = new System.Drawing.Point(398, 253);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(477, 233);
+            this.groupBox6.TabIndex = 18;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Detalles";
+            // 
+            // Atleta_CB_Prueba_Fisica2
+            // 
+            this.Atleta_CB_Prueba_Fisica2.DataSource = this.atletaBindingSource;
+            this.Atleta_CB_Prueba_Fisica2.DisplayMember = "Correo";
+            this.Atleta_CB_Prueba_Fisica2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Atleta_CB_Prueba_Fisica2.FormattingEnabled = true;
+            this.Atleta_CB_Prueba_Fisica2.Location = new System.Drawing.Point(208, 42);
+            this.Atleta_CB_Prueba_Fisica2.Name = "Atleta_CB_Prueba_Fisica2";
+            this.Atleta_CB_Prueba_Fisica2.Size = new System.Drawing.Size(121, 21);
+            this.Atleta_CB_Prueba_Fisica2.TabIndex = 14;
+            // 
+            // button_verPruebasAtleta
+            // 
+            this.button_verPruebasAtleta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_verPruebasAtleta.Location = new System.Drawing.Point(344, 41);
+            this.button_verPruebasAtleta.Name = "button_verPruebasAtleta";
+            this.button_verPruebasAtleta.Size = new System.Drawing.Size(80, 22);
+            this.button_verPruebasAtleta.TabIndex = 5;
+            this.button_verPruebasAtleta.Text = "Ver";
+            this.button_verPruebasAtleta.UseVisualStyleBackColor = true;
+            this.button_verPruebasAtleta.Click += new System.EventHandler(this.button_verPruebasAtleta_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(48, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(351, 24);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Detalles de pruebas físicas por atleta";
+            // 
+            // dataGridView_pruebasAtleta
+            // 
+            this.dataGridView_pruebasAtleta.AllowUserToAddRows = false;
+            this.dataGridView_pruebasAtleta.AllowUserToDeleteRows = false;
+            this.dataGridView_pruebasAtleta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_pruebasAtleta.Location = new System.Drawing.Point(52, 70);
+            this.dataGridView_pruebasAtleta.Name = "dataGridView_pruebasAtleta";
+            this.dataGridView_pruebasAtleta.ReadOnly = true;
+            this.dataGridView_pruebasAtleta.Size = new System.Drawing.Size(372, 155);
+            this.dataGridView_pruebasAtleta.TabIndex = 1;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button3);
@@ -250,9 +308,9 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(391, 37);
+            this.button3.Location = new System.Drawing.Point(344, 43);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(80, 28);
+            this.button3.Size = new System.Drawing.Size(80, 22);
             this.button3.TabIndex = 5;
             this.button3.Text = "Ver";
             this.button3.UseVisualStyleBackColor = true;
@@ -263,7 +321,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(6, 37);
+            this.label19.Location = new System.Drawing.Point(48, 16);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(352, 24);
             this.label19.TabIndex = 4;
@@ -274,10 +332,10 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 71);
+            this.dataGridView1.Location = new System.Drawing.Point(52, 71);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(469, 168);
+            this.dataGridView1.Size = new System.Drawing.Size(372, 168);
             this.dataGridView1.TabIndex = 1;
             // 
             // groupBox3
@@ -301,9 +359,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 142);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(24, 130);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 13);
+            this.label3.Size = new System.Drawing.Size(190, 25);
             this.label3.TabIndex = 13;
             this.label3.Text = "Fecha de prueba";
             // 
@@ -336,9 +395,10 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(26, 301);
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(24, 289);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(60, 13);
+            this.label22.Size = new System.Drawing.Size(130, 25);
             this.label22.TabIndex = 10;
             this.label22.Text = "Resultados";
             // 
@@ -352,18 +412,20 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(26, 209);
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(24, 197);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(108, 13);
+            this.label21.Size = new System.Drawing.Size(234, 25);
             this.label21.TabIndex = 8;
             this.label21.Text = "Tipo de prueba física";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(26, 64);
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(24, 52);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(34, 13);
+            this.label17.Size = new System.Drawing.Size(73, 25);
             this.label17.TabIndex = 1;
             this.label17.Text = "Atleta";
             this.label17.Click += new System.EventHandler(this.label17_Click);
@@ -851,7 +913,7 @@
             // 
             // Button_Borrar
             // 
-            this.Button_Borrar.Location = new System.Drawing.Point(287, 221);
+            this.Button_Borrar.Location = new System.Drawing.Point(287, 287);
             this.Button_Borrar.Name = "Button_Borrar";
             this.Button_Borrar.Size = new System.Drawing.Size(75, 23);
             this.Button_Borrar.TabIndex = 11;
@@ -861,7 +923,7 @@
             // 
             // Button_Modificar
             // 
-            this.Button_Modificar.Location = new System.Drawing.Point(287, 155);
+            this.Button_Modificar.Location = new System.Drawing.Point(287, 221);
             this.Button_Modificar.Name = "Button_Modificar";
             this.Button_Modificar.Size = new System.Drawing.Size(75, 23);
             this.Button_Modificar.TabIndex = 10;
@@ -871,7 +933,7 @@
             // 
             // Button_Insertar
             // 
-            this.Button_Insertar.Location = new System.Drawing.Point(287, 91);
+            this.Button_Insertar.Location = new System.Drawing.Point(287, 157);
             this.Button_Insertar.Name = "Button_Insertar";
             this.Button_Insertar.Size = new System.Drawing.Size(75, 23);
             this.Button_Insertar.TabIndex = 9;
@@ -891,7 +953,7 @@
             this.rutinaDataGridViewTextBoxColumn,
             this.nivelDataGridViewTextBoxColumn});
             this.EntrenamientoDG.DataSource = this.entrenamientoIndividualBindingSource;
-            this.EntrenamientoDG.Location = new System.Drawing.Point(400, 50);
+            this.EntrenamientoDG.Location = new System.Drawing.Point(400, 116);
             this.EntrenamientoDG.Name = "EntrenamientoDG";
             this.EntrenamientoDG.ReadOnly = true;
             this.EntrenamientoDG.Size = new System.Drawing.Size(466, 222);
@@ -928,7 +990,7 @@
             // 
             // Codigo_TB
             // 
-            this.Codigo_TB.Location = new System.Drawing.Point(124, 50);
+            this.Codigo_TB.Location = new System.Drawing.Point(124, 116);
             this.Codigo_TB.Name = "Codigo_TB";
             this.Codigo_TB.Size = new System.Drawing.Size(100, 20);
             this.Codigo_TB.TabIndex = 7;
@@ -936,21 +998,21 @@
             // 
             // Deporte_TB
             // 
-            this.Deporte_TB.Location = new System.Drawing.Point(124, 124);
+            this.Deporte_TB.Location = new System.Drawing.Point(124, 190);
             this.Deporte_TB.Name = "Deporte_TB";
             this.Deporte_TB.Size = new System.Drawing.Size(100, 20);
             this.Deporte_TB.TabIndex = 6;
             // 
             // Nivel_TB
             // 
-            this.Nivel_TB.Location = new System.Drawing.Point(124, 259);
+            this.Nivel_TB.Location = new System.Drawing.Point(124, 325);
             this.Nivel_TB.Name = "Nivel_TB";
             this.Nivel_TB.Size = new System.Drawing.Size(100, 20);
             this.Nivel_TB.TabIndex = 5;
             // 
             // Rutina_TB
             // 
-            this.Rutina_TB.Location = new System.Drawing.Point(124, 191);
+            this.Rutina_TB.Location = new System.Drawing.Point(124, 257);
             this.Rutina_TB.Name = "Rutina_TB";
             this.Rutina_TB.Size = new System.Drawing.Size(100, 20);
             this.Rutina_TB.TabIndex = 4;
@@ -958,36 +1020,40 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(24, 198);
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(24, 257);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(38, 13);
+            this.label16.Size = new System.Drawing.Size(69, 24);
             this.label16.TabIndex = 3;
             this.label16.Text = "Rutina";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(24, 127);
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(24, 193);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(45, 13);
+            this.label15.Size = new System.Drawing.Size(84, 24);
             this.label15.TabIndex = 2;
             this.label15.Text = "Deporte";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(24, 262);
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(24, 325);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(31, 13);
+            this.label14.Size = new System.Drawing.Size(57, 24);
             this.label14.TabIndex = 1;
             this.label14.Text = "Nivel";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(24, 53);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(23, 111);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(40, 13);
+            this.label11.Size = new System.Drawing.Size(77, 24);
             this.label11.TabIndex = 0;
             this.label11.Text = "Código";
             // 
@@ -1005,6 +1071,10 @@
             // 
             // Datos_Group_Box
             // 
+            this.Datos_Group_Box.Controls.Add(this.Correo_CB_Atleta);
+            this.Datos_Group_Box.Controls.Add(this.Varios_Data_Grid_View);
+            this.Datos_Group_Box.Controls.Add(this.Etiqueta_Radio_Button);
+            this.Datos_Group_Box.Controls.Add(this.Rutinas_Radio_Button);
             this.Datos_Group_Box.Controls.Add(this.pictureBox1);
             this.Datos_Group_Box.Controls.Add(this.Todos_Atletas_Button);
             this.Datos_Group_Box.Controls.Add(this.Atleta_Data_Grid_View);
@@ -1019,10 +1089,62 @@
             this.Datos_Group_Box.Text = "Datos";
             this.Datos_Group_Box.Enter += new System.EventHandler(this.Atleta_Group_Box_Enter);
             // 
+            // Correo_CB_Atleta
+            // 
+            this.Correo_CB_Atleta.DataSource = this.atletaBindingSource6;
+            this.Correo_CB_Atleta.DisplayMember = "Correo";
+            this.Correo_CB_Atleta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Correo_CB_Atleta.FormattingEnabled = true;
+            this.Correo_CB_Atleta.Location = new System.Drawing.Point(159, 296);
+            this.Correo_CB_Atleta.Name = "Correo_CB_Atleta";
+            this.Correo_CB_Atleta.Size = new System.Drawing.Size(121, 21);
+            this.Correo_CB_Atleta.TabIndex = 9;
+            // 
+            // atletaBindingSource6
+            // 
+            this.atletaBindingSource6.DataMember = "Atleta";
+            this.atletaBindingSource6.DataSource = this.tritonDataSet;
+            // 
+            // Varios_Data_Grid_View
+            // 
+            this.Varios_Data_Grid_View.AllowUserToAddRows = false;
+            this.Varios_Data_Grid_View.AllowUserToDeleteRows = false;
+            this.Varios_Data_Grid_View.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Varios_Data_Grid_View.Location = new System.Drawing.Point(556, 234);
+            this.Varios_Data_Grid_View.Name = "Varios_Data_Grid_View";
+            this.Varios_Data_Grid_View.ReadOnly = true;
+            this.Varios_Data_Grid_View.Size = new System.Drawing.Size(166, 142);
+            this.Varios_Data_Grid_View.TabIndex = 8;
+            // 
+            // Etiqueta_Radio_Button
+            // 
+            this.Etiqueta_Radio_Button.AutoSize = true;
+            this.Etiqueta_Radio_Button.Location = new System.Drawing.Point(396, 272);
+            this.Etiqueta_Radio_Button.Name = "Etiqueta_Radio_Button";
+            this.Etiqueta_Radio_Button.Size = new System.Drawing.Size(64, 17);
+            this.Etiqueta_Radio_Button.TabIndex = 7;
+            this.Etiqueta_Radio_Button.Text = "Etiqueta";
+            this.Etiqueta_Radio_Button.UseVisualStyleBackColor = true;
+            this.Etiqueta_Radio_Button.CheckedChanged += new System.EventHandler(this.Etiqueta_Radio_Button_CheckedChanged_2);
+            this.Etiqueta_Radio_Button.Click += new System.EventHandler(this.Etiqueta_Radio_Button_CheckedChanged);
+            // 
+            // Rutinas_Radio_Button
+            // 
+            this.Rutinas_Radio_Button.AutoSize = true;
+            this.Rutinas_Radio_Button.Checked = true;
+            this.Rutinas_Radio_Button.Location = new System.Drawing.Point(396, 324);
+            this.Rutinas_Radio_Button.Name = "Rutinas_Radio_Button";
+            this.Rutinas_Radio_Button.Size = new System.Drawing.Size(61, 17);
+            this.Rutinas_Radio_Button.TabIndex = 6;
+            this.Rutinas_Radio_Button.TabStop = true;
+            this.Rutinas_Radio_Button.Text = "Rutinas";
+            this.Rutinas_Radio_Button.UseVisualStyleBackColor = true;
+            this.Rutinas_Radio_Button.Click += new System.EventHandler(this.Rutinas_Radio_Button_CheckedChanged);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Interfaz_Triton.Properties.Resources.Logo_completo;
-            this.pictureBox1.Location = new System.Drawing.Point(317, 295);
+            this.pictureBox1.Location = new System.Drawing.Point(313, 397);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(241, 76);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1129,68 +1251,40 @@
             this.Atleta_Text_Box.TabIndex = 1;
             this.Atleta_Text_Box.TextChanged += new System.EventHandler(this.Atleta_Text_Box_TextChanged);
             // 
-            // Búsquedas
+            // Ayuda
             // 
-            this.Búsquedas.Controls.Add(this.Atleta_Tab_Page);
-            this.Búsquedas.Controls.Add(this.Entrenamientos_Tab_Page);
-            this.Búsquedas.Controls.Add(this.tabPage1);
-            this.Búsquedas.Controls.Add(this.tabPage2);
-            this.Búsquedas.Controls.Add(this.tabPage3);
-            this.Búsquedas.Location = new System.Drawing.Point(0, 0);
-            this.Búsquedas.Name = "Búsquedas";
-            this.Búsquedas.SelectedIndex = 0;
-            this.Búsquedas.Size = new System.Drawing.Size(891, 710);
-            this.Búsquedas.TabIndex = 0;
+            this.Ayuda.Controls.Add(this.Atleta_Tab_Page);
+            this.Ayuda.Controls.Add(this.Entrenamientos_Tab_Page);
+            this.Ayuda.Controls.Add(this.tabPage1);
+            this.Ayuda.Controls.Add(this.tabPage2);
+            this.Ayuda.Controls.Add(this.tabPage3);
+            this.Ayuda.Location = new System.Drawing.Point(0, 0);
+            this.Ayuda.Name = "Ayuda";
+            this.Ayuda.SelectedIndex = 0;
+            this.Ayuda.Size = new System.Drawing.Size(891, 710);
+            this.Ayuda.TabIndex = 0;
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.Correo_CB_Busquedas);
-            this.tabPage3.Controls.Add(this.Varios_Data_Grid_View);
-            this.tabPage3.Controls.Add(this.radioButton3);
-            this.tabPage3.Controls.Add(this.Etiqueta_Radio_Button);
-            this.tabPage3.Controls.Add(this.Rutinas_Radio_Button);
+            this.tabPage3.Controls.Add(this.richTextBox1);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(883, 684);
             this.tabPage3.TabIndex = 4;
-            this.tabPage3.Text = "Búsquedas";
+            this.tabPage3.Text = "Ayuda";
             this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
-            // radioButton3
+            // richTextBox1
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(75, 295);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(85, 17);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.Text = "radioButton3";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // Etiqueta_Radio_Button
-            // 
-            this.Etiqueta_Radio_Button.AutoSize = true;
-            this.Etiqueta_Radio_Button.Location = new System.Drawing.Point(75, 229);
-            this.Etiqueta_Radio_Button.Name = "Etiqueta_Radio_Button";
-            this.Etiqueta_Radio_Button.Size = new System.Drawing.Size(64, 17);
-            this.Etiqueta_Radio_Button.TabIndex = 1;
-            this.Etiqueta_Radio_Button.Text = "Etiqueta";
-            this.Etiqueta_Radio_Button.UseVisualStyleBackColor = true;
-            this.Etiqueta_Radio_Button.CheckedChanged += new System.EventHandler(this.Etiqueta_Radio_Button_CheckedChanged);
-            // 
-            // Rutinas_Radio_Button
-            // 
-            this.Rutinas_Radio_Button.AutoSize = true;
-            this.Rutinas_Radio_Button.Checked = true;
-            this.Rutinas_Radio_Button.Location = new System.Drawing.Point(75, 157);
-            this.Rutinas_Radio_Button.Name = "Rutinas_Radio_Button";
-            this.Rutinas_Radio_Button.Size = new System.Drawing.Size(61, 17);
-            this.Rutinas_Radio_Button.TabIndex = 0;
-            this.Rutinas_Radio_Button.TabStop = true;
-            this.Rutinas_Radio_Button.Text = "Rutinas";
-            this.Rutinas_Radio_Button.UseVisualStyleBackColor = true;
-            this.Rutinas_Radio_Button.CheckedChanged += new System.EventHandler(this.Rutinas_Radio_Button_CheckedChanged_1);
-            this.Rutinas_Radio_Button.Click += new System.EventHandler(this.Rutinas_Radio_Button_CheckedChanged);
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(-4, 0);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(887, 492);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
             // contextMenuStrip1
             // 
@@ -1202,102 +1296,20 @@
             this.atletaBindingSource3.DataMember = "Atleta";
             this.atletaBindingSource3.DataSource = this.tritonDataSet;
             // 
-            // Varios_Data_Grid_View
-            // 
-            this.Varios_Data_Grid_View.AllowUserToAddRows = false;
-            this.Varios_Data_Grid_View.AllowUserToDeleteRows = false;
-            this.Varios_Data_Grid_View.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Varios_Data_Grid_View.Location = new System.Drawing.Point(428, 104);
-            this.Varios_Data_Grid_View.Name = "Varios_Data_Grid_View";
-            this.Varios_Data_Grid_View.ReadOnly = true;
-            this.Varios_Data_Grid_View.Size = new System.Drawing.Size(186, 208);
-            this.Varios_Data_Grid_View.TabIndex = 3;
-            // 
-            // Correo_CB_Busquedas
-            // 
-            this.Correo_CB_Busquedas.DataSource = this.atletaBindingSource6;
-            this.Correo_CB_Busquedas.DisplayMember = "Correo";
-            this.Correo_CB_Busquedas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Correo_CB_Busquedas.FormattingEnabled = true;
-            this.Correo_CB_Busquedas.Location = new System.Drawing.Point(75, 76);
-            this.Correo_CB_Busquedas.Name = "Correo_CB_Busquedas";
-            this.Correo_CB_Busquedas.Size = new System.Drawing.Size(121, 21);
-            this.Correo_CB_Busquedas.TabIndex = 4;
-            // 
             // atletaBindingSource5
             // 
             this.atletaBindingSource5.DataMember = "Atleta";
             this.atletaBindingSource5.DataSource = this.tritonDataSet;
             // 
-            // atletaBindingSource6
-            // 
-            this.atletaBindingSource6.DataMember = "Atleta";
-            this.atletaBindingSource6.DataSource = this.tritonDataSet;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.Atleta_CB_Prueba_Fisica2);
-            this.groupBox6.Controls.Add(this.button_verPruebasAtleta);
-            this.groupBox6.Controls.Add(this.label1);
-            this.groupBox6.Controls.Add(this.dataGridView_pruebasAtleta);
-            this.groupBox6.Location = new System.Drawing.Point(398, 253);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(477, 233);
-            this.groupBox6.TabIndex = 18;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Detalles";
-            // 
-            // button_verPruebasAtleta
-            // 
-            this.button_verPruebasAtleta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_verPruebasAtleta.Location = new System.Drawing.Point(380, 39);
-            this.button_verPruebasAtleta.Name = "button_verPruebasAtleta";
-            this.button_verPruebasAtleta.Size = new System.Drawing.Size(80, 28);
-            this.button_verPruebasAtleta.TabIndex = 5;
-            this.button_verPruebasAtleta.Text = "Ver";
-            this.button_verPruebasAtleta.UseVisualStyleBackColor = true;
-            this.button_verPruebasAtleta.Click += new System.EventHandler(this.button_verPruebasAtleta_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(2, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(351, 24);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Detalles de pruebas físicas por atleta";
-            // 
-            // dataGridView_pruebasAtleta
-            // 
-            this.dataGridView_pruebasAtleta.AllowUserToAddRows = false;
-            this.dataGridView_pruebasAtleta.AllowUserToDeleteRows = false;
-            this.dataGridView_pruebasAtleta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_pruebasAtleta.Location = new System.Drawing.Point(2, 71);
-            this.dataGridView_pruebasAtleta.Name = "dataGridView_pruebasAtleta";
-            this.dataGridView_pruebasAtleta.ReadOnly = true;
-            this.dataGridView_pruebasAtleta.Size = new System.Drawing.Size(469, 168);
-            this.dataGridView_pruebasAtleta.TabIndex = 1;
-            // 
-            // Atleta_CB_Prueba_Fisica2
-            // 
-            this.Atleta_CB_Prueba_Fisica2.DataSource = this.atletaBindingSource;
-            this.Atleta_CB_Prueba_Fisica2.DisplayMember = "Correo";
-            this.Atleta_CB_Prueba_Fisica2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Atleta_CB_Prueba_Fisica2.FormattingEnabled = true;
-            this.Atleta_CB_Prueba_Fisica2.Location = new System.Drawing.Point(253, 44);
-            this.Atleta_CB_Prueba_Fisica2.Name = "Atleta_CB_Prueba_Fisica2";
-            this.Atleta_CB_Prueba_Fisica2.Size = new System.Drawing.Size(121, 21);
-            this.Atleta_CB_Prueba_Fisica2.TabIndex = 14;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(891, 513);
-            this.Controls.Add(this.Búsquedas);
+            this.Controls.Add(this.Ayuda);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Triton";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -1308,6 +1320,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.cobroIndividualBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.entrenamientoIndividualBindingSource)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_pruebasAtleta)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -1326,19 +1341,15 @@
             this.Atleta_Tab_Page.ResumeLayout(false);
             this.Datos_Group_Box.ResumeLayout(false);
             this.Datos_Group_Box.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Varios_Data_Grid_View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Atleta_Data_Grid_View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource4)).EndInit();
-            this.Búsquedas.ResumeLayout(false);
+            this.Ayuda.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Varios_Data_Grid_View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource6)).EndInit();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_pruebasAtleta)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -1412,7 +1423,7 @@
         private System.Windows.Forms.Button Buscar_Atleta_Button;
         private System.Windows.Forms.Label Nombre;
         private System.Windows.Forms.TextBox Atleta_Text_Box;
-        private System.Windows.Forms.TabControl Búsquedas;
+        private System.Windows.Forms.TabControl Ayuda;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.BindingSource atletaBindingSource2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
@@ -1447,11 +1458,6 @@
         private System.Windows.Forms.TextBox Codigo_TB;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton Etiqueta_Radio_Button;
-        private System.Windows.Forms.RadioButton Rutinas_Radio_Button;
-        private System.Windows.Forms.DataGridView Varios_Data_Grid_View;
-        private System.Windows.Forms.ComboBox Correo_CB_Busquedas;
         private System.Windows.Forms.BindingSource atletaBindingSource5;
         private System.Windows.Forms.BindingSource atletaBindingSource6;
         private System.Windows.Forms.GroupBox groupBox6;
@@ -1459,6 +1465,12 @@
         private System.Windows.Forms.Button button_verPruebasAtleta;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView_pruebasAtleta;
+        private System.Windows.Forms.ComboBox Correo_CB_Atleta;
+        private System.Windows.Forms.DataGridView Varios_Data_Grid_View;
+        private System.Windows.Forms.RadioButton Etiqueta_Radio_Button;
+        private System.Windows.Forms.RadioButton Rutinas_Radio_Button;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 
