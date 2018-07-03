@@ -146,6 +146,7 @@
             this.atletaBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.atletaBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.atletaInfoBasicaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tritonDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.atletaBindingSource1)).BeginInit();
@@ -810,11 +811,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Green;
-            this.label4.Location = new System.Drawing.Point(470, 68);
+            this.label4.Location = new System.Drawing.Point(529, 80);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(349, 73);
+            this.label4.Size = new System.Drawing.Size(207, 42);
             this.label4.TabIndex = 6;
             this.label4.Text = "Ganancias";
             // 
@@ -1258,7 +1259,7 @@
             this.Ayuda.Controls.Add(this.tabPage1);
             this.Ayuda.Controls.Add(this.tabPage2);
             this.Ayuda.Controls.Add(this.tabPage3);
-            this.Ayuda.Location = new System.Drawing.Point(0, 0);
+            this.Ayuda.Location = new System.Drawing.Point(2, 1);
             this.Ayuda.Name = "Ayuda";
             this.Ayuda.SelectedIndex = 0;
             this.Ayuda.Size = new System.Drawing.Size(891, 710);
@@ -1471,6 +1472,7 @@
         private System.Windows.Forms.RadioButton Rutinas_Radio_Button;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
     }
 }
 
